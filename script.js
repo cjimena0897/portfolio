@@ -1,5 +1,30 @@
+const root = document.documentElement;
+
+// localStorage can throw (private mode, blocked storage): never let that break the page
+const store = {
+  get(key) { try { return localStorage.getItem(key); } catch (e) { return null; } },
+  set(key, value) { try { localStorage.setItem(key, value); } catch (e) { /* ignore */ } },
+};
+
 // Year in footer
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Theme: follows the system until the visitor picks one; the choice is saved.
+// The inline script in <head> applies a saved choice before first paint.
+const themeBtn = document.querySelector('.theme-toggle');
+const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+const currentTheme = () => root.dataset.theme || (darkQuery.matches ? 'dark' : 'light');
+const syncThemeBtn = () => themeBtn && themeBtn.setAttribute('aria-pressed', currentTheme() === 'dark');
+if (themeBtn) {
+  themeBtn.addEventListener('click', () => {
+    const next = currentTheme() === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    store.set('theme', next);
+    syncThemeBtn();
+  });
+  darkQuery.addEventListener('change', syncThemeBtn);
+  syncThemeBtn();
+}
 
 // Mobile menu
 const nav = document.querySelector('.nav');

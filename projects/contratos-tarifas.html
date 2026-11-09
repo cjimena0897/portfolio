@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-en="Contracts &amp; Tariffs · Claudia Jiménez" data-es="Contratos y Tarifas · Claudia Jiménez">Contracts &amp; Tariffs · Claudia Jiménez</title>
+  <script>
+    /* Apply saved theme + language before first paint to avoid a flash (logic: script.js) */
+    (function (d) {
+      var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+      var t = get('theme'), l = get('lang');
+      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+      if (l !== 'en' && l !== 'es') l = /^es\b/i.test(navigator.language || '') ? 'es' : 'en';
+      d.lang = l; d.setAttribute('data-lang', l);
+      var ti = document.querySelector('title');
+      if (ti && ti.getAttribute('data-' + l)) document.title = ti.getAttribute('data-' + l);
+    })(document.documentElement);
+  </script>
+  <meta name="description" content="Claudia Jiménez — UX/UI designer creating digital products with a user-first mindset." />
+  <meta property="og:title" content="Claudia Jiménez · UX/UI Designer" />
+  <meta property="og:description" content="UX/UI designer creating digital products with a user-first mindset." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✳️</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="es">Saltar al contenido</span></a>
+
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo">Claudia Jiménez<span class="star">✳</span></a>
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span>
+      </button>
+      <nav id="nav-links" class="nav__links">
+        <a href="../projects.html" class="is-active" aria-current="page"><span data-l="en">Projects</span><span data-l="es">Proyectos</span></a>
+        <a href="../about.html"><span data-l="en">About</span><span data-l="es">Sobre mí</span></a>
+        <a href="#contact" class="pill"><span data-l="en">Contact Me</span><span data-l="es">Contáctame</span></a>
+        <div class="nav__tools">
+          <div class="lang" role="group" aria-label="Language" data-en-aria-label="Language" data-es-aria-label="Idioma">
+            <button type="button" class="lang__btn" data-set-lang="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
+            <button type="button" class="lang__btn" data-set-lang="es" lang="es" aria-label="Español" aria-pressed="false">ES</button>
+          </div>
+          <button type="button" class="icon-btn theme-toggle" aria-pressed="false" aria-label="Dark mode" data-en-aria-label="Dark mode" data-es-aria-label="Modo oscuro">
+            <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4 8.2 8.2 0 1 0 20 14.6Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.8v2.1M12 19.1v2.1M2.8 12h2.1M19.1 12h2.1M5.5 5.5 7 7M17 17l1.5 1.5M5.5 18.5 7 17M17 7l1.5-1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="cs-hero container">
+      <div class="cs-hero__text">
+        <a class="back reveal" href="../projects.html"><span aria-hidden="true">←</span> <span data-l="en">All projects</span><span data-l="es">Todos los proyectos</span></a>
+        <p class="eyebrow reveal"><span data-l="en">Web app · B2B back office · Port services</span><span data-l="es">Web app · Back office B2B · Servicios portuarios</span></p>
+        <h1 class="case__title reveal"><span data-l="en">Contracts &amp; Tariffs</span><span data-l="es">Contratos y Tarifas</span></h1>
+        <p class="intro__lead reveal">
+          <span data-l="en">A commercial back office to build port-service contracts with rule-based tariffs, approvals and a full audit trail.</span>
+          <span data-l="es">Un back office comercial para crear contratos de servicios portuarios con tarifas basadas en reglas, aprobaciones y trazabilidad completa.</span>
+        </p>
+      </div>
+      <div class="cs-hero__media cs-hero__media--desktop reveal" style="--card:var(--mint)">
+        <figure class="shot"><img src="../assets/contratos-tarifas/rule-builder.webp" width="1600" height="933" data-en-alt="Contract detail with the tariff rule builder: four rules combining manoeuvre, tonnage and length conditions, each with its price" data-es-alt="Detalle de contrato con el constructor de reglas de tarifa: cuatro reglas que combinan maniobra, tonelaje y eslora, cada una con su precio" alt="Contract detail with the tariff rule builder: four rules combining manoeuvre, tonnage and length conditions, each with its price"></figure>
+      </div>
+    </section>
+
+    <!-- TL;DR -->
+    <section class="container">
+      <dl class="tldr reveal">
+        <div><dt><span data-l="en">The problem</span><span data-l="es">El problema</span></dt>
+          <dd><span data-l="en">Towage and pilotage prices depend on many variables, and each shipping line can have its own discounts and commissions. The commercial team needed to model contracts clearly, control who changes what and trace every change.</span><span data-l="es">Los precios de remolcaje y practicaje dependen de muchas variables, y cada naviera puede tener descuentos y comisiones propios. El equipo comercial necesitaba modelar contratos con claridad, controlar quién cambia qué y dejar rastro de cada cambio.</span></dd></div>
+        <div><dt><span data-l="en">What I did</span><span data-l="es">Qué hice</span></dt>
+          <dd><span data-l="en">Designed the module end to end as a high-fidelity, clickable prototype: contract list, a 3-step creation wizard, a visual rule builder, a tariff catalogue by port, approvals and an audit log.</span><span data-l="es">Diseñé el módulo de punta a punta como un prototipo navegable de alta fidelidad: listado de contratos, un asistente de creación en 3 pasos, un constructor visual de reglas, un catálogo de tarifas por puerto, aprobaciones y un registro de auditoría.</span></dd></div>
+        <div><dt><span data-l="en">The result</span><span data-l="es">El resultado</span></dt>
+          <dd><span data-l="en">Reviewed weekly with the client, validated with real users and implemented.</span><span data-l="es">Revisado semanalmente con el cliente, validado con usuarios reales e implementado.</span></dd></div>
+      </dl>
+
+      <dl class="facts reveal">
+        <div class="fact"><dt><span data-l="en">Role</span><span data-l="es">Rol</span></dt><dd><span data-l="en">Freelance UX/UI Designer</span><span data-l="es">UX/UI Designer freelance</span></dd></div>
+        <div class="fact"><dt><span data-l="en">Duration</span><span data-l="es">Duración</span></dt><dd><span data-l="en">~3 months</span><span data-l="es">~3 meses</span></dd></div>
+        <div class="fact"><dt><span data-l="en">Client</span><span data-l="es">Cliente</span></dt><dd><span data-l="en">A port services company in Peru</span><span data-l="es">Una empresa de servicios portuarios en Perú</span></dd></div>
+        <div class="fact"><dt><span data-l="en">Methodology</span><span data-l="es">Metodología</span></dt><dd><span data-l="en">Weekly client reviews · User validation</span><span data-l="es">Revisiones semanales con el cliente · Validación con usuarios</span></dd></div>
+        <div class="fact"><dt><span data-l="en">Platform</span><span data-l="es">Plataforma</span></dt><dd><span data-l="en">Desktop web app</span><span data-l="es">Web app de escritorio</span></dd></div>
+      </dl>
+
+      <div class="stats reveal">
+        <div class="stat"><span class="stat__num">~3</span><span class="stat__label"><span data-l="en">months, with weekly client reviews</span><span data-l="es">meses, con revisiones semanales con el cliente</span></span></div>
+        <div class="stat"><span class="stat__num">4</span><span class="stat__label"><span data-l="en">areas: contracts, tariffs, approvals, audit</span><span data-l="es">áreas: contratos, tarifas, aprobaciones, auditoría</span></span></div>
+        <div class="stat"><span class="stat__num">8</span><span class="stat__label"><span data-l="en">tabs to manage each contract</span><span data-l="es">pestañas para gestionar cada contrato</span></span></div>
+      </div>
+    </section>
+
+    <!-- CONTEXT -->
+    <section class="section container story">
+      <p class="label reveal"><span data-l="en">The challenge</span><span data-l="es">El reto</span></p>
+      <h2 class="story__title reveal"><span data-l="en">One price, many variables — and every client negotiates its own</span><span data-l="es">Un precio, muchas variables, y cada cliente negocia el suyo</span></h2>
+      <div class="story__body reveal">
+        <p><span data-l="en">What a ship pays for towage or pilotage depends on the port, the type of manoeuvre, the vessel’s gross tonnage (TRB), its length and beam, the time of day and how many tugs or pilots take part. On top of that, each shipping line can have its own discounts and commissions.</span><span data-l="es">Lo que paga un buque por remolcaje o practicaje depende del puerto, el tipo de maniobra, el TRB, la eslora y la manga, el horario y cuántos remolcadores o prácticos participan. Además, cada naviera puede tener descuentos y comisiones propios.</span></p>
+        <p><span data-l="en">The commercial team needed a tool where non-technical staff could read and edit these rules, where changes went through approval, and where every modification left a trace.</span><span data-l="es">El equipo comercial necesitaba una herramienta donde personal no técnico pudiera leer y editar estas reglas, donde los cambios pasaran por aprobación y donde cada modificación dejara rastro.</span></p>
+      </div>
+    </section>
+
+    <!-- KEY DECISION -->
+    <section class="section container story">
+      <p class="label reveal"><span data-l="en">The key decision</span><span data-l="es">La decisión clave</span></p>
+      <h2 class="story__title reveal"><span data-l="en">Separating the tariff from the contract made the whole model readable</span><span data-l="es">Separar la tarifa del contrato hizo legible todo el modelo</span></h2>
+      <div class="story__body reveal">
+        <p><span data-l="en">A <strong>tariff</strong> belongs to a <strong>port</strong> and defines what to charge based on vessel and manoeuvre conditions. A <strong>contract</strong> belongs to a <strong>client</strong> and references one or more tariffs, adding the client’s own discounts or adjustments. The interface explains this distinction right where people need it, and the tariff catalogue shows which contracts use each tariff and whether it is published or still a draft.</span><span data-l="es">Una <strong>tarifa</strong> pertenece a un <strong>puerto</strong> y define cuánto cobrar según las condiciones del buque y la maniobra. Un <strong>contrato</strong> pertenece a un <strong>cliente</strong> y referencia una o varias tarifas, con sus propios descuentos o ajustes. La interfaz explica esta distinción justo donde se necesita, y el catálogo de tarifas muestra qué contratos usan cada tarifa y si está publicada o en borrador.</span></p>
+      </div>
+      <div class="shots reveal" style="--card:var(--mint)">
+        <figure><div class="shot"><img src="../assets/contratos-tarifas/tariff-catalogue.webp" width="1600" height="1089" loading="lazy" data-en-alt="Tariff catalogue by port with a note explaining tariff versus contract, and a table showing rules, contracts using each tariff and status" data-es-alt="Catálogo de tarifas por puerto con una nota que explica tarifa versus contrato, y una tabla con reglas, contratos que la usan y estado" alt="Tariff catalogue by port with a note explaining tariff versus contract, and a table showing rules, contracts using each tariff and status"></div><figcaption><span data-l="en">Tariff catalogue by port, with the tariff-vs-contract explanation</span><span data-l="es">Catálogo de tarifas por puerto, con la explicación tarifa vs. contrato</span></figcaption></figure>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section container story">
+      <p class="label reveal"><span data-l="en">How I worked</span><span data-l="es">Cómo trabajé</span></p>
+      <h2 class="story__title reveal"><span data-l="en">Weekly reviews with the client, then validation with the people who would use it</span><span data-l="es">Revisiones semanales con el cliente y, luego, validación con quienes lo usarían</span></h2>
+      <ol class="steps">
+        <li class="step reveal"><span class="step__num">01</span><div><h3><span data-l="en">Understand the pricing logic</span><span data-l="es">Entender la lógica de precios</span></h3><p><span data-l="en">Mapped the variables behind each tariff and how client-specific discounts, surcharges and commissions apply on top.</span><span data-l="es">Mapeé las variables detrás de cada tarifa y cómo se aplican encima los descuentos, recargos y comisiones de cada cliente.</span></p></div></li>
+        <li class="step reveal"><span class="step__num">02</span><div><h3><span data-l="en">Define the model</span><span data-l="es">Definir el modelo</span></h3><p><span data-l="en">Split tariffs (per port) from contracts (per client) and added governance: approval requests and an immutable change log.</span><span data-l="es">Separé tarifas (por puerto) de contratos (por cliente) y sumé gobierno: solicitudes de aprobación y un registro de cambios inmutable.</span></p></div></li>
+        <li class="step reveal"><span class="step__num">03</span><div><h3><span data-l="en">Prototype</span><span data-l="es">Prototipar</span></h3><p><span data-l="en">Built a high-fidelity, clickable prototype covering the full flow, from the contract list to the audit log.</span><span data-l="es">Construí un prototipo navegable de alta fidelidad con el flujo completo, desde el listado de contratos hasta la auditoría.</span></p></div></li>
+        <li class="step reveal"><span class="step__num">04</span><div><h3><span data-l="en">Review &amp; validate</span><span data-l="es">Revisar y validar</span></h3><p><span data-l="en">Weekly calls with the client: first reviews with stakeholders, and in the final weeks validation sessions with real users. The module was then implemented.</span><span data-l="es">Llamadas semanales con el cliente: primero revisiones con stakeholders y, en las últimas semanas, sesiones de validación con usuarios reales. Luego el módulo se implementó.</span></p></div></li>
+      </ol>
+    </section>
+
+    <!-- SOLUTION: CONTRACTS & RULES -->
+    <section class="section container story">
+      <p class="label reveal"><span data-l="en">The solution</span><span data-l="es">La solución</span></p>
+      <h2 class="story__title reveal"><span data-l="en">Pricing rules that read like sentences</span><span data-l="es">Reglas de precios que se leen como frases</span></h2>
+      <div class="story__body reveal">
+        <p><span data-l="en">The contract list shows status, validity, annual value and number of rules at a glance, with tabs for active, expiring, draft and expired contracts, plus CSV import and export. New contracts are created in three steps: <em>client &amp; validity</em>, <em>tariffs &amp; rules</em>, and <em>review</em>.</span><span data-l="es">El listado muestra de un vistazo estado, vigencia, valor anual y número de reglas, con pestañas para contratos vigentes, por vencer, borradores y expirados, además de importación y exportación CSV. Los contratos nuevos se crean en tres pasos: <em>cliente y vigencia</em>, <em>tarifas y reglas</em>, y <em>revisión</em>.</span></p>
+        <p><span data-l="en">In the rule builder, each rule is written as a condition and a result: <em>if the manoeuvre is Berthing and TRB ≤ 10,000 and length ≤ 180 m → USD 920, bill to client</em>. Rules are evaluated top to bottom and can be dragged to reorder; groups can be cloned, shown as a table or cards, converted into a min–max table, or priced with a formula. Surcharges, discounts and commissions live in their own tabs, so the base rules stay simple.</span><span data-l="es">En el constructor, cada regla se escribe como condición y resultado: <em>si la maniobra es Atraque y TRB ≤ 10.000 y eslora ≤ 180 m → USD 920, facturar al cliente</em>. Las reglas se evalúan de arriba hacia abajo y se reordenan arrastrando; los grupos se pueden clonar, ver como tabla o tarjetas, convertir a tabla mín–máx o tarifar con una fórmula. Recargos, descuentos y comisiones viven en sus propias pestañas, para que las reglas base sigan siendo simples.</span></p>
+      </div>
+      <div class="shots shots--2 reveal" style="--card:var(--mint)">
+        <figure><div class="shot"><img src="../assets/contratos-tarifas/contracts-list.webp" width="1600" height="789" loading="lazy" data-en-alt="Contract list with status tabs, search, port filter and a table of contracts with validity, annual value, rules and status" data-es-alt="Listado de contratos con pestañas por estado, búsqueda, filtro por puerto y una tabla con vigencia, valor anual, reglas y estado" alt="Contract list with status tabs, search, port filter and a table of contracts with validity, annual value, rules and status"></div><figcaption><span data-l="en">Contract list</span><span data-l="es">Listado de contratos</span></figcaption></figure>
+        <figure><div class="shot"><img src="../assets/contratos-tarifas/new-contract.webp" width="1600" height="1000" loading="lazy" data-en-alt="Step 1 of the new-contract wizard: choose the client, name, type and validity dates" data-es-alt="Paso 1 del asistente de nuevo contrato: elegir cliente, nombre, tipo y fechas de vigencia" alt="Step 1 of the new-contract wizard: choose the client, name, type and validity dates"></div><figcaption><span data-l="en">New-contract wizard, step 1 of 3</span><span data-l="es">Asistente de nuevo contrato, paso 1 de 3</span></figcaption></figure>
+      </div>
+    </section>
+
+    <!-- SOLUTION: INTEGRAL TARIFFS -->
+    <section class="section container story">
+      <p class="label reveal"><span data-l="en">Integral tariffs</span><span data-l="es">Tarifas integrales</span></p>
+      <h2 class="story__title reveal"><span data-l="en">A live total makes it obvious when a split doesn’t add up</span><span data-l="es">Un total en vivo deja claro cuando un reparto no cuadra</span></h2>
+      <div class="story__body reveal">
+        <p><span data-l="en">Some manoeuvres are billed as a single flat fee that then has to be split among the resources that took part — tugs, launch, pilot. Each case combines percentages and fixed amounts, with a bar that shows the split and a “total distributed” check against the billed amount.</span><span data-l="es">Algunas maniobras se facturan como un monto plano que luego hay que repartir entre los recursos que participaron: remolcadores, lancha, práctico. Cada caso combina porcentajes y montos fijos, con una barra que muestra el reparto y un control de “total distribuido” frente al monto facturado.</span></p>
+      </div>
+      <div class="shots reveal" style="--card:var(--mint)">
+        <figure><div class="shot"><img src="../assets/contratos-tarifas/integral-tariffs.webp" width="1600" height="1089" loading="lazy" data-en-alt="Integral tariff tab splitting a USD 920 fee between two tugs, and between a launch and two tugs, with the total distributed shown for each case" data-es-alt="Pestaña de tarifas integrales que reparte USD 920 entre dos remolcadores, y entre una lancha y dos remolcadores, con el total distribuido de cada caso" alt="Integral tariff tab splitting a USD 920 fee between two tugs, and between a launch and two tugs, with the total distributed shown for each case"></div><figcaption><span data-l="en">Splitting a billed fee among tugs, launch and pilot</span><span data-l="es">Reparto de un monto facturado entre remolcadores, lancha y práctico</span></figcaption></figure>
+      </div>
+    </section>
+
+    <!-- SOLUTION: GOVERNANCE -->
+    <section class="section container story">
+      <p class="label reveal"><span data-l="en">Governance</span><span data-l="es">Gobierno</span></p>
+      <h2 class="story__title reveal"><span data-l="en">Every change is reviewed, and every change leaves a trace</span><span data-l="es">Cada cambio se revisa y cada cambio deja rastro</span></h2>
+      <div class="story__body reveal">
+        <p><span data-l="en">Changes to rates, rules or contracts become approval requests that can be reviewed, approved or rejected, with an “SLA at risk” flag for those running late. The audit log records every modification immutably — who, what action, which field, previous and new value — with filters and CSV export. Each contract also keeps its attachments, such as signed addenda, and its version history.</span><span data-l="es">Los cambios en tasas, reglas o contratos se convierten en solicitudes que se pueden revisar, aprobar o rechazar, con una alerta de “SLA en riesgo” para las que van tarde. La auditoría registra cada modificación de forma inmutable (quién, qué acción, qué campo, valor anterior y nuevo), con filtros y exportación CSV. Cada contrato además guarda sus adjuntos, como adendas firmadas, y su historial de versiones.</span></p>
+      </div>
+      <div class="shots shots--2 reveal" style="--card:var(--mint)">
+        <figure><div class="shot"><img src="../assets/contratos-tarifas/approvals.webp" width="1600" height="700" loading="lazy" data-en-alt="Approval requests list with pending, approved and rejected items and Review, Approve and Reject actions" data-es-alt="Lista de solicitudes de aprobación con ítems pendientes, aprobados y rechazados y acciones Revisar, Aprobar y Rechazar" alt="Approval requests list with pending, approved and rejected items and Review, Approve and Reject actions"></div><figcaption><span data-l="en">Approval requests</span><span data-l="es">Solicitudes de aprobación</span></figcaption></figure>
+        <figure><div class="shot"><img src="../assets/contratos-tarifas/audit-log.webp" width="1600" height="889" loading="lazy" data-en-alt="Audit log table with date, user, action, contract and field, and previous versus new value" data-es-alt="Tabla de auditoría con fecha, usuario, acción, contrato y campo, y valor anterior frente al nuevo" alt="Audit log table with date, user, action, contract and field, and previous versus new value"></div><figcaption><span data-l="en">Immutable change log</span><span data-l="es">Registro de cambios inmutable</span></figcaption></figure>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="section container">
+      <a class="next-card reveal" href="crypto-marketplace.html" style="--card:var(--sage)">
+        <div>
+          <p class="label"><span data-l="en">Next project</span><span data-l="es">Siguiente proyecto</span></p>
+          <h2 class="next-card__title">Crypto Marketplace</h2>
+          <span class="card__cta"><span data-l="en">Read the case study</span><span data-l="es">Leer el caso de estudio</span> <span class="arrow" aria-hidden="true">→</span></span>
+        </div>
+      </a>
+      <p class="pager__all reveal"><a href="maintenance-psa.html">← <span data-l="en">Previous project</span><span data-l="es">Proyecto anterior</span></a> · <a href="../projects.html"><span data-l="en">All projects</span><span data-l="es">Todos los proyectos</span></a></p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section container contact">
+      <div class="contact__text reveal">
+        <h2 class="contact__title"><span data-l="en">Contact Me</span><span data-l="es">Contáctame</span></h2>
+        <p><span data-l="en">Let's explore the exciting project you'd like to dive into!</span><span data-l="es">¡Hablemos del proyecto que tienes en mente y hagámoslo realidad!</span></p>
+      </div>
+      <ul class="contact__list reveal">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Zm1.8.3 7.2 5.6 7.2-5.6M4 18l6-5.5M20 18l-6-5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <a href="mailto:c.jimena08@gmail.com">c.jimena08@gmail.com</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+          <a href="https://www.linkedin.com/in/claudiajimeneza" target="_blank" rel="noopener">claudiajimeneza</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4-2 1.3a11 11 0 0 0 6.6 6.6l1.3-2 4 1.4v2.6a2 2 0 0 1-2.2 2A17 17 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <a href="tel:+51992270323">+51 992270323</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <span>© <span id="year"></span> Claudia Jiménez</span>
+    <a href="#top"><span data-l="en">Back to top</span><span data-l="es">Volver arriba</span> ↑</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

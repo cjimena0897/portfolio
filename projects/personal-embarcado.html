@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-en="Personal Embarcado · Claudia Jiménez" data-es="Personal Embarcado · Claudia Jiménez">Personal Embarcado · Claudia Jiménez</title>
+  <script>
+    /* Apply saved theme + language before first paint to avoid a flash (logic: script.js) */
+    (function (d) {
+      var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+      var t = get('theme'), l = get('lang');
+      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+      if (l !== 'en' && l !== 'es') l = /^es\b/i.test(navigator.language || '') ? 'es' : 'en';
+      d.lang = l; d.setAttribute('data-lang', l);
+      var ti = document.querySelector('title');
+      if (ti && ti.getAttribute('data-' + l)) document.title = ti.getAttribute('data-' + l);
+    })(document.documentElement);
+  </script>
+  <meta name="description" content="Claudia Jiménez — UX/UI designer creating digital products with a user-first mindset." />
+  <meta property="og:title" content="Claudia Jiménez · UX/UI Designer" />
+  <meta property="og:description" content="UX/UI designer creating digital products with a user-first mindset." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✳️</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="es">Saltar al contenido</span></a>
+
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo">Claudia Jiménez<span class="star">✳</span></a>
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span>
+      </button>
+      <nav id="nav-links" class="nav__links">
+        <a href="../projects.html" class="is-active" aria-current="page"><span data-l="en">Projects</span><span data-l="es">Proyectos</span></a>
+        <a href="../about.html"><span data-l="en">About</span><span data-l="es">Sobre mí</span></a>
+        <a href="#contact" class="pill"><span data-l="en">Contact Me</span><span data-l="es">Contáctame</span></a>
+        <div class="nav__tools">
+          <div class="lang" role="group" aria-label="Language" data-en-aria-label="Language" data-es-aria-label="Idioma">
+            <button type="button" class="lang__btn" data-set-lang="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
+            <button type="button" class="lang__btn" data-set-lang="es" lang="es" aria-label="Español" aria-pressed="false">ES</button>
+          </div>
+          <button type="button" class="icon-btn theme-toggle" aria-pressed="false" aria-label="Dark mode" data-en-aria-label="Dark mode" data-es-aria-label="Modo oscuro">
+            <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4 8.2 8.2 0 1 0 20 14.6Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.8v2.1M12 19.1v2.1M2.8 12h2.1M19.1 12h2.1M5.5 5.5 7 7M17 17l1.5 1.5M5.5 18.5 7 17M17 7l1.5-1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="cs-hero container">
+      <div class="cs-hero__text">
+        <a class="back reveal" href="../projects.html"><span aria-hidden="true">←</span> <span data-l="en">All projects</span><span data-l="es">Todos los proyectos</span></a>
+        <p class="eyebrow reveal"><span data-l="en">Crew Scheduling · Web app · 2026</span><span data-l="es">Gestión de personal · App web · 2026</span></p>
+        <h1 class="case__title reveal">Personal Embarcado</h1>
+        <p class="intro__lead reveal">
+          <span data-l="en">A web system to plan crew watches, cover absences and resolve vacation conflicts for the fleet of a port services company in Peru.</span>
+          <span data-l="es">Un sistema web para planificar guardias, cubrir ausencias y resolver cruces de vacaciones del personal embarcado de una empresa de servicios portuarios en Perú.</span>
+        </p>
+      </div>
+      <div class="cs-hero__media cs-hero__media--desktop reveal" style="--card:var(--lilac)">
+        <figure class="shot"><img src="../assets/personal-embarcado/roster.webp" width="1600" height="952" data-en-alt="Watch management roster: a monthly grid per vessel and crew group, with watch, off-duty, leave, medical rest and vacation states" data-es-alt="Cuadrante de gestión de guardias: grilla mensual por embarcación y grupo, con estados de guardia, franco, licencia, descanso médico y vacaciones" alt="Watch management roster: a monthly grid per vessel and crew group, with watch, off-duty, leave, medical rest and vacation states"></figure>
+      </div>
+    </section>
+
+    <!-- TL;DR -->
+    <section class="container">
+      <dl class="tldr reveal">
+        <div><dt><span data-l="en">The problem</span><span data-l="es">El problema</span></dt>
+          <dd><span data-l="en">Knowing who is on board, who is off and who covers an absence depended on many separate processes — with the risk of leaving vessels short-staffed.</span><span data-l="es">Saber quién está a bordo, quién está de franco y quién cubre una ausencia dependía de muchos procesos separados, con el riesgo de dejar embarcaciones sin personal.</span></dd></div>
+        <div><dt><span data-l="en">What I did</span><span data-l="es">Qué hice</span></dt>
+          <dd><span data-l="en">Designed the admin side of the system — watch management and vacation management — from flows to a high-fidelity Figma prototype, reviewed weekly with the client.</span><span data-l="es">Diseñé el módulo de administración del sistema —gestión de guardias y de vacaciones—, desde los flujos hasta un prototipo de alta fidelidad en Figma, revisado semanalmente con el cliente.</span></dd></div>
+        <div><dt><span data-l="en">The result</span><span data-l="es">El resultado</span></dt>
+          <dd><span data-l="en">Flows validated with real users before development, and a product that was implemented and went live.</span><span data-l="es">Flujos validados con usuarios reales antes del desarrollo y un producto que se implementó y salió en vivo.</span></dd></div>
+      </dl>
+
+      <dl class="facts reveal">
+        <div class="fact"><dt><span data-l="en">Role</span><span data-l="es">Rol</span></dt><dd><span data-l="en">Freelance UX/UI Designer (through a consultancy)</span><span data-l="es">UX/UI Designer freelance (a través de una consultora)</span></dd></div>
+        <div class="fact"><dt><span data-l="en">Duration</span><span data-l="es">Duración</span></dt><dd><span data-l="en">~3 months</span><span data-l="es">~3 meses</span></dd></div>
+        <div class="fact"><dt><span data-l="en">Client</span><span data-l="es">Cliente</span></dt><dd><span data-l="en">A port services company in Peru</span><span data-l="es">Una empresa de servicios portuarios en Perú</span></dd></div>
+        <div class="fact"><dt><span data-l="en">Methodology</span><span data-l="es">Metodología</span></dt><dd>Design Thinking</dd></div>
+        <div class="fact"><dt><span data-l="en">Tools</span><span data-l="es">Herramientas</span></dt><dd>Figma</dd></div>
+      </dl>
+
+      <div class="stats reveal">
+        <div class="stat"><span class="stat__num">3</span><span class="stat__label"><span data-l="en">months from scope to validated design</span><span data-l="es">meses desde el alcance hasta el diseño validado</span></span></div>
+        <div class="stat"><span class="stat__num">5</span><span class="stat__label"><span data-l="en">roster states readable at a glance</span><span data-l="es">estados del cuadrante legibles de un vistazo</span></span></div>
+        <div class="stat"><span class="stat__num">4</span><span class="stat__label"><span data-l="en">steps to cover an absence</span><span data-l="es">pasos para cubrir una ausencia</span></span></div>
+      </div>
+    </section>
+
+    <!-- CONTEXT -->
+    <section class="section container story">
+      <p class="label reveal"><span data-l="en">The context</span><span data-l="es">El contexto</span></p>
+      <h2 class="story__title reveal"><span data-l="en">One place to plan crews, instead of many disconnected processes</span><span data-l="es">Un solo lugar para planificar tripulaciones, en lugar de muchos procesos desconectados</span></h2>
+      <div class="story__body reveal">
+        <p><span data-l="en">The client, a port services company in Peru, needed one system for its embarked staff: people and availability, certifications, vacations and leave, crew assignment, boarding and disembarking, watch planning, voyages and a self-service portal for crew members.</span><span data-l="es">El cliente, una empresa de servicios portuarios en Perú, necesitaba un solo sistema para su personal embarcado: personal y disponibilidad, certificaciones, vacaciones y licencias, asignación de tripulantes, embarque y desembarque, guardias, travesías y un portal de autogestión para los tripulantes.</span></p>
+        <p><span data-l="en">The goals: centralize all crew information, optimize watch and voyage assignments, keep digital traceability of boarding, and manage vacations, leave and substitutions with clear approval flows. This case study focuses on the <strong>admin side: Watch Management and Vacation Management</strong>.</span><span data-l="es">Los objetivos: centralizar toda la información del personal, optimizar la asignación de guardias y travesías, mantener la trazabilidad digital del embarque y gestionar vacaciones, licencias y reemplazos con flujos de aprobación claros. Este caso se enfoca en el <strong>módulo de administración: Gestión de Guardias y Gestión de Vacaciones</strong>.</span></p>
+      </div>
+      <ol class="steps steps--compact">
+        <li class="step reveal"><span class="step__num">01</span><div><h3><span data-l="en">Planning staff</span><span data-l="es">Personal de planificación</span></h3><p><span data-l="en">Build watch rosters and approve vacations, filtering by base, vessel and role.</span><span data-l="es">Arman los cuadrantes de guardia y aprueban vacaciones, filtrando por sede, embarcación y cargo.</span></p></div></li>
+        <li class="step reveal"><span class="step__num">02</span><div><h3><span data-l="en">Crew members</span><span data-l="es">Tripulantes</span></h3><p><span data-l="en">Masters, motorist sailors and sailors who receive notifications whenever their schedule changes.</span><span data-l="es">Patrones, marineros motoristas y marineros que reciben una notificación cada vez que cambia su programación.</span></p></div></li>
+        <li class="step reveal"><span class="step__num">03</span><div><h3><span data-l="en">Approvers</span><span data-l="es">Aprobadores</span></h3><p><span data-l="en">A head of personnel who signs off on vacations and their changes.</span><span data-l="es">Un jefe de personal que aprueba las vacaciones y sus cambios.</span></p></div></li>
+      </ol>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section container story">
+      <p class="label reveal"><span data-l="en">How I designed it</span><span data-l="es">Cómo lo diseñé</span></p>
+      <h2 class="story__title reveal"><span data-l="en">Weekly reviews with the client, and real users before any code</span><span data-l="es">Revisiones semanales con el cliente y usuarios reales antes de escribir código</span></h2>
+      <ol class="steps">
+        <li class="step reveal"><span class="step__num">01</span><div><h3><span data-l="en">Empathize</span><span data-l="es">Empatizar</span></h3><p><span data-l="en">Weekly calls and reviews with stakeholders to understand how watches, absences and vacations were handled.</span><span data-l="es">Llamadas y revisiones semanales con stakeholders para entender cómo se manejaban las guardias, ausencias y vacaciones.</span></p></div></li>
+        <li class="step reveal"><span class="step__num">02</span><div><h3><span data-l="en">Define</span><span data-l="es">Definir</span></h3><p><span data-l="en">Functional analysis and a scope split into modules, starting with the admin side.</span><span data-l="es">Análisis funcional y un alcance dividido en módulos, empezando por la administración.</span></p></div></li>
+        <li class="step reveal"><span class="step__num">03</span><div><h3><span data-l="en">Ideate &amp; prototype</span><span data-l="es">Idear y prototipar</span></h3><p><span data-l="en">Quick workshops, then the UI design and an interactive prototype in Figma.</span><span data-l="es">Workshops rápidos y luego el diseño UI y un prototipo interactivo en Figma.</span></p></div></li>
+        <li class="step reveal"><span class="step__num">04</span><div><h3><span data-l="en">Test</span><span data-l="es">Testear</span></h3><p><span data-l="en">In the final weeks, validation sessions with real users and formal acceptance before development started.</span><span data-l="es">En las últimas semanas, sesiones de validación con usuarios reales y aceptación formal antes de iniciar el desarrollo.</span></p></div></li>
+      </ol>
+    </section>
+
+    <!-- SOLUTION: WATCHES -->
+    <section class="section container story">
+      <p class="label reveal"><span data-l="en">Watch management</span><span data-l="es">Gestión de guardias</span></p>
+      <h2 class="story__title reveal"><span data-l="en">Covering an absence became a guided, four-step task</span><span data-l="es">Cubrir una ausencia se volvió una tarea guiada de cuatro pasos</span></h2>
+      <div class="story__body reveal">
+        <p><span data-l="en">The roster shows a month per vessel and crew group (A/B) with a clear legend: <strong>G</strong> watch, <strong>F</strong> off duty, <strong>L</strong> leave, <strong>DM</strong> medical rest, <strong>V</strong> vacation. Filters by vessel, crew member, role and date range — and two vessels can be compared side by side.</span><span data-l="es">El cuadrante muestra un mes por embarcación y grupo (A/B) con una leyenda clara: <strong>G</strong> guardia, <strong>F</strong> franco, <strong>L</strong> licencia, <strong>DM</strong> descanso médico, <strong>V</strong> vacaciones. Se filtra por embarcación, tripulante, cargo e intervalo de fechas, y se pueden comparar dos embarcaciones a la vez.</span></p>
+      </div>
+      <ol class="steps steps--compact">
+        <li class="step reveal"><span class="step__num">01</span><div><h3><span data-l="en">Spot the gap</span><span data-l="es">Detectar el hueco</span></h3><p><span data-l="en">Uncovered days appear as an empty “Unassigned” row right under the absent crew member.</span><span data-l="es">Los días sin cubrir aparecen como una fila “Sin asignar” justo debajo del tripulante ausente.</span></p></div></li>
+        <li class="step reveal"><span class="step__num">02</span><div><h3><span data-l="en">Select staff</span><span data-l="es">Seleccionar personal</span></h3><p><span data-l="en">Candidate cards show experience, base, certificate status and availability.</span><span data-l="es">Las tarjetas de candidatos muestran experiencia, sede, estado de certificados y disponibilidad.</span></p></div></li>
+        <li class="step reveal"><span class="step__num">03</span><div><h3><span data-l="en">Confirm the replacement</span><span data-l="es">Confirmar el reemplazo</span></h3><p><span data-l="en">A summary of who leaves and who enters, the reason, coverage period, days, role and vessel.</span><span data-l="es">Un resumen de quién sale y quién entra, el motivo, el periodo de cobertura, los días, el rol y la embarcación.</span></p></div></li>
+        <li class="step reveal"><span class="step__num">04</span><div><h3><span data-l="en">Confirm &amp; notify</span><span data-l="es">Confirmar y notificar</span></h3><p><span data-l="en">The roster updates and both crew members are notified.</span><span data-l="es">El cuadrante se actualiza y se notifica a ambos tripulantes.</span></p></div></li>
+      </ol>
+      <div class="shots reveal" style="--card:var(--lilac)">
+        <figure><div class="shot"><img src="../assets/personal-embarcado/confirm-replacement.webp" width="1600" height="952" loading="lazy" data-en-alt="Confirm replacement panel: the crew member on leave, the replacement, reason, coverage period and vessel, next to the updated roster" data-es-alt="Panel Confirmar reemplazo: el tripulante con licencia, el reemplazo, motivo, periodo de cobertura y embarcación, junto al cuadrante actualizado" alt="Confirm replacement panel: the crew member on leave, the replacement, reason, coverage period and vessel, next to the updated roster"></div>
+          <figcaption><span data-l="en">Confirming a replacement: who leaves, who covers, and for how long</span><span data-l="es">Confirmar un reemplazo: quién sale, quién cubre y por cuánto tiempo</span></figcaption></figure>
+      </div>
+    </section>
+
+    <!-- SOLUTION: VACATIONS -->
+    <section class="section container story">
+      <p class="label reveal"><span data-l="en">Vacation management</span><span data-l="es">Gestión de vacaciones</span></p>
+      <h2 class="story__title reveal"><span data-l="en">Conflicts are flagged on the calendar and solved in the same place</span><span data-l="es">Los cruces se marcan en el calendario y se resuelven en el mismo lugar</span></h2>
+      <div class="story__body reveal">
+        <p><span data-l="en">A monthly calendar shows every vacation as <em>Approved</em>, <em>Requested</em> or <em>Conflict</em>. When two crew members in the same role overlap, the admin chooses to <strong>approve one request</strong> or <strong>reschedule both</strong>, reviews a summary with suggested new dates, and applies it.</span><span data-l="es">Un calendario mensual muestra cada vacación como <em>Aprobada</em>, <em>Solicitada</em> o <em>Conflicto</em>. Cuando dos tripulantes del mismo cargo se superponen, el admin elige <strong>aprobar una solicitud</strong> o <strong>reprogramar ambas</strong>, revisa un resumen con fechas sugeridas y lo aplica.</span></p>
+      </div>
+      <div class="shots reveal" style="--card:var(--lilac)">
+        <figure><div class="shot"><img src="../assets/personal-embarcado/vacation-conflict.webp" width="1600" height="1078" loading="lazy" data-en-alt="Vacation calendar with an overlapping week highlighted in red and a side panel with two resolution options" data-es-alt="Calendario de vacaciones con una semana en conflicto resaltada en rojo y un panel lateral con dos opciones de resolución" alt="Vacation calendar with an overlapping week highlighted in red and a side panel with two resolution options"></div>
+          <figcaption><span data-l="en">Resolving a vacation conflict: approve one request or reschedule both</span><span data-l="es">Resolver un cruce de vacaciones: aprobar una solicitud o reprogramar ambas</span></figcaption></figure>
+      </div>
+      <div class="story__body reveal">
+        <p><span data-l="en">Requests are reviewed in a side panel with the dates, days requested and the crew member’s note, to approve or reject with a reason. A weekly view groups crew by vessel, so overlaps on the same boat stand out.</span><span data-l="es">Las solicitudes se revisan en un panel lateral con las fechas, los días pedidos y la nota del tripulante, para aprobarlas o rechazarlas con un motivo. Una vista semanal agrupa a los tripulantes por embarcación para que los cruces en un mismo barco salten a la vista.</span></p>
+      </div>
+      <div class="shots shots--2 reveal" style="--card:var(--lilac)">
+        <figure><div class="shot"><img src="../assets/personal-embarcado/request-review.webp" width="1600" height="1078" loading="lazy" data-en-alt="Vacation request panel with dates, days requested and a note, with Reject and Approve buttons" data-es-alt="Panel de solicitud de vacaciones con fechas, días solicitados y nota, con botones Rechazar y Aprobar" alt="Vacation request panel with dates, days requested and a note, with Reject and Approve buttons"></div>
+          <figcaption><span data-l="en">Reviewing a request</span><span data-l="es">Revisión de una solicitud</span></figcaption></figure>
+        <figure><div class="shot"><img src="../assets/personal-embarcado/weekly-view.webp" width="1600" height="1078" loading="lazy" data-en-alt="Weekly vacation view grouped by vessel, with approved, requested and conflict tags per day" data-es-alt="Vista semanal de vacaciones agrupada por embarcación, con etiquetas de aprobadas, solicitadas y conflicto por día" alt="Weekly vacation view grouped by vessel, with approved, requested and conflict tags per day"></div>
+          <figcaption><span data-l="en">Weekly view by vessel</span><span data-l="es">Vista semanal por embarcación</span></figcaption></figure>
+      </div>
+    </section>
+
+    <!-- SOLUTION: CHANGES -->
+    <section class="section container story">
+      <p class="label reveal"><span data-l="en">Changes to approved vacations</span><span data-l="es">Cambios sobre vacaciones aprobadas</span></p>
+      <h2 class="story__title reveal"><span data-l="en">Plans change after approval, so the system lets them change safely</span><span data-l="es">Los planes cambian después de aprobarse, así que el sistema permite cambiarlos con seguridad</span></h2>
+      <div class="story__body reveal">
+        <p><span data-l="en">From an approved vacation, the admin can <strong>modify dates</strong>, <strong>partially cancel</strong> or <strong>cancel</strong> it. Each path ends in a before/after summary (for example, “+2 additional days”) and the crew member’s balance is adjusted automatically.</span><span data-l="es">Desde una vacación aprobada, el admin puede <strong>modificar fechas</strong>, <strong>anular parcialmente</strong> o <strong>anular</strong>. Cada camino termina en un resumen de antes y después (por ejemplo, “+2 días adicionales”) y el saldo del tripulante se ajusta automáticamente.</span></p>
+      </div>
+      <div class="shots reveal" style="--card:var(--lilac)">
+        <figure><div class="shot"><img src="../assets/personal-embarcado/approved-change.webp" width="1600" height="1078" loading="lazy" data-en-alt="Approved vacation detail with three options: modify dates, partially cancel, or cancel" data-es-alt="Detalle de una vacación aprobada con tres opciones: modificar fechas, anular parcialmente o anular" alt="Approved vacation detail with three options: modify dates, partially cancel, or cancel"></div>
+          <figcaption><span data-l="en">Three clear options for an approved vacation</span><span data-l="es">Tres opciones claras para una vacación aprobada</span></figcaption></figure>
+      </div>
+    </section>
+
+    <!-- LEARNINGS -->
+    <section class="section container story">
+      <p class="label reveal"><span data-l="en">What it proves</span><span data-l="es">Qué demuestra</span></p>
+      <h2 class="story__title reveal"><span data-l="en">Dense operational data can still feel calm and clear</span><span data-l="es">Los datos operativos densos también pueden sentirse claros y tranquilos</span></h2>
+      <ul class="learnings reveal">
+        <li><span data-l="en">A consistent legend and color system make a full month of watches readable at a glance.</span><span data-l="es">Una leyenda y un sistema de color consistentes hacen legible de un vistazo todo un mes de guardias.</span></li>
+        <li><span data-l="en">Side panels keep the context visible while the admin makes a decision.</span><span data-l="es">Los paneles laterales mantienen el contexto visible mientras el admin toma una decisión.</span></li>
+        <li><span data-l="en">Validating with real users before development reduces rework once the build starts.</span><span data-l="es">Validar con usuarios reales antes del desarrollo reduce el retrabajo cuando empieza la construcción.</span></li>
+      </ul>
+    </section>
+
+    <!-- NEXT -->
+    <section class="section container">
+      <a class="next-card reveal" href="comunidapp.html" style="--card:var(--butter)">
+        <div>
+          <p class="label"><span data-l="en">Next project</span><span data-l="es">Siguiente proyecto</span></p>
+          <h2 class="next-card__title">ComunidAPP</h2>
+          <span class="card__cta"><span data-l="en">Read the case study</span><span data-l="es">Leer el caso de estudio</span> <span class="arrow" aria-hidden="true">→</span></span>
+        </div>
+      </a>
+      <p class="pager__all reveal"><a href="law-firm-website.html">← <span data-l="en">Previous project</span><span data-l="es">Proyecto anterior</span></a> · <a href="../projects.html"><span data-l="en">All projects</span><span data-l="es">Todos los proyectos</span></a></p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section container contact">
+      <div class="contact__text reveal">
+        <h2 class="contact__title"><span data-l="en">Contact Me</span><span data-l="es">Contáctame</span></h2>
+        <p><span data-l="en">Let's explore the exciting project you'd like to dive into!</span><span data-l="es">¡Hablemos del proyecto que tienes en mente y hagámoslo realidad!</span></p>
+      </div>
+      <ul class="contact__list reveal">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Zm1.8.3 7.2 5.6 7.2-5.6M4 18l6-5.5M20 18l-6-5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <a href="mailto:c.jimena08@gmail.com">c.jimena08@gmail.com</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+          <a href="https://www.linkedin.com/in/claudiajimeneza" target="_blank" rel="noopener">claudiajimeneza</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4-2 1.3a11 11 0 0 0 6.6 6.6l1.3-2 4 1.4v2.6a2 2 0 0 1-2.2 2A17 17 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <a href="tel:+51992270323">+51 992270323</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <span>© <span id="year"></span> Claudia Jiménez</span>
+    <a href="#top"><span data-l="en">Back to top</span><span data-l="es">Volver arriba</span> ↑</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

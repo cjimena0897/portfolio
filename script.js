@@ -40,17 +40,12 @@ if ('IntersectionObserver' in window) {
   revealEls.forEach((el) => el.classList.add('is-visible'));
 }
 
-// Highlight the current section in the nav
-const links = [...document.querySelectorAll('.nav__links a:not(.pill)')];
-const sections = links.map((l) => document.querySelector(l.getAttribute('href')));
-const spy = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) {
-        links.forEach((l) => l.classList.toggle('is-active', l.getAttribute('href') === '#' + e.target.id));
-      }
-    });
-  },
-  { rootMargin: '-45% 0px -50% 0px' }
-);
-sections.forEach((s) => s && spy.observe(s));
+// Highlight "Projects" in the nav while it is on screen (home page only)
+const projLink = document.querySelector('.nav__links a[href$="#projects"]');
+const projSection = document.getElementById('projects');
+if (projLink && projSection && 'IntersectionObserver' in window) {
+  new IntersectionObserver(
+    ([e]) => projLink.classList.toggle('is-active', e.isIntersecting),
+    { rootMargin: '-45% 0px -50% 0px' }
+  ).observe(projSection);
+}

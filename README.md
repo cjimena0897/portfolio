@@ -3,7 +3,8 @@
 Portafolio personal (HTML + CSS + JS, sin dependencias), publicado con GitHub Pages.
 
 ## Estructura
-- `index.html` — contenido (Hero, Projects, About, Skills, Experience, Contact)
+- `index.html` — inicio (Hero, Projects, resumen de About, Contact)
+- `about.html` — página Sobre mí (intro, Experience, Education, Skills, Contact)
 - `styles.css` — estilos (colores en `:root`)
 - `script.js` — menú móvil, animaciones al hacer scroll
 - `assets/` — imágenes (foto y mockups de proyectos)

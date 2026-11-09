@@ -224,3 +224,5 @@ p { margin: 0; }
   .pill { margin-top: 10px; }
   .contact { flex-direction: column; align-items: flex-start; }
 }
+
+.subhead { font-family: var(--serif); text-transform: uppercase; font-size: clamp(24px, 2.6vw, 30px); margin: clamp(56px, 7vw, 88px) 0 24px; }

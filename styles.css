@@ -491,3 +491,14 @@ button:focus-visible, .pill:focus-visible, .btn:focus-visible { outline: 2px sol
 .card__media img.card__phone { width: 46%; max-width: 220px; height: 100%; object-fit: cover; object-position: top; border-radius: 22px 22px 0 0; box-shadow: 0 18px 40px -26px rgba(0,0,0,.5); }
 .card--list .card__media img.card__phone { border-radius: 22px 22px 0 0; margin-inline: auto; transform: translateX(-22px); }
 @media (max-width: 900px) { .card--list .card__media img.card__phone { transform: none; } }
+
+/* Desktop screens (web apps) — use inside a case study */
+.cs-hero__media--desktop { align-items: center; padding: clamp(24px, 4vw, 48px); }
+.shot { margin: 0; border-radius: 12px; overflow: hidden; background: var(--bg); box-shadow: 0 24px 50px -30px rgba(0,0,0,.45); border: 1px solid var(--line-faint); }
+.shot::before { content: ""; display: block; height: 22px; background: radial-gradient(circle at 14px 11px, #e5776b 4px, transparent 4.5px), radial-gradient(circle at 30px 11px, #e8bd5b 4px, transparent 4.5px), radial-gradient(circle at 46px 11px, #7cc08b 4px, transparent 4.5px), var(--stone); }
+.shot img { display: block; width: 100%; height: auto; }
+.shots { display: grid; gap: clamp(18px, 3vw, 36px); background: var(--card); border-radius: var(--radius); padding: clamp(20px, 4vw, 56px); margin-top: 18px; }
+.shots--2 { grid-template-columns: repeat(2, 1fr); }
+.shots figcaption, .shot-caption { margin-top: 10px; font-size: 14px; color: var(--ink); text-align: center; }
+.shots > figure { margin: 0; }
+@media (max-width: 900px) { .shots--2 { grid-template-columns: 1fr; } }

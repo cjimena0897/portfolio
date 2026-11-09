@@ -21,6 +21,8 @@
   --sky: #d5e2f0;
   --butter: #f6efcc;
   --stone: #e2e1df;
+  --lilac: #e3dcef;
+  --mint: #d3ebe4;
   --accent: #e08a74;
   --blob-a: var(--blush);
   --blob-b: var(--sage);
@@ -53,6 +55,8 @@
     --sky: #28323f;
     --butter: #39331f;
     --stone: #2c2b28;
+    --lilac: #332d3f;
+    --mint: #24382f;
     --accent: #eb9a84;
     --blob-a: #5a3830;
     --blob-b: #2f4a3f;
@@ -80,6 +84,8 @@
   --sky: #28323f;
   --butter: #39331f;
   --stone: #2c2b28;
+  --lilac: #332d3f;
+  --mint: #24382f;
   --accent: #eb9a84;
   --blob-a: #5a3830;
   --blob-b: #2f4a3f;

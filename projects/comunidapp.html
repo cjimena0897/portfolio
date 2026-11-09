@@ -1,9 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ComunidAPP · Claudia Jiménez</title>
+  <title data-en="ComunidAPP · Claudia Jiménez" data-es="ComunidAPP · Claudia Jiménez">ComunidAPP · Claudia Jiménez</title>
+  <script>
+    /* Apply saved theme + language before first paint to avoid a flash (logic: script.js) */
+    (function (d) {
+      var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+      var t = get('theme'), l = get('lang');
+      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+      if (l !== 'en' && l !== 'es') l = /^es\b/i.test(navigator.language || '') ? 'es' : 'en';
+      d.lang = l; d.setAttribute('data-lang', l);
+      var ti = document.querySelector('title');
+      if (ti && ti.getAttribute('data-' + l)) document.title = ti.getAttribute('data-' + l);
+    })(document.documentElement);
+  </script>
   <meta name="description" content="Claudia Jiménez — UX/UI designer creating digital products with a user-first mindset." />
   <meta property="og:title" content="Claudia Jiménez · UX/UI Designer" />
   <meta property="og:description" content="UX/UI designer creating digital products with a user-first mindset." />
@@ -11,17 +23,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script>
-    /* Apply the saved theme before first paint to avoid a flash (logic: script.js) */
-    (function (d) {
-      var t; try { t = localStorage.getItem('theme'); } catch (e) {}
-      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
-    })(document.documentElement);
-  </script>
   <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="es">Saltar al contenido</span></a>
 
   <header class="nav" id="top">
     <div class="container nav__inner">
@@ -30,11 +35,15 @@
         <span></span><span></span>
       </button>
       <nav id="nav-links" class="nav__links">
-        <a href="../projects.html" class="is-active" aria-current="page">Projects</a>
-        <a href="../about.html">About</a>
-        <a href="#contact" class="pill">Contact Me</a>
+        <a href="../projects.html" class="is-active" aria-current="page"><span data-l="en">Projects</span><span data-l="es">Proyectos</span></a>
+        <a href="../about.html"><span data-l="en">About</span><span data-l="es">Sobre mí</span></a>
+        <a href="#contact" class="pill"><span data-l="en">Contact Me</span><span data-l="es">Contáctame</span></a>
         <div class="nav__tools">
-          <button type="button" class="icon-btn theme-toggle" aria-pressed="false" aria-label="Dark mode">
+          <div class="lang" role="group" aria-label="Language" data-en-aria-label="Language" data-es-aria-label="Idioma">
+            <button type="button" class="lang__btn" data-set-lang="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
+            <button type="button" class="lang__btn" data-set-lang="es" lang="es" aria-label="Español" aria-pressed="false">ES</button>
+          </div>
+          <button type="button" class="icon-btn theme-toggle" aria-pressed="false" aria-label="Dark mode" data-en-aria-label="Dark mode" data-es-aria-label="Modo oscuro">
             <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4 8.2 8.2 0 1 0 20 14.6Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
             <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.8v2.1M12 19.1v2.1M2.8 12h2.1M19.1 12h2.1M5.5 5.5 7 7M17 17l1.5 1.5M5.5 18.5 7 17M17 7l1.5-1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           </button>
@@ -45,20 +54,20 @@
 
   <main id="main">
     <section class="intro container case">
-      <p class="crumb reveal"><a href="../projects.html">Projects</a> / ComunidAPP</p>
-      <p class="eyebrow reveal">04 / 04 · Mobile app · Marketplace</p>
+      <p class="crumb reveal"><a href="../projects.html"><span data-l="en">Projects</span><span data-l="es">Proyectos</span></a> / ComunidAPP</p>
+      <p class="eyebrow reveal">04 / 04 · <span data-l="en">Mobile app · Marketplace</span><span data-l="es">App móvil · Marketplace</span></p>
       <h1 class="case__title reveal">ComunidAPP</h1>
-      <p class="intro__lead reveal page-lead">Design of a functional prototype for a marketplace aimed at promoting the small businesses of SLB collaborators.</p>
+      <p class="intro__lead reveal page-lead"><span data-l="en">Design of a functional prototype for a marketplace aimed at promoting the small businesses of SLB collaborators.</span><span data-l="es">Diseño de un prototipo funcional para un marketplace que busca impulsar los pequeños negocios de los colaboradores de SLB.</span></p>
       <dl class="facts reveal">
-        <div class="fact"><dt>Type</dt><dd>Mobile app · Functional prototype</dd></div>
-        <div class="fact"><dt>Audience</dt><dd>SLB collaborators</dd></div>
-        <div class="fact"><dt>Focus</dt><dd>Research · Mobile Design · UI Kit</dd></div>
+        <div class="fact"><dt><span data-l="en">Type</span><span data-l="es">Tipo</span></dt><dd><span data-l="en">Mobile app · Functional prototype</span><span data-l="es">App móvil · Prototipo funcional</span></dd></div>
+        <div class="fact"><dt><span data-l="en">Audience</span><span data-l="es">Público</span></dt><dd><span data-l="en">SLB collaborators</span><span data-l="es">Colaboradores de SLB</span></dd></div>
+        <div class="fact"><dt><span data-l="en">Focus</span><span data-l="es">Enfoque</span></dt><dd><span data-l="en">Research · Mobile Design · UI Kit</span><span data-l="es">Investigación · Diseño móvil · UI Kit</span></dd></div>
       </dl>
     </section>
 
     <section class="container">
       <div class="case__cover reveal" style="--card:var(--butter)">
-        <!-- Replace with: <img src="../assets/comunidapp.png" alt="ComunidAPP screens"> -->
+        <!-- Replace with: <img src="../assets/comunidapp.png" alt="ComunidAPP screens" data-en-alt="ComunidAPP screens" data-es-alt="Pantallas de ComunidAPP"> -->
             <div class="placeholder placeholder--phone">ComunidAPP</div>
       </div>
     </section>
@@ -66,36 +75,36 @@
     <!--
       CASE STUDY CONTENT — add sections here as they're ready, e.g.:
       <section class="section container case__section">
-        <h2 class="section__title"><span>The challenge</span></h2>
-        <div class="case__text"><p>…</p></div>
+        <h2 class="section__title"><span><span data-l="en">The challenge</span><span data-l="es">El reto</span></span></h2>
+        <div class="case__text"><p><span data-l="en">…</span><span data-l="es">…</span></p></div>
       </section>
       Suggested sections: The challenge · Research · Process · Solution · Results &amp; learnings
     -->
     <section class="section container">
       <div class="callout reveal" style="--card:var(--butter)">
-        <p class="eyebrow">Case study in progress</p>
-        <p>I’m putting together the full story behind this project. Want to hear about it in the meantime?</p>
-        <a href="#contact" class="btn btn--dark">Let’s talk</a>
+        <p class="eyebrow"><span data-l="en">Case study in progress</span><span data-l="es">Caso de estudio en preparación</span></p>
+        <p><span data-l="en">I’m putting together the full story behind this project. Want to hear about it in the meantime?</span><span data-l="es">Estoy preparando la historia completa detrás de este proyecto. ¿Quieres conocerla mientras tanto?</span></p>
+        <a href="#contact" class="btn btn--dark"><span data-l="en">Let’s talk</span><span data-l="es">Conversemos</span></a>
       </div>
     </section>
 
-    <nav class="pager container" aria-label="More projects">
+    <nav class="pager container" aria-label="More projects" data-en-aria-label="More projects" data-es-aria-label="Más proyectos">
       <a class="pager__link pager__link--prev reveal" href="../projects/law-firm-website.html">
-        <span class="pager__label"><span class="arrow" aria-hidden="true">←</span> Previous project</span>
-        <span class="pager__title">Website</span>
+        <span class="pager__label"><span class="arrow" aria-hidden="true">←</span> <span data-l="en">Previous project</span><span data-l="es">Proyecto anterior</span></span>
+        <span class="pager__title"><span data-l="en">Website</span><span data-l="es">Sitio web</span></span>
       </a>
       <a class="pager__link pager__link--next reveal" href="../projects/crypto-marketplace.html">
-        <span class="pager__label">Next project <span class="arrow" aria-hidden="true">→</span></span>
+        <span class="pager__label"><span data-l="en">Next project</span><span data-l="es">Proyecto siguiente</span> <span class="arrow" aria-hidden="true">→</span></span>
         <span class="pager__title">Crypto Marketplace</span>
       </a>
     </nav>
-    <div class="container pager__all reveal"><a href="../projects.html">View all projects</a></div>
+    <div class="container pager__all reveal"><a href="../projects.html"><span data-l="en">View all projects</span><span data-l="es">Ver todos los proyectos</span></a></div>
 
     <!-- CONTACT -->
     <section id="contact" class="section container contact">
       <div class="contact__text reveal">
-        <h2 class="contact__title">Contact Me</h2>
-        <p>Let's explore the exciting project you'd like to dive into!</p>
+        <h2 class="contact__title"><span data-l="en">Contact Me</span><span data-l="es">Contáctame</span></h2>
+        <p><span data-l="en">Let's explore the exciting project you'd like to dive into!</span><span data-l="es">¡Hablemos del proyecto que tienes en mente y hagámoslo realidad!</span></p>
       </div>
       <ul class="contact__list reveal">
         <li>
@@ -116,7 +125,7 @@
 
   <footer class="footer container">
     <span>© <span id="year"></span> Claudia Jiménez</span>
-    <a href="#top">Back to top ↑</a>
+    <a href="#top"><span data-l="en">Back to top</span><span data-l="es">Volver arriba</span> ↑</a>
   </footer>
 
   <script src="../script.js"></script>

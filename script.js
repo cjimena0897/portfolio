@@ -26,20 +26,60 @@ if (themeBtn) {
   syncThemeBtn();
 }
 
+// Language (en / es). Text lives in the HTML as <span data-l="en"> / <span data-l="es">
+// pairs that CSS shows or hides from <html data-lang>; the inline script in <head>
+// picks the language before first paint (saved choice, else the browser language).
+// Here we only handle the switch, the <title> and translatable attributes.
+const UI = {
+  en: { openMenu: 'Open menu', closeMenu: 'Close menu' },
+  es: { openMenu: 'Abrir menú', closeMenu: 'Cerrar menú' },
+};
+const ATTRS = ['aria-label', 'alt', 'placeholder', 'title']; // use data-en-<attr> / data-es-<attr>
+const currentLang = () => (root.dataset.lang === 'es' ? 'es' : 'en');
+
+function applyLang(lang) {
+  root.lang = lang;
+  root.dataset.lang = lang;
+  const title = document.querySelector('title');
+  if (title && title.dataset[lang]) document.title = title.dataset[lang];
+  ATTRS.forEach((attr) =>
+    document.querySelectorAll(`[data-${lang}-${attr}]`).forEach((el) =>
+      el.setAttribute(attr, el.getAttribute(`data-${lang}-${attr}`))
+    )
+  );
+  document.querySelectorAll('[data-set-lang]').forEach((btn) =>
+    btn.setAttribute('aria-pressed', btn.dataset.setLang === lang)
+  );
+  syncMenuLabel();
+}
+document.querySelectorAll('[data-set-lang]').forEach((btn) =>
+  btn.addEventListener('click', () => {
+    store.set('lang', btn.dataset.setLang);
+    applyLang(btn.dataset.setLang);
+  })
+);
+
 // Mobile menu
 const nav = document.querySelector('.nav');
 const toggle = document.querySelector('.nav__toggle');
+function syncMenuLabel() {
+  const open = nav.classList.contains('is-open');
+  toggle.setAttribute('aria-label', UI[currentLang()][open ? 'closeMenu' : 'openMenu']);
+}
 toggle.addEventListener('click', () => {
   const open = nav.classList.toggle('is-open');
   toggle.setAttribute('aria-expanded', open);
-  toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  syncMenuLabel();
 });
 document.querySelectorAll('.nav__links a').forEach((a) =>
   a.addEventListener('click', () => {
     nav.classList.remove('is-open');
     toggle.setAttribute('aria-expanded', 'false');
+    syncMenuLabel();
   })
 );
+
+applyLang(currentLang());
 
 // Nav border on scroll
 const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 10);

@@ -89,6 +89,12 @@
   --show-dark: block;
 }
 
+/* ---------- LANGUAGES ----------
+   Bilingual text sits side by side: <span data-l="en">…</span><span data-l="es">…</span>.
+   <html data-lang> (set in <head> before first paint) decides which one shows. */
+html[data-lang="en"] [data-l="es"],
+html[data-lang="es"] [data-l="en"] { display: none !important; }
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 88px; overflow-x: clip; }
 body {
@@ -156,6 +162,16 @@ p { margin: 0; }
 .icon-btn svg { width: 18px; height: 18px; }
 .theme-toggle .i-moon { display: var(--show-light); }  /* light theme: offer dark */
 .theme-toggle .i-sun { display: var(--show-dark); }
+.lang { display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--line-soft); border-radius: 99px; }
+.lang__btn {
+  font: inherit; font-size: 12px; font-weight: 700; letter-spacing: .08em; line-height: 1;
+  padding: 8px 10px; border: 0; border-radius: 99px; background: none; color: var(--muted);
+  cursor: pointer; transition: background .25s, color .25s;
+}
+.lang__btn:hover { color: var(--ink); }
+/* active state comes from <html data-lang> so it is right before script.js runs */
+html[data-lang="en"] .lang__btn[data-set-lang="en"],
+html[data-lang="es"] .lang__btn[data-set-lang="es"] { background: var(--ink); color: var(--bg); }
 button:focus-visible, .pill:focus-visible, .btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
 /* ---------- HERO ---------- */

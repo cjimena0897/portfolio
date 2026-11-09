@@ -1,9 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About · Claudia Jiménez</title>
+  <title data-en="About · Claudia Jiménez" data-es="Sobre mí · Claudia Jiménez">About · Claudia Jiménez</title>
+  <script>
+    /* Apply saved theme + language before first paint to avoid a flash (logic: script.js) */
+    (function (d) {
+      var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+      var t = get('theme'), l = get('lang');
+      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+      if (l !== 'en' && l !== 'es') l = /^es\b/i.test(navigator.language || '') ? 'es' : 'en';
+      d.lang = l; d.setAttribute('data-lang', l);
+      var ti = document.querySelector('title');
+      if (ti && ti.getAttribute('data-' + l)) document.title = ti.getAttribute('data-' + l);
+    })(document.documentElement);
+  </script>
   <meta name="description" content="Claudia Jiménez — UX/UI designer creating digital products with a user-first mindset." />
   <meta property="og:title" content="Claudia Jiménez · UX/UI Designer" />
   <meta property="og:description" content="UX/UI designer creating digital products with a user-first mindset." />
@@ -11,17 +23,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script>
-    /* Apply the saved theme before first paint to avoid a flash (logic: script.js) */
-    (function (d) {
-      var t; try { t = localStorage.getItem('theme'); } catch (e) {}
-      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
-    })(document.documentElement);
-  </script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="es">Saltar al contenido</span></a>
 
   <header class="nav" id="top">
     <div class="container nav__inner">
@@ -30,11 +35,15 @@
         <span></span><span></span>
       </button>
       <nav id="nav-links" class="nav__links">
-        <a href="projects.html">Projects</a>
-        <a href="about.html" class="is-active" aria-current="page">About</a>
-        <a href="#contact" class="pill">Contact Me</a>
+        <a href="projects.html"><span data-l="en">Projects</span><span data-l="es">Proyectos</span></a>
+        <a href="about.html" class="is-active" aria-current="page"><span data-l="en">About</span><span data-l="es">Sobre mí</span></a>
+        <a href="#contact" class="pill"><span data-l="en">Contact Me</span><span data-l="es">Contáctame</span></a>
         <div class="nav__tools">
-          <button type="button" class="icon-btn theme-toggle" aria-pressed="false" aria-label="Dark mode">
+          <div class="lang" role="group" aria-label="Language" data-en-aria-label="Language" data-es-aria-label="Idioma">
+            <button type="button" class="lang__btn" data-set-lang="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
+            <button type="button" class="lang__btn" data-set-lang="es" lang="es" aria-label="Español" aria-pressed="false">ES</button>
+          </div>
+          <button type="button" class="icon-btn theme-toggle" aria-pressed="false" aria-label="Dark mode" data-en-aria-label="Dark mode" data-es-aria-label="Modo oscuro">
             <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4 8.2 8.2 0 1 0 20 14.6Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
             <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.8v2.1M12 19.1v2.1M2.8 12h2.1M19.1 12h2.1M5.5 5.5 7 7M17 17l1.5 1.5M5.5 18.5 7 17M17 7l1.5-1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           </button>
@@ -46,32 +55,40 @@
   <main id="main">
     <!-- INTRO -->
     <section class="intro container">
-      <p class="crumb reveal"><a href="index.html">Home</a> / About me</p>
-      <h1 class="intro__title reveal"><em>Hello!</em><span class="star">✳</span></h1>
+      <p class="crumb reveal"><a href="index.html"><span data-l="en">Home</span><span data-l="es">Inicio</span></a> / <span data-l="en">About me</span><span data-l="es">Sobre mí</span></p>
+      <h1 class="intro__title reveal"><em><span data-l="en">Hello!</span><span data-l="es">¡Hola!</span></em><span class="star">✳</span></h1>
 
       <div class="intro__grid">
         <div class="about__photo reveal">
-          <!-- Replace with: <img src="assets/claudia.jpg" alt="Portrait of Claudia Jiménez"> -->
-          <div class="placeholder">Your photo</div>
+          <!-- Replace with: <img src="assets/claudia.jpg" alt="Portrait of Claudia Jiménez" data-en-alt="Portrait of Claudia Jiménez" data-es-alt="Retrato de Claudia Jiménez"> -->
+          <div class="placeholder"><span data-l="en">Your photo</span><span data-l="es">Tu foto</span></div>
         </div>
         <div class="intro__text reveal">
           <p class="intro__lead">
-            I’m a UX UI designer with a background in <em>Architecture</em>, and I’ve turned my passion
-            for understanding people into inclusive and accessible digital solutions.
+            <span data-l="en">I’m a UX UI designer with a background in <em>Architecture</em>, and I’ve turned my passion
+            for understanding people into inclusive and accessible digital solutions.</span>
+            <span data-l="es">Soy diseñadora UX/UI con formación en <em>Arquitectura</em>, y he convertido mi pasión
+            por entender a las personas en soluciones digitales inclusivas y accesibles.</span>
           </p>
           <p>
-            Architecture brought me closer to users, always focusing on enhancing their experience by
+            <span data-l="en">Architecture brought me closer to users, always focusing on enhancing their experience by
             addressing their needs while considering accessibility and sustainability. This is how
             sketches evolved into wireframes and models transformed into prototypes, leading me to become
-            a digital solutions architect today.
+            a digital solutions architect today.</span>
+            <span data-l="es">La arquitectura me acercó a los usuarios: siempre buscaba mejorar su experiencia atendiendo
+            sus necesidades, sin perder de vista la accesibilidad y la sostenibilidad. Así, los bocetos se
+            convirtieron en wireframes y las maquetas en prototipos, hasta llevarme a ser hoy una
+            arquitecta de soluciones digitales.</span>
           </p>
           <p>
-            Today I design user-centered digital experiences — from user interviews and research to
-            interfaces and working prototypes — looking for solutions that make a positive impact.
+            <span data-l="en">Today I design user-centered digital experiences — from user interviews and research to
+            interfaces and working prototypes — looking for solutions that make a positive impact.</span>
+            <span data-l="es">Hoy diseño experiencias digitales centradas en el usuario —desde entrevistas e investigación
+            hasta interfaces y prototipos funcionales—, buscando soluciones que generen un impacto positivo.</span>
           </p>
           <div class="intro__actions">
             <a href="https://www.linkedin.com/in/claudiajimeneza" target="_blank" rel="noopener" class="btn">LinkedIn <span aria-hidden="true">↗</span></a>
-            <a href="#contact" class="btn btn--dark">Let’s talk</a>
+            <a href="#contact" class="btn btn--dark"><span data-l="en">Let’s talk</span><span data-l="es">Conversemos</span></a>
           </div>
         </div>
       </div>
@@ -79,37 +96,37 @@
 
     <!-- EXPERIENCE -->
     <section id="experience" class="section container">
-      <h2 class="section__title reveal"><span>Experience</span></h2>
+      <h2 class="section__title reveal"><span><span data-l="en">Experience</span><span data-l="es">Experiencia</span></span></h2>
       <ol class="jobs">
         <li class="job reveal">
           <div class="job__head">
             <h3 class="job__company">JobLeap AI</h3>
-            <span class="job__date">Oct 2023 / Present</span>
+            <span class="job__date"><span data-l="en">Oct 2023 / Present</span><span data-l="es">Oct 2023 / Actualidad</span></span>
           </div>
           <div class="job__body">
-            <h4>UX UI Designer</h4>
-            <p>Design of an innovative AI-powered platform that acts as an assistant and co-pilot to help people find their next ideal role. I lead user research and design to continuously improve the platform’s functionality and user experience.</p>
+            <h4><span data-l="en">UX UI Designer</span><span data-l="es">Diseñadora UX/UI</span></h4>
+            <p><span data-l="en">Design of an innovative AI-powered platform that acts as an assistant and co-pilot to help people find their next ideal role. I lead user research and design to continuously improve the platform’s functionality and user experience.</span><span data-l="es">Diseño de una plataforma innovadora impulsada por IA que funciona como asistente y copiloto para ayudar a las personas a encontrar su próximo rol ideal. Lidero la investigación de usuarios y el diseño para mejorar continuamente la funcionalidad y la experiencia de la plataforma.</span></p>
           </div>
         </li>
         <li class="job reveal">
           <div class="job__head">
             <h3 class="job__company">TripleTen</h3>
-            <span class="job__date">Feb 2025 / Apr 2025</span>
+            <span class="job__date"><span data-l="en">Feb 2025 / Apr 2025</span><span data-l="es">Feb 2025 / Abr 2025</span></span>
           </div>
           <div class="job__body">
-            <h4>UX/UI Design Educator</h4>
-            <p>Reviewed students’ projects and gave detailed, constructive feedback to help them strengthen their design skills.</p>
+            <h4><span data-l="en">UX/UI Design Educator</span><span data-l="es">Educadora de Diseño UX/UI</span></h4>
+            <p><span data-l="en">Reviewed students’ projects and gave detailed, constructive feedback to help them strengthen their design skills.</span><span data-l="es">Revisé proyectos de estudiantes y brindé retroalimentación detallada y constructiva para ayudarlos a fortalecer sus habilidades de diseño.</span></p>
           </div>
         </li>
         <li class="job reveal">
           <div class="job__head">
             <h3 class="job__company">Good Inc.</h3>
-            <span class="job__date">May 2023 / Aug 2023</span>
+            <span class="job__date"><span data-l="en">May 2023 / Aug 2023</span><span data-l="es">May 2023 / Ago 2023</span></span>
           </div>
           <div class="job__body">
-            <h4>UX Research / UX UI Designer</h4>
-            <span class="job__meta">X-claim · USA</span>
-            <p>Conducted research to improve a cryptocurrency marketplace, analyzing data to identify strengths and weaknesses in functionality, user experience and scalability. Worked with designers, developers and project managers to turn client requirements into an appealing, functional website.</p>
+            <h4><span data-l="en">UX Research / UX UI Designer</span><span data-l="es">UX Research / Diseñadora UX/UI</span></h4>
+            <span class="job__meta">X-claim · <span data-l="en">USA</span><span data-l="es">EE. UU.</span></span>
+            <p><span data-l="en">Conducted research to improve a cryptocurrency marketplace, analyzing data to identify strengths and weaknesses in functionality, user experience and scalability. Worked with designers, developers and project managers to turn client requirements into an appealing, functional website.</span><span data-l="es">Realicé investigación para mejorar un marketplace de criptomonedas, analizando datos para identificar fortalezas y debilidades en funcionalidad, experiencia de usuario y escalabilidad. Trabajé con diseñadores, desarrolladores y project managers para convertir los requerimientos del cliente en un sitio web atractivo y funcional.</span></p>
           </div>
         </li>
         <li class="job reveal">
@@ -118,9 +135,9 @@
             <span class="job__date">Mar 2023 / Oct 2023</span>
           </div>
           <div class="job__body">
-            <h4>UX UI Designer</h4>
-            <span class="job__meta">USA</span>
-            <p>Redesigned digital catalogs and websites for several brands. Conducted user, audience and market research to inform design strategies, collaborating with graphic designers, developers and project managers.</p>
+            <h4><span data-l="en">UX UI Designer</span><span data-l="es">Diseñadora UX/UI</span></h4>
+            <span class="job__meta"><span data-l="en">USA</span><span data-l="es">EE. UU.</span></span>
+            <p><span data-l="en">Redesigned digital catalogs and websites for several brands. Conducted user, audience and market research to inform design strategies, collaborating with graphic designers, developers and project managers.</span><span data-l="es">Rediseñé catálogos digitales y sitios web para diversas marcas. Realicé investigación de usuarios, audiencia y mercado para orientar las estrategias de diseño, en colaboración con diseñadores gráficos, desarrolladores y project managers.</span></p>
           </div>
         </li>
       </ol>
@@ -128,16 +145,16 @@
 
     <!-- EDUCATION -->
     <section id="education" class="section container">
-      <h2 class="section__title reveal"><span>Education</span></h2>
+      <h2 class="section__title reveal"><span><span data-l="en">Education</span><span data-l="es">Educación</span></span></h2>
       <ol class="jobs">
         <li class="job reveal">
           <div class="job__head">
             <h3 class="job__company">Laboratoria</h3>
-            <span class="job__date">Jul 2022 / Dec 2022</span>
+            <span class="job__date"><span data-l="en">Jul 2022 / Dec 2022</span><span data-l="es">Jul 2022 / Dic 2022</span></span>
           </div>
           <div class="job__body">
-            <h4>User Experience Design</h4>
-            <p>UX Design Bootcamp.</p>
+            <h4><span data-l="en">User Experience Design</span><span data-l="es">Diseño de Experiencia de Usuario</span></h4>
+            <p><span data-l="en">UX Design Bootcamp.</span><span data-l="es">Bootcamp de Diseño UX.</span></p>
           </div>
         </li>
         <li class="job reveal">
@@ -146,59 +163,59 @@
             <span class="job__date">2014 / 2019</span>
           </div>
           <div class="job__body">
-            <h4>Architecture, Urbanism and Arts</h4>
-            <p>Universidad Privada Antenor Orrego — where my user-centered approach began.</p>
+            <h4><span data-l="en">Architecture, Urbanism and Arts</span><span data-l="es">Arquitectura, Urbanismo y Artes</span></h4>
+            <p>Universidad Privada Antenor Orrego — <span data-l="en">where my user-centered approach began.</span><span data-l="es">donde nació mi enfoque centrado en el usuario.</span></p>
           </div>
         </li>
       </ol>
 
-      <h3 class="subhead reveal">Certifications</h3>
+      <h3 class="subhead reveal"><span data-l="en">Certifications</span><span data-l="es">Certificaciones</span></h3>
       <ul class="certs">
         <li class="cert reveal">
           <div>
-            <h4>Diseño UX/UI para Productos de IA (XGAL0001)</h4>
-            <span class="cert__issuer">Stanford Online · Aug 2026</span>
+            <h4><span data-l="en">UX/UI Design for AI Products</span><span data-l="es">Diseño UX/UI para Productos de IA</span> (XGAL0001)</h4>
+            <span class="cert__issuer">Stanford Online · <span data-l="en">Aug 2026</span><span data-l="es">Ago 2026</span></span>
           </div>
-          <a href="https://digitalcredential.stanford.edu/check/93597F97DFC740CD0BE966996C30CACFDD52B5F08014A9793001EB45234C125AS1VYUjgwZWFuM2VDMGVKK0lORmVrMVo3ZUpVb1lmaDlreFdsd2NweWk3Y0ROdmZG" target="_blank" rel="noopener" class="cert__link">Show credential <span aria-hidden="true">↗</span></a>
+          <a href="https://digitalcredential.stanford.edu/check/93597F97DFC740CD0BE966996C30CACFDD52B5F08014A9793001EB45234C125AS1VYUjgwZWFuM2VDMGVKK0lORmVrMVo3ZUpVb1lmaDlreFdsd2NweWk3Y0ROdmZG" target="_blank" rel="noopener" class="cert__link"><span data-l="en">Show credential</span><span data-l="es">Ver credencial</span> <span aria-hidden="true">↗</span></a>
         </li>
         <li class="cert reveal">
           <div>
             <h4>AI-Powered UX Design: How to Elevate Your UX Career</h4>
-            <span class="cert__issuer">IxDF – The Interaction Design Foundation · Jan 2024</span>
+            <span class="cert__issuer">IxDF – The Interaction Design Foundation · <span data-l="en">Jan 2024</span><span data-l="es">Ene 2024</span></span>
           </div>
-          <a href="https://ixdf.org/members/claudia-jimenez-aguirre/certificate/masterclass/mcc_8d3c23cbf4f243b1ac06e5b314cf1dab" target="_blank" rel="noopener" class="cert__link">Show credential <span aria-hidden="true">↗</span></a>
+          <a href="https://ixdf.org/members/claudia-jimenez-aguirre/certificate/masterclass/mcc_8d3c23cbf4f243b1ac06e5b314cf1dab" target="_blank" rel="noopener" class="cert__link"><span data-l="en">Show credential</span><span data-l="es">Ver credencial</span> <span aria-hidden="true">↗</span></a>
         </li>
         <li class="cert reveal">
           <div>
             <h4>Foundations of User Experience (UX) Design</h4>
             <span class="cert__issuer">Google · Coursera · Jun 2023</span>
           </div>
-          <a href="https://www.coursera.org/account/accomplishments/verify/68H8A5TNTGMC" target="_blank" rel="noopener" class="cert__link">Show credential <span aria-hidden="true">↗</span></a>
+          <a href="https://www.coursera.org/account/accomplishments/verify/68H8A5TNTGMC" target="_blank" rel="noopener" class="cert__link"><span data-l="en">Show credential</span><span data-l="es">Ver credencial</span> <span aria-hidden="true">↗</span></a>
         </li>
       </ul>
     </section>
 
     <!-- SKILLS -->
     <section id="skills" class="section container">
-      <h2 class="section__title reveal"><span>Skills</span></h2>
+      <h2 class="section__title reveal"><span><span data-l="en">Skills</span><span data-l="es">Habilidades</span></span></h2>
       <div class="skills">
         <div class="skill-group reveal">
-          <h3>Design &amp; Research</h3>
+          <h3><span data-l="en">Design &amp; Research</span><span data-l="es">Diseño e investigación</span></h3>
           <ul class="tags tags--lg">
-            <li>UX Research</li><li>Quantitative &amp; qualitative research</li>
-            <li>Information architecture</li><li>Interface &amp; interaction design</li>
-            <li>Usability testing</li><li>Prototyping in different fidelities</li>
+            <li>UX Research</li><li><span data-l="en">Quantitative &amp; qualitative research</span><span data-l="es">Investigación cuantitativa y cualitativa</span></li>
+            <li><span data-l="en">Information architecture</span><span data-l="es">Arquitectura de información</span></li><li><span data-l="en">Interface &amp; interaction design</span><span data-l="es">Diseño de interfaces e interacción</span></li>
+            <li><span data-l="en">Usability testing</span><span data-l="es">Pruebas de usabilidad</span></li><li><span data-l="en">Prototyping in different fidelities</span><span data-l="es">Prototipado en distintas fidelidades</span></li>
           </ul>
         </div>
         <div class="skill-group reveal">
-          <h3>Methods</h3>
+          <h3><span data-l="en">Methods</span><span data-l="es">Metodologías</span></h3>
           <ul class="tags tags--lg">
             <li>Design Thinking</li><li>Design Sprint</li><li>Scrum</li>
-            <li>Accessibility</li><li>User-centered design</li>
+            <li><span data-l="en">Accessibility</span><span data-l="es">Accesibilidad</span></li><li><span data-l="en">User-centered design</span><span data-l="es">Diseño centrado en el usuario</span></li>
           </ul>
         </div>
         <div class="skill-group reveal">
-          <h3>Tools</h3>
+          <h3><span data-l="en">Tools</span><span data-l="es">Herramientas</span></h3>
           <ul class="tags tags--lg">
             <li>Figma</li><li>Miro</li><li>Maze</li><li>Slack</li>
             <li>Trello</li><li>Adobe Creative Suite</li><li>MS Office</li>
@@ -210,11 +227,14 @@
     <!-- OUTSIDE WORK -->
     <section class="section container">
       <div class="about__fun reveal">
-        <p class="eyebrow">Outside of work</p>
+        <p class="eyebrow"><span data-l="en">Outside of work</span><span data-l="es">Fuera del trabajo</span></p>
         <p>
-          I enjoy staying active (still on a mission to fall in love with a sport! 😆),
+          <span data-l="en">I enjoy staying active (still on a mission to fall in love with a sport! 😆),
           experimenting with new recipes, traveling, savoring good food and wine, and taking my
-          puppies for walks.
+          puppies for walks.</span>
+          <span data-l="es">Me encanta mantenerme activa (¡sigo en la misión de enamorarme de algún deporte! 😆),
+          probar recetas nuevas, viajar, disfrutar de buena comida y buen vino, y sacar a pasear a
+          mis perritos.</span>
         </p>
       </div>
     </section>
@@ -222,8 +242,8 @@
     <!-- CONTACT -->
     <section id="contact" class="section container contact">
       <div class="contact__text reveal">
-        <h2 class="contact__title">Contact Me</h2>
-        <p>Let's explore the exciting project you'd like to dive into!</p>
+        <h2 class="contact__title"><span data-l="en">Contact Me</span><span data-l="es">Contáctame</span></h2>
+        <p><span data-l="en">Let's explore the exciting project you'd like to dive into!</span><span data-l="es">¡Hablemos del proyecto que tienes en mente y hagámoslo realidad!</span></p>
       </div>
       <ul class="contact__list reveal">
         <li>
@@ -244,7 +264,7 @@
 
   <footer class="footer container">
     <span>© <span id="year"></span> Claudia Jiménez</span>
-    <a href="#top">Back to top ↑</a>
+    <a href="#top"><span data-l="en">Back to top</span><span data-l="es">Volver arriba</span> ↑</a>
   </footer>
 
   <script src="script.js"></script>

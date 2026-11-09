@@ -259,3 +259,16 @@ p { margin: 0; }
   .intro__grid, .job { grid-template-columns: 1fr; }
   .job { gap: 14px; }
 }
+
+/* ---------- CERTIFICATIONS ---------- */
+.certs { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.cert {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  background: var(--sage); border-radius: var(--radius); padding: 26px 32px;
+}
+.cert:nth-child(2) { background: var(--blush); }
+.cert:nth-child(3) { background: var(--sky); }
+.cert h4 { margin: 0 0 4px; font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.15; }
+.cert__issuer { font-size: 15px; color: var(--muted); }
+.cert__link { flex: none; font-size: 15px; font-weight: 600; text-decoration: none; border: 1px solid var(--line); border-radius: 99px; padding: 8px 18px; transition: background .25s, color .25s; }
+.cert__link:hover { background: var(--ink); color: var(--bg); }

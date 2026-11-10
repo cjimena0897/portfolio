@@ -625,3 +625,77 @@ button:focus-visible, .pill:focus-visible, .btn:focus-visible { outline: 2px sol
   .factors__in { grid-template-columns: 1fr; }
   .dd__labels { grid-template-columns: 1fr; }
 }
+
+/* ---------- DIAGRAM COLOR (red ramp + sand + sage) ---------- */
+:root {
+  --r1: #f6e4df; --r2: #ecc3b9; --r3: #d98b7e; --r4: #b24a3e; --r5: #7a0000;
+  --sand1: #f3e8d4; --sand2: #ddc193; --sage1: #e2eadf; --sage2: #8fae8c;
+  --viz-bg: #fffdfa; --on-dark: #fff; --on-light: #1c1716;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --r1: #3a2320; --r2: #55302a; --r3: #84433a; --r4: #c25a4e; --r5: #e8776d;
+    --sand1: #3a3125; --sand2: #7a6440; --sage1: #26302a; --sage2: #5f7f61;
+    --viz-bg: #1f1917; --on-dark: #fff; --on-light: #f2ebe6;
+  }
+}
+:root[data-theme="dark"] {
+  --r1: #3a2320; --r2: #55302a; --r3: #84433a; --r4: #c25a4e; --r5: #e8776d;
+  --sand1: #3a3125; --sand2: #7a6440; --sage1: #26302a; --sage2: #5f7f61;
+  --viz-bg: #1f1917; --on-dark: #fff; --on-light: #f2ebe6;
+}
+.viz { background: var(--viz-bg); border: 1px solid var(--line-faint); }
+
+/* flows get deeper step by step */
+.flow > li { border: 0; }
+.flow > li:nth-child(1) { background: var(--r1); }
+.flow > li:nth-child(2) { background: var(--r2); }
+.flow > li:nth-child(3) { background: var(--r3); }
+.flow > li:nth-child(4), .flow > li:nth-child(n+4) { background: var(--r4); color: var(--on-dark); }
+.flow > li:nth-child(4) small, .flow > li:nth-child(n+4) small { color: inherit; opacity: .88; }
+.flow > li:nth-child(4)::before { color: inherit; }
+.flow > li.is-final { background: var(--r5); color: var(--on-dark); }
+:root[data-theme="dark"] .flow > li.is-final { color: #1b1110; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .flow > li.is-final { color: #1b1110; } }
+.flow > li:nth-child(3) small { color: var(--on-light); opacity: .8; }
+
+/* factors: inputs in sand, result in red */
+.factors__in .chip { background: var(--sand1); border-color: transparent; }
+.factors__in .chip:nth-child(even) { background: var(--r1); }
+.factors__out .node:not(.node--accent) { background: var(--r1); border-color: transparent; }
+
+/* model: neutral entities in sand, core entities in red */
+.model .node:not(.node--accent) { background: var(--sand1); border-color: var(--sand2); }
+.model .chips .chip { background: var(--r2); border-color: transparent; }
+.model__note > div:nth-child(1) { background: var(--r1); border-color: transparent; }
+.model__note > div:nth-child(2) { background: var(--sand1); border-color: transparent; }
+
+/* rule chips */
+.rule .chip:not(.chip--accent) { background: var(--sand1); border-color: transparent; }
+
+/* cadence */
+.cadence > div:first-child { background: var(--r1); border-color: transparent; }
+.cadence > .is-users { background: var(--r3); border-color: transparent; color: var(--on-light); }
+.cadence > .is-live { background: var(--r5); }
+.cadence__ticks span:nth-child(n+9) { background: var(--r3); }
+.cadence__ticks span { background: var(--r2); }
+
+/* double diamond */
+.dd svg polygon:first-of-type { fill: var(--r1); }
+.dd svg polygon:nth-of-type(2) { fill: var(--r2); }
+.dd__labels > div:nth-child(1) .chip { background: var(--r1); border-color: transparent; }
+.dd__labels > div:nth-child(2) .chip { background: var(--r1); border-color: transparent; }
+.dd__labels > div:nth-child(3) .chip { background: var(--r2); border-color: transparent; }
+.dd__labels > div:nth-child(4) .chip:not(.chip--accent) { background: var(--r2); border-color: transparent; }
+
+/* insight map: problem in rose, answer in sage */
+.imap__row > div { background: var(--r1); border-color: transparent; }
+.imap__row > div.is-solution { background: var(--sage1); border-color: var(--sage2); }
+
+/* persona: needs in sage, frustrations in rose */
+.persona__col { border-color: transparent; background: var(--sage1); }
+.persona__col li::before { color: var(--sage2); }
+.persona__col--pain { background: var(--r1); }
+.persona__col--pain li::before { color: var(--accent); }
+.persona__col h4 { color: var(--ink); }
+.flow > li:nth-child(3)::before { color: var(--on-light); }

@@ -123,8 +123,6 @@ p { margin: 0; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 99px; z-index: 100; }
 .skip:focus { left: 8px; }
 
-.star { color: var(--accent); font-family: var(--sans); font-size: .35em; vertical-align: super; margin-left: .1em; display: inline-block; animation: spin 12s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
 
 /* ---------- NAV ---------- */
 .nav {
@@ -138,7 +136,6 @@ p { margin: 0; }
 .nav.is-scrolled { border-bottom-color: var(--line-faint); }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
 .nav__logo { font-family: var(--serif); font-size: 26px; text-decoration: none; letter-spacing: -.01em; }
-.nav__logo .star { font-size: 14px; vertical-align: top; }
 .nav__links { display: flex; align-items: center; gap: clamp(20px, 3.5vw, 48px); font-size: 15px; }
 .nav__links a { text-decoration: none; position: relative; padding: 6px 0; }
 .nav__links a:not(.pill)::after {
@@ -318,7 +315,7 @@ button:focus-visible, .pill:focus-visible, .btn:focus-visible { outline: 2px sol
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .star, .hero__blob { animation: none; }
+  .hero__blob { animation: none; }
 }
 
 /* ---------- RESPONSIVE ---------- */

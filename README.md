@@ -3,13 +3,13 @@
 Portafolio personal (HTML + CSS + JS, sin dependencias), publicado con GitHub Pages.
 
 ## Estructura
-- `index.html` — inicio (Hero, Projects, resumen de About, Contact)
-- `about.html` — página Sobre mí (intro, Experience, Education, Skills, Contact)
-- `projects.html` — todos los proyectos
-- `projects/*.html` — una página por proyecto (caso de estudio), con navegación anterior/siguiente
-- `styles.css` — estilos (todos los colores son variables en `:root`, con su versión oscura justo debajo)
-- `script.js` — menú móvil, animaciones al hacer scroll, tema claro/oscuro e idioma
-- `assets/` — imágenes (foto y mockups de proyectos)
+- `index.html`: inicio (Hero, Projects, resumen de About, Contact)
+- `about.html`: página Sobre mí (intro, Experience, Education, Skills, Contact)
+- `projects.html`: todos los proyectos
+- `projects/*.html`: una página por proyecto (caso de estudio), con navegación anterior/siguiente
+- `styles.css`: estilos (todos los colores son variables en `:root`, con su versión oscura justo debajo)
+- `script.js`: menú móvil, animaciones al hacer scroll, tema claro/oscuro e idioma
+- `assets/`: imágenes (foto y mockups de proyectos)
 
 ## Cómo agregar imágenes
 1. Sube la imagen a `assets/` con el nombre del proyecto (por ejemplo `assets/crypto-marketplace.png`).

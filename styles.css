@@ -4,93 +4,97 @@
    data-theme="dark", so the page follows the OS until the nav toggle is used. */
 :root {
   color-scheme: light;
-  --bg: #f6f5f3;
-  --ink: #333331;
-  --muted: #6b6a66;
-  --line: #2f2f2d;                        /* strong lines: pills, buttons, title rules */
-  --line-soft: rgba(0,0,0,.15);           /* dividers, card outlines */
-  --line-faint: rgba(0,0,0,.09);          /* nav / footer borders */
+  --bg: #fbf8f4;
+  --ink: #1c1716;
+  --muted: #6b5f5a;
+  --line: #1c1716;                        /* strong lines: pills, buttons, title rules */
+  --line-soft: rgba(28,23,22,.15);        /* dividers, card outlines */
+  --line-faint: rgba(28,23,22,.09);       /* nav / footer borders */
   --surface: rgba(255,255,255,.45);       /* card body over a pastel */
   --surface-tag: rgba(255,255,255,.5);
   --surface-placeholder: rgba(255,255,255,.75);
   --hover: #fff;
-  --shadow: rgba(0,0,0,.3);
+  --shadow: rgba(40,20,15,.3);
   --nav-bg: color-mix(in srgb, var(--bg) 82%, transparent);
-  --sage: #d8e2dd;
-  --blush: #f5d5cc;
-  --sky: #d5e2f0;
-  --butter: #f6efcc;
-  --stone: #e2e1df;
-  --lilac: #e3dcef;
-  --mint: #d3ebe4;
-  --accent: #e08a74;
-  --blob-a: var(--blush);
-  --blob-b: var(--sage);
-  --blob-c: var(--butter);
-  --blob-opacity: .9;
+  --sage: #e7e0d7;                        /* card tones: greige, rose, taupe, cream */
+  --blush: #efdcd6;
+  --sky: #e4dfdb;
+  --butter: #f2eadf;
+  --stone: #ece5dd;
+  --lilac: #ead9d8;
+  --mint: #ddd5cb;
+  --accent: #7a0000;                      /* dark red */
+  --on-accent: #fff;
+  --blob-a: #d9a39b;
+  --blob-b: #d2c8be;
+  --blob-c: #a8463e;
+  --blob-opacity: .55;
   --show-light: block;                    /* display value for light-only / dark-only bits */
   --show-dark: none;
   --radius: 18px;
-  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
-  --sans: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --sans: "Quicksand", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --script: "Luxurious Script", "Playfair Display", cursive;
   --max: 1160px;
   --gutter: clamp(16px, 5vw, 60px);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #1c1b19;
-    --ink: #ecebe7;
-    --muted: #a8a6a0;
-    --line: #d6d4ce;
-    --line-soft: rgba(255,255,255,.16);
-    --line-faint: rgba(255,255,255,.09);
-    --surface: rgba(0,0,0,.14);
+    --bg: #171312;
+    --ink: #f2ebe6;
+    --muted: #b3a7a0;
+    --line: #e2d6cf;
+    --line-soft: rgba(255,240,230,.16);
+    --line-faint: rgba(255,240,230,.09);
+    --surface: rgba(0,0,0,.16);
     --surface-tag: rgba(255,255,255,.06);
     --surface-placeholder: rgba(255,255,255,.07);
-    --hover: #262522;
+    --hover: #221c1a;
     --shadow: rgba(0,0,0,.7);
-    --sage: #2b3833;
-    --blush: #3f2c27;
-    --sky: #28323f;
-    --butter: #39331f;
-    --stone: #2c2b28;
-    --lilac: #332d3f;
-    --mint: #24382f;
-    --accent: #eb9a84;
-    --blob-a: #5a3830;
-    --blob-b: #2f4a3f;
-    --blob-c: #4a4126;
-    --blob-opacity: .7;
+    --sage: #2a2421;
+    --blush: #3a2522;
+    --sky: #2a2626;
+    --butter: #302a22;
+    --stone: #26201e;
+    --lilac: #35232a;
+    --mint: #2b2722;
+    --accent: #e8776d;
+    --on-accent: #1b1110;
+    --blob-a: #5a2420;
+    --blob-b: #3a302b;
+    --blob-c: #7a2a24;
+    --blob-opacity: .6;
     --show-light: none;
     --show-dark: block;
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #1c1b19;
-  --ink: #ecebe7;
-  --muted: #a8a6a0;
-  --line: #d6d4ce;
-  --line-soft: rgba(255,255,255,.16);
-  --line-faint: rgba(255,255,255,.09);
-  --surface: rgba(0,0,0,.14);
+  --bg: #171312;
+  --ink: #f2ebe6;
+  --muted: #b3a7a0;
+  --line: #e2d6cf;
+  --line-soft: rgba(255,240,230,.16);
+  --line-faint: rgba(255,240,230,.09);
+  --surface: rgba(0,0,0,.16);
   --surface-tag: rgba(255,255,255,.06);
   --surface-placeholder: rgba(255,255,255,.07);
-  --hover: #262522;
+  --hover: #221c1a;
   --shadow: rgba(0,0,0,.7);
-  --sage: #2b3833;
-  --blush: #3f2c27;
-  --sky: #28323f;
-  --butter: #39331f;
-  --stone: #2c2b28;
-  --lilac: #332d3f;
-  --mint: #24382f;
-  --accent: #eb9a84;
-  --blob-a: #5a3830;
-  --blob-b: #2f4a3f;
-  --blob-c: #4a4126;
-  --blob-opacity: .7;
+  --sage: #2a2421;
+  --blush: #3a2522;
+  --sky: #2a2626;
+  --butter: #302a22;
+  --stone: #26201e;
+  --lilac: #35232a;
+  --mint: #2b2722;
+  --accent: #e8776d;
+  --on-accent: #1b1110;
+  --blob-a: #5a2420;
+  --blob-b: #3a302b;
+  --blob-c: #7a2a24;
+  --blob-opacity: .6;
   --show-light: none;
   --show-dark: block;
 }
@@ -499,3 +503,18 @@ button:focus-visible, .pill:focus-visible, .btn:focus-visible { outline: 2px sol
 .shots figcaption, .shot-caption { margin-top: 10px; font-size: 14px; color: var(--ink); text-align: center; }
 .shots > figure { margin: 0; }
 @media (max-width: 900px) { .shots--2 { grid-template-columns: 1fr; } }
+
+/* ---------- EDITORIAL ACCENTS (red palette + script) ---------- */
+.hero__title em, .intro__title em { font-family: var(--script); font-style: normal; font-weight: 400; color: var(--accent); font-size: 1.18em; letter-spacing: 0; line-height: .8; }
+.btn--dark { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn--dark:hover { background: transparent; color: var(--accent); }
+.section__title::after { background: var(--accent); }
+.stat__num { color: var(--accent); }
+.label, .eyebrow { color: var(--accent); }
+/* Playfair runs wider than the previous display face: scale big titles down a bit */
+.case__title { font-size: clamp(46px, 6.4vw, 96px); line-height: 1; letter-spacing: -.015em; overflow-wrap: anywhere; }
+.cs-hero .case__title { font-size: clamp(44px, 5.2vw, 80px); }
+.hero__title { font-size: clamp(52px, 8.6vw, 120px); letter-spacing: -.015em; }
+.intro__title { font-size: clamp(60px, 10vw, 140px); }
+.story__title { font-size: clamp(30px, 3.4vw, 46px); line-height: 1.12; }
+.card__title { letter-spacing: -.01em; }

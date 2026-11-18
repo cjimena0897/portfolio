@@ -17,3 +17,6 @@ Static bilingual (EN/ES) portfolio on GitHub Pages: plain HTML/CSS/JS, no build 
 
 ## Using the landing-page-design skill
 Apply it for spacing, hierarchy, states, motion, accessibility and ship checks. Where it conflicts with the decisions above (single typeface, no italics, no background gradients, dark backgrounds, font list), Claudia's decisions win.
+
+## CV
+`cv/index.html` is the shareable CV (bilingual, `?lang=en|es` forces a language). After editing it, regenerate both one-page PDFs (`cv/CV-Claudia-Jimenez-EN.pdf`, `-ES.pdf`) with Playwright `page.pdf({format:'A4', printBackground:true, preferCSSPageSize:true})` and check each is still 1 page.

@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-en="CV · Claudia Jiménez Aguirre" data-es="CV · Claudia Jiménez Aguirre">CV · Claudia Jiménez Aguirre</title>
+  <script>
+    (function (d) {
+      var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+      var q = (location.search.match(/[?&]lang=(en|es)/) || [])[1];
+      var l = q || get('lang');
+      if (l !== 'en' && l !== 'es') l = /^es\b/i.test(navigator.language || '') ? 'es' : 'en';
+      d.lang = l; d.setAttribute('data-lang', l);
+      var ti = document.querySelector('title');
+      if (ti && ti.getAttribute('data-' + l)) document.title = ti.getAttribute('data-' + l);
+    })(document.documentElement);
+  </script>
+  <meta name="description" content="CV of Claudia Jiménez Aguirre, UX/UI designer with a background in architecture." />
+  <meta property="og:title" content="CV · Claudia Jiménez Aguirre, UX/UI Designer" />
+  <meta property="og:description" content="Experience, education, certifications and selected projects." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%237a0000'/><text x='32' y='44' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23fbf8f4'>CJ</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg: #f3eee8; --paper: #fffdfa; --ink: #1c1716; --muted: #6b5f5a; --accent: #7a0000; --line: rgba(28,23,22,.14); --tint: #f6e4df;
+      --serif: "Playfair Display", Georgia, serif; --sans: "Quicksand", system-ui, sans-serif; }
+    html[data-lang="en"] [data-l="es"], html[data-lang="es"] [data-l="en"] { display: none !important; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 13.5px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    h1, h2, h3, p, ul { margin: 0; }
+
+    .toolbar { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; padding: 12px 16px; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; font: 600 14px var(--sans); padding: 9px 16px; border-radius: 99px; border: 1px solid var(--ink); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; }
+    .btn--accent { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn:hover { transform: translateY(-1px); }
+    .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 99px; padding: 3px; }
+    .lang button { font: 600 12px var(--sans); border: 0; background: none; padding: 5px 10px; border-radius: 99px; cursor: pointer; color: var(--muted); }
+    html[data-lang="en"] .lang [data-set="en"], html[data-lang="es"] .lang [data-set="es"] { background: var(--ink); color: #fff; }
+
+    .paper { width: min(210mm, 100% - 32px); margin: 8px auto 48px; background: var(--paper); box-shadow: 0 30px 60px -40px rgba(40,20,15,.45); padding: 16mm 15mm; }
+    .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; padding-bottom: 14px; border-bottom: 2px solid var(--accent); }
+    .head h1 { font-family: var(--serif); font-weight: 500; font-size: 34px; line-height: 1.05; letter-spacing: -.01em; }
+    .head .role { margin-top: 6px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+    .contact { list-style: none; padding: 0; display: grid; gap: 3px; text-align: right; font-size: 12.5px; }
+    .contact a { text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+
+    .cols { display: grid; grid-template-columns: 1fr 2.1fr; gap: 26px; margin-top: 18px; }
+    .side { display: grid; gap: 18px; align-content: start; }
+    .main { display: grid; gap: 18px; align-content: start; }
+    h2 { font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid var(--line); }
+    .profile { font-size: 14px; }
+    .job { display: grid; gap: 3px; padding: 8px 0; }
+    .job + .job { border-top: 1px dashed var(--line); }
+    .job__top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+    .job h3 { font-family: var(--serif); font-weight: 500; font-size: 16px; line-height: 1.2; }
+    .job .when { font-size: 12px; color: var(--muted); white-space: nowrap; }
+    .job .org { font-size: 12.5px; color: var(--muted); font-weight: 600; }
+    .job ul { padding-left: 16px; display: grid; gap: 2px; margin-top: 3px; }
+    .job .cases { font-size: 12px; margin-top: 3px; }
+    .job .cases a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    .job .cases a:hover { text-decoration: underline; }
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tags span { font-size: 11.5px; padding: 3px 8px; border-radius: 99px; background: var(--tint); }
+    .list { list-style: none; padding: 0; display: grid; gap: 7px; }
+    .list b { display: block; font-weight: 700; font-size: 13px; }
+    .list small { display: block; color: var(--muted); font-size: 12px; }
+    .list a { color: var(--accent); text-decoration: none; font-size: 12px; font-weight: 600; }
+    .foot { margin-top: 18px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .foot a { color: var(--accent); font-weight: 600; text-decoration: none; }
+
+    @media (max-width: 720px) {
+      .paper { padding: 22px 18px; }
+      .cols { grid-template-columns: 1fr; }
+      .side { order: 2; }
+      .contact { text-align: left; }
+      .head h1 { font-size: 28px; }
+    }
+    @page { size: A4; margin: 0; }
+    @media print {
+      body { background: #fff; }
+      .toolbar { display: none !important; }
+      .paper { width: 210mm; min-height: 297mm; margin: 0; box-shadow: none; padding: 14mm 14mm 10mm; }
+      a { text-decoration: none; }
+      .job, .list li { break-inside: avoid; }
+      body { font-size: 11.2px; line-height: 1.4; }
+      .paper { padding: 11mm 12mm 8mm; }
+      .head { padding-bottom: 10px; }
+      .head h1 { font-size: 28px; }
+      .head .role { font-size: 11.5px; margin-top: 4px; }
+      .contact { font-size: 11px; gap: 1px; }
+      .cols { margin-top: 12px; gap: 20px; }
+      .side, .main { gap: 12px; }
+      h2 { font-size: 10.5px; margin-bottom: 5px; padding-bottom: 3px; }
+      .profile { font-size: 11.8px; }
+      .job { padding: 5px 0; gap: 1px; }
+      .job h3 { font-size: 14px; }
+      .job .org, .job .when, .job .cases { font-size: 10.8px; }
+      .job ul { gap: 1px; margin-top: 2px; }
+      .tags { gap: 4px; }
+      .tags span { font-size: 10.3px; padding: 2px 7px; }
+      .list { gap: 5px; }
+      .list b { font-size: 11.3px; }
+      .list small, .list a { font-size: 10.5px; }
+      .foot { margin-top: 10px; padding-top: 6px; font-size: 10.5px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <a class="btn" href="../index.html">← <span data-l="en">Portfolio</span><span data-l="es">Portafolio</span></a>
+    <a class="btn btn--accent" href="CV-Claudia-Jimenez-EN.pdf" download data-l="en">Download PDF</a>
+    <a class="btn btn--accent" href="CV-Claudia-Jimenez-ES.pdf" download data-l="es">Descargar PDF</a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-set="en" aria-label="English">EN</button>
+      <button type="button" data-set="es" aria-label="Español">ES</button>
+    </div>
+  </div>
+
+  <main class="paper">
+    <header class="head">
+      <div>
+        <h1>Claudia Jiménez Aguirre</h1>
+        <p class="role"><span data-l="en">UX/UI Designer</span><span data-l="es">Diseñadora UX/UI</span></p>
+      </div>
+      <ul class="contact">
+        <li><a href="mailto:c.jimena08@gmail.com">c.jimena08@gmail.com</a></li>
+        <li><a href="tel:+51992270323">+51 992 270 323</a></li>
+        <li><a href="https://www.linkedin.com/in/claudiajimeneza" target="_blank" rel="noopener">linkedin.com/in/claudiajimeneza</a></li>
+        <li><a href="https://cjimena0897.github.io/portfolio/" target="_blank" rel="noopener">cjimena0897.github.io/portfolio</a></li>
+      </ul>
+    </header>
+
+    <div class="cols">
+      <aside class="side">
+        <section>
+          <h2><span data-l="en">Skills</span><span data-l="es">Habilidades</span></h2>
+          <div class="tags">
+            <span>UX Research</span>
+            <span><span data-l="en">Quantitative &amp; qualitative research</span><span data-l="es">Investigación cuantitativa y cualitativa</span></span>
+            <span><span data-l="en">Information architecture</span><span data-l="es">Arquitectura de información</span></span>
+            <span><span data-l="en">Interface &amp; interaction design</span><span data-l="es">Diseño de interfaces e interacción</span></span>
+            <span><span data-l="en">Usability testing</span><span data-l="es">Pruebas de usabilidad</span></span>
+            <span><span data-l="en">Prototyping in every fidelity</span><span data-l="es">Prototipado en distintas fidelidades</span></span>
+            <span>Design Thinking</span><span>Design Sprint</span><span>Scrum</span>
+          </div>
+        </section>
+        <section>
+          <h2><span data-l="en">Tools</span><span data-l="es">Herramientas</span></h2>
+          <div class="tags"><span>Figma</span><span>Figma AI</span><span>Miro</span><span>Maze</span><span>Trello</span><span>ClickUp</span><span>Slack</span><span>Adobe Creative Suite</span><span>MS Office</span></div>
+        </section>
+        <section>
+          <h2><span data-l="en">Education</span><span data-l="es">Educación</span></h2>
+          <ul class="list">
+            <li><b><span data-l="en">User Experience Design</span><span data-l="es">Diseño de Experiencia de Usuario</span></b><small>Laboratoria · <span data-l="en">UX Design Bootcamp</span><span data-l="es">Bootcamp de Diseño UX</span> · 2022</small></li>
+            <li><b><span data-l="en">Architecture, Urbanism and Arts</span><span data-l="es">Arquitectura, Urbanismo y Artes</span></b><small>Universidad Privada Antenor Orrego · 2014 – 2019</small></li>
+          </ul>
+        </section>
+        <section>
+          <h2><span data-l="en">Certifications</span><span data-l="es">Certificaciones</span></h2>
+          <ul class="list">
+            <li><b><span data-l="en">UX/UI Design for AI Products (XGAL0001)</span><span data-l="es">Diseño UX/UI para Productos de IA (XGAL0001)</span></b><small>Stanford Online · 2026</small><a href="https://digitalcredential.stanford.edu/check/93597F97DFC740CD0BE966996C30CACFDD52B5F08014A9793001EB45234C125AS1VYUjgwZWFuM2VDMGVKK0lORmVrMVo3ZUpVb1lmaDlreFdsd2NweWk3Y0ROdmZG" target="_blank" rel="noopener"><span data-l="en">Credential</span><span data-l="es">Credencial</span> ↗</a></li>
+            <li><b>AI-Powered UX Design</b><small>Interaction Design Foundation · 2024</small><a href="https://ixdf.org/members/claudia-jimenez-aguirre/certificate/masterclass/mcc_8d3c23cbf4f243b1ac06e5b314cf1dab" target="_blank" rel="noopener"><span data-l="en">Credential</span><span data-l="es">Credencial</span> ↗</a></li>
+            <li><b>Foundations of User Experience (UX) Design</b><small>Google · Coursera · 2023</small><a href="https://www.coursera.org/account/accomplishments/verify/68H8A5TNTGMC" target="_blank" rel="noopener"><span data-l="en">Credential</span><span data-l="es">Credencial</span> ↗</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <div class="main">
+        <section>
+          <h2><span data-l="en">Profile</span><span data-l="es">Perfil</span></h2>
+          <p class="profile"><span data-l="en">UX/UI designer with a background in architecture. I turn my passion for understanding people into inclusive, accessible digital products: from user interviews and research to information architecture, interfaces and working prototypes. I work with Design Thinking, review designs with stakeholders every week and validate them with real users before they ship.</span><span data-l="es">Diseñadora UX/UI con formación en arquitectura. Convierto mi pasión por entender a las personas en productos digitales inclusivos y accesibles: desde entrevistas e investigación hasta arquitectura de información, interfaces y prototipos funcionales. Trabajo con Design Thinking, reviso los diseños cada semana con stakeholders y los valido con usuarios reales antes de lanzarlos.</span></p>
+        </section>
+
+        <section>
+          <h2><span data-l="en">Experience</span><span data-l="es">Experiencia</span></h2>
+
+          <div class="job">
+            <div class="job__top"><h3>Product Designer (UX/UI)</h3><span class="when">2026</span></div>
+            <p class="org">Work Connect · <span data-l="en">Healthcare shift marketplace</span><span data-l="es">Marketplace de turnos de salud</span></p>
+            <ul>
+              <li><span data-l="en">Designed the product experience for a tool that helps hospitals fill open nursing shifts inside the scheduling tool their staff already use.</span><span data-l="es">Diseñé la experiencia de un producto que ayuda a los hospitales a cubrir turnos de enfermería dentro de la herramienta de programación que ya usa su personal.</span></li>
+              <li><span data-l="en">Scheduler app, shift coverage flow, candidate review, approval of automation rules and reporting.</span><span data-l="es">App para programadores, flujo de cobertura de turnos, revisión de candidatos, aprobación de reglas de automatización y reportes.</span></li>
+            </ul>
+            <p class="cases"><a href="../projects/work-connect.html"><span data-l="en">View case study</span><span data-l="es">Ver caso de estudio</span> →</a></p>
+          </div>
+
+          <div class="job">
+            <div class="job__top"><h3><span data-l="en">Freelance UX/UI Designer</span><span data-l="es">Diseñadora UX/UI freelance</span></h3><span class="when">2024 – 2026</span></div>
+            <p class="org"><span data-l="en">Port services company, Peru (through a consultancy)</span><span data-l="es">Empresa de servicios portuarios, Perú (a través de una consultora)</span></p>
+            <ul>
+              <li><span data-l="en">Designed three internal products end to end, about 3 months each, with Design Thinking: crew watch and vacation management, on-board maintenance logging, and a contracts and tariffs back office.</span><span data-l="es">Diseñé de punta a punta tres productos internos, de unos 3 meses cada uno, con Design Thinking: gestión de guardias y vacaciones de la tripulación, registro de mantenimiento a bordo y un back office de contratos y tarifas.</span></li>
+              <li><span data-l="en">Weekly reviews with client stakeholders and validation sessions with real users; all three products were implemented.</span><span data-l="es">Revisiones semanales con los stakeholders del cliente y sesiones de validación con usuarios reales; los tres productos se implementaron.</span></li>
+            </ul>
+            <p class="cases"><a href="../projects/personal-embarcado.html">Personal Embarcado</a> · <a href="../projects/maintenance-psa.html">Maintenance PSA</a> · <a href="../projects/contratos-tarifas.html"><span data-l="en">Contracts &amp; Tariffs</span><span data-l="es">Contratos y Tarifas</span></a></p>
+          </div>
+
+          <div class="job">
+            <div class="job__top"><h3><span data-l="en">UX/UI Design Educator</span><span data-l="es">Educadora de Diseño UX/UI</span></h3><span class="when"><span data-l="en">Feb – Apr 2025</span><span data-l="es">Feb – Abr 2025</span></span></div>
+            <p class="org">TripleTen</p>
+            <ul><li><span data-l="en">Reviewed students’ projects and gave detailed, constructive feedback to strengthen their design skills.</span><span data-l="es">Revisé proyectos de estudiantes y di retroalimentación detallada y constructiva para fortalecer sus habilidades de diseño.</span></li></ul>
+          </div>
+
+          <div class="job">
+            <div class="job__top"><h3>UX UI Designer</h3><span class="when"><span data-l="en">Oct 2023 – Present</span><span data-l="es">Oct 2023 – Actualidad</span></span></div>
+            <p class="org">JobLeap AI</p>
+            <ul><li><span data-l="en">Design and user research for an AI-powered platform that acts as an assistant and co-pilot to find the next ideal role.</span><span data-l="es">Diseño e investigación de usuarios para una plataforma con IA que funciona como asistente y copiloto para encontrar el siguiente rol ideal.</span></li></ul>
+          </div>
+
+          <div class="job">
+            <div class="job__top"><h3>UX Research / UX UI Designer</h3><span class="when"><span data-l="en">May – Aug 2023</span><span data-l="es">May – Ago 2023</span></span></div>
+            <p class="org">Good Inc. · X-claim, USA</p>
+            <ul><li><span data-l="en">Redesign of a bankruptcy claims marketplace with another UX designer: 7-week research phase, two personas, new dashboards for buyers, sellers and admins, in-platform messaging and transparent claim evaluation.</span><span data-l="es">Rediseño de un marketplace de reclamos por quiebra junto con otra diseñadora UX: fase de investigación de 7 semanas, dos personas, nuevos dashboards para compradores, vendedores y administradores, mensajería dentro de la plataforma y evaluación transparente de reclamos.</span></li></ul>
+            <p class="cases"><a href="../projects/crypto-marketplace.html"><span data-l="en">View case study</span><span data-l="es">Ver caso de estudio</span> →</a></p>
+          </div>
+
+          <div class="job">
+            <div class="job__top"><h3>UX UI Designer</h3><span class="when"><span data-l="en">Mar – Oct 2023</span><span data-l="es">Mar – Oct 2023</span></span></div>
+            <p class="org">Good Inc., USA</p>
+            <ul><li><span data-l="en">Redesign of digital catalogs and websites for several brands, informed by user, audience and market research, with graphic designers, developers and project managers.</span><span data-l="es">Rediseño de catálogos digitales y sitios web para varias marcas, a partir de investigación de usuarios, audiencia y mercado, junto con diseñadores gráficos, desarrolladores y project managers.</span></li></ul>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <span><span data-l="en">Full case studies and process:</span><span data-l="es">Casos de estudio completos y proceso:</span> <a href="https://cjimena0897.github.io/portfolio/projects.html">cjimena0897.github.io/portfolio</a></span>
+    </footer>
+  </main>
+
+  <script>
+    document.querySelectorAll('.lang [data-set]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var l = b.getAttribute('data-set'), d = document.documentElement;
+        d.lang = l; d.setAttribute('data-lang', l);
+        var ti = document.querySelector('title'); if (ti) document.title = ti.getAttribute('data-' + l);
+        try { localStorage.setItem('lang', l); } catch (e) {}
+      });
+    });
+  </script>
+</body>
+</html>

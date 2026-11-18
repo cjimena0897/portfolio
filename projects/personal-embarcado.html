@@ -24,6 +24,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Luxurious+Script&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* personal-embarcado page-only diagram tweaks */
+    .personal-embarcado-scope, .personal-embarcado-legend, .personal-embarcado-states { justify-content: center; }
+    .personal-embarcado-scope .chip:not(.chip--accent) { background: var(--sand1); border-color: transparent; }
+    .personal-embarcado-legend .chip { background: var(--sand1); border-color: transparent; padding: 6px 14px 6px 6px; }
+    .personal-embarcado-legend .chip b { display: inline-grid; place-items: center; min-width: 32px; height: 28px; padding: 0 6px; border-radius: 99px; background: var(--r2); font-weight: 700; font-size: 13px; }
+    .personal-embarcado-legend .chip:nth-child(1) b { background: var(--r5); color: var(--on-dark); }
+    .personal-embarcado-legend .chip:nth-child(2) b { background: var(--sand2); }
+    .personal-embarcado-legend .chip:nth-child(3) b { background: var(--r2); }
+    .personal-embarcado-legend .chip:nth-child(4) b { background: var(--r3); }
+    .personal-embarcado-legend .chip:nth-child(5) b { background: var(--sage2); }
+    .personal-embarcado-states { margin-bottom: 24px; }
+    .personal-embarcado-states .chip:nth-child(1) { background: var(--sage1); border-color: var(--sage2); }
+    .personal-embarcado-states .chip:nth-child(2) { background: var(--sand1); border-color: var(--sand2); }
+    .personal-embarcado-options { flex-direction: column; align-items: stretch; }
+    .personal-embarcado-options .chip { justify-content: center; }
+    .personal-embarcado-users .node { max-width: 230px; }
+    .personal-embarcado-users .model__rel { max-width: 160px; }
+    .personal-embarcado-change .node:last-child { max-width: 320px; }
+    :root[data-theme="dark"] .personal-embarcado-legend .chip:nth-child(1) b { color: #1b1110; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .personal-embarcado-legend .chip:nth-child(1) b { color: #1b1110; } }
+    @media (max-width: 900px) { .personal-embarcado-users .node, .personal-embarcado-users .model__rel, .personal-embarcado-change .node:last-child { max-width: none; } }
+  </style>
 </head>
 <body>
   <a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="es">Saltar al contenido</span></a>
@@ -100,41 +123,79 @@
       <p class="label reveal"><span data-l="en">The context</span><span data-l="es">El contexto</span></p>
       <h2 class="story__title reveal"><span data-l="en">One place to plan crews, instead of many disconnected processes</span><span data-l="es">Un solo lugar para planificar tripulaciones, en lugar de muchos procesos desconectados</span></h2>
       <div class="story__body reveal">
-        <p><span data-l="en">The client, a port services company in Peru, needed one system for its embarked staff: people and availability, certifications, vacations and leave, crew assignment, boarding and disembarking, watch planning, voyages and a self-service portal for crew members.</span><span data-l="es">El cliente, una empresa de servicios portuarios en Perú, necesitaba un solo sistema para su personal embarcado: personal y disponibilidad, certificaciones, vacaciones y licencias, asignación de tripulantes, embarque y desembarque, guardias, travesías y un portal de autogestión para los tripulantes.</span></p>
-        <p><span data-l="en">The goals: centralize all crew information, optimize watch and voyage assignments, keep digital traceability of boarding, and manage vacations, leave and substitutions with clear approval flows. This case study focuses on the <strong>admin side: Watch Management and Vacation Management</strong>.</span><span data-l="es">Los objetivos: centralizar toda la información del personal, optimizar la asignación de guardias y travesías, mantener la trazabilidad digital del embarque y gestionar vacaciones, licencias y reemplazos con flujos de aprobación claros. Este caso se enfoca en el <strong>módulo de administración: Gestión de Guardias y Gestión de Vacaciones</strong>.</span></p>
+        <p><span data-l="en">The goals: centralize all crew information, optimize watch and voyage assignments, keep digital traceability of boarding, and manage vacations, leave and substitutions with clear approval flows.</span><span data-l="es">Los objetivos: centralizar toda la información del personal, optimizar la asignación de guardias y travesías, mantener la trazabilidad digital del embarque y gestionar vacaciones, licencias y reemplazos con flujos de aprobación claros.</span></p>
       </div>
-      <ol class="steps steps--compact">
-        <li class="step reveal"><span class="step__num">01</span><div><h3><span data-l="en">Planning staff</span><span data-l="es">Personal de planificación</span></h3><p><span data-l="en">Build watch rosters and approve vacations, filtering by base, vessel and role.</span><span data-l="es">Arman los cuadrantes de guardia y aprueban vacaciones, filtrando por sede, embarcación y cargo.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">02</span><div><h3><span data-l="en">Crew members</span><span data-l="es">Tripulantes</span></h3><p><span data-l="en">Masters, motorist sailors and sailors who receive notifications whenever their schedule changes.</span><span data-l="es">Patrones, marineros motoristas y marineros que reciben una notificación cada vez que cambia su programación.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">03</span><div><h3><span data-l="en">Approvers</span><span data-l="es">Aprobadores</span></h3><p><span data-l="en">A head of personnel who signs off on vacations and their changes.</span><span data-l="es">Un jefe de personal que aprueba las vacaciones y sus cambios.</span></p></div></li>
-      </ol>
+      <div class="viz reveal" style="--card:var(--lilac)">
+        <div class="chips personal-embarcado-scope">
+          <span class="chip"><span data-l="en">People and availability</span><span data-l="es">Personal y disponibilidad</span></span>
+          <span class="chip"><span data-l="en">Certifications</span><span data-l="es">Certificaciones</span></span>
+          <span class="chip chip--accent"><span data-l="en">Vacations and leave</span><span data-l="es">Vacaciones y licencias</span></span>
+          <span class="chip"><span data-l="en">Crew assignment</span><span data-l="es">Asignación de tripulantes</span></span>
+          <span class="chip"><span data-l="en">Boarding and disembarking</span><span data-l="es">Embarque y desembarque</span></span>
+          <span class="chip chip--accent"><span data-l="en">Watch planning</span><span data-l="es">Guardias</span></span>
+          <span class="chip"><span data-l="en">Voyages</span><span data-l="es">Travesías</span></span>
+          <span class="chip"><span data-l="en">Crew self-service portal</span><span data-l="es">Portal de autogestión</span></span>
+        </div>
+        <p class="viz__caption"><span data-l="en">One system for all embarked staff; this case study covers the highlighted admin side: Watch Management and Vacation Management</span><span data-l="es">Un solo sistema para todo el personal embarcado; este caso cubre el módulo de administración resaltado: Gestión de Guardias y Gestión de Vacaciones</span></p>
+      </div>
+      <div class="viz reveal" style="--card:var(--lilac)">
+        <div class="model personal-embarcado-users">
+          <div class="node"><strong><span data-l="en">Crew members</span><span data-l="es">Tripulantes</span></strong><small><span data-l="en">masters, motorist sailors, sailors</span><span data-l="es">patrones, marineros motoristas, marineros</span></small></div>
+          <span class="model__rel model__rel--back"><span data-l="en">notified when their schedule changes</span><span data-l="es">reciben aviso cuando cambia su programación</span></span>
+          <div class="node node--accent"><strong><span data-l="en">Planning staff</span><span data-l="es">Planificación</span></strong><small><span data-l="en">build rosters and approve vacations by base, vessel and role</span><span data-l="es">arman cuadrantes y aprueban vacaciones por sede, embarcación y cargo</span></small></div>
+          <span class="model__rel"><span data-l="en">vacations and changes signed off by</span><span data-l="es">vacaciones y cambios aprobados por</span></span>
+          <div class="node"><strong><span data-l="en">Approvers</span><span data-l="es">Aprobadores</span></strong><small><span data-l="en">head of personnel</span><span data-l="es">jefe de personal</span></small></div>
+        </div>
+        <p class="viz__caption"><span data-l="en">The three user groups and how they connect</span><span data-l="es">Los tres grupos de usuarios y cómo se conectan</span></p>
+      </div>
     </section>
 
     <!-- PROCESS -->
     <section class="section container story">
       <p class="label reveal"><span data-l="en">How I designed it</span><span data-l="es">Cómo lo diseñé</span></p>
       <h2 class="story__title reveal"><span data-l="en">Weekly reviews with the client, and real users before any code</span><span data-l="es">Revisiones semanales con el cliente y usuarios reales antes de escribir código</span></h2>
-      <ol class="steps">
-        <li class="step reveal"><span class="step__num">01</span><div><h3><span data-l="en">Empathize</span><span data-l="es">Empatizar</span></h3><p><span data-l="en">Weekly calls and reviews with stakeholders to understand how watches, absences and vacations were handled.</span><span data-l="es">Llamadas y revisiones semanales con stakeholders para entender cómo se manejaban las guardias, ausencias y vacaciones.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">02</span><div><h3><span data-l="en">Define</span><span data-l="es">Definir</span></h3><p><span data-l="en">Functional analysis and a scope split into modules, starting with the admin side.</span><span data-l="es">Análisis funcional y un alcance dividido en módulos, empezando por la administración.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">03</span><div><h3><span data-l="en">Ideate &amp; prototype</span><span data-l="es">Idear y prototipar</span></h3><p><span data-l="en">Quick workshops, then the UI design and an interactive prototype in Figma.</span><span data-l="es">Workshops rápidos y luego el diseño UI y un prototipo interactivo en Figma.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">04</span><div><h3><span data-l="en">Test</span><span data-l="es">Testear</span></h3><p><span data-l="en">In the final weeks, validation sessions with real users and formal acceptance before development started.</span><span data-l="es">En las últimas semanas, sesiones de validación con usuarios reales y aceptación formal antes de iniciar el desarrollo.</span></p></div></li>
-      </ol>
+      <div class="viz reveal" style="--card:var(--lilac)">
+        <ol class="flow">
+          <li><strong><span data-l="en">Empathize</span><span data-l="es">Empatizar</span></strong><small><span data-l="en">Stakeholder calls on how watches, absences and vacations were handled</span><span data-l="es">Llamadas con stakeholders sobre cómo se manejaban guardias, ausencias y vacaciones</span></small></li>
+          <li><strong><span data-l="en">Define</span><span data-l="es">Definir</span></strong><small><span data-l="en">Functional analysis; scope split into modules, admin side first</span><span data-l="es">Análisis funcional; alcance en módulos, primero la administración</span></small></li>
+          <li><strong><span data-l="en">Ideate &amp; prototype</span><span data-l="es">Idear y prototipar</span></strong><small><span data-l="en">Quick workshops, UI design and an interactive Figma prototype</span><span data-l="es">Workshops rápidos, diseño UI y prototipo interactivo en Figma</span></small></li>
+          <li class="is-final"><strong><span data-l="en">Test</span><span data-l="es">Testear</span></strong><small><span data-l="en">Real-user validation and formal acceptance before development</span><span data-l="es">Validación con usuarios reales y aceptación formal antes del desarrollo</span></small></li>
+        </ol>
+      </div>
+      <div class="viz reveal" style="--card:var(--lilac)">
+        <div class="cadence">
+          <div><strong><span data-l="en">Stakeholder reviews</span><span data-l="es">Revisiones con stakeholders</span></strong><span data-l="en">Weekly calls and reviews with the client</span><span data-l="es">Llamadas y revisiones semanales con el cliente</span></div>
+          <div class="is-users"><strong><span data-l="en">Real-user validation</span><span data-l="es">Validación con usuarios</span></strong><span data-l="en">Final weeks, plus formal acceptance</span><span data-l="es">Últimas semanas, más aceptación formal</span></div>
+          <div class="is-live"><span data-l="en">Live</span><span data-l="es">En vivo</span></div>
+        </div>
+        <div class="cadence__ticks" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="viz__caption"><span data-l="en">About 3 months, one review every week</span><span data-l="es">Unos 3 meses, una revisión cada semana</span></p>
+      </div>
     </section>
 
     <!-- SOLUTION: WATCHES -->
     <section class="section container story">
       <p class="label reveal"><span data-l="en">Watch management</span><span data-l="es">Gestión de guardias</span></p>
       <h2 class="story__title reveal"><span data-l="en">Covering an absence became a guided, four-step task</span><span data-l="es">Cubrir una ausencia se volvió una tarea guiada de cuatro pasos</span></h2>
-      <div class="story__body reveal">
-        <p><span data-l="en">The roster shows a month per vessel and crew group (A/B) with a clear legend: <strong>G</strong> watch, <strong>F</strong> off duty, <strong>L</strong> leave, <strong>DM</strong> medical rest, <strong>V</strong> vacation. Filters by vessel, crew member, role and date range, and two vessels can be compared side by side.</span><span data-l="es">El cuadrante muestra un mes por embarcación y grupo (A/B) con una leyenda clara: <strong>G</strong> guardia, <strong>F</strong> franco, <strong>L</strong> licencia, <strong>DM</strong> descanso médico, <strong>V</strong> vacaciones. Se filtra por embarcación, tripulante, cargo e intervalo de fechas, y se pueden comparar dos embarcaciones a la vez.</span></p>
+      <div class="viz reveal" style="--card:var(--lilac)">
+        <div class="chips personal-embarcado-legend">
+          <span class="chip"><b>G</b><span data-l="en">Watch</span><span data-l="es">Guardia</span></span>
+          <span class="chip"><b>F</b><span data-l="en">Off duty</span><span data-l="es">Franco</span></span>
+          <span class="chip"><b>L</b><span data-l="en">Leave</span><span data-l="es">Licencia</span></span>
+          <span class="chip"><b>DM</b><span data-l="en">Medical rest</span><span data-l="es">Descanso médico</span></span>
+          <span class="chip"><b>V</b><span data-l="en">Vacation</span><span data-l="es">Vacaciones</span></span>
+        </div>
+        <p class="viz__caption"><span data-l="en">The roster legend: one month per vessel and crew group (A/B), filtered by vessel, crew member, role and dates, with two vessels side by side</span><span data-l="es">La leyenda del cuadrante: un mes por embarcación y grupo (A/B), con filtros por embarcación, tripulante, cargo y fechas, y dos embarcaciones lado a lado</span></p>
       </div>
-      <ol class="steps steps--compact">
-        <li class="step reveal"><span class="step__num">01</span><div><h3><span data-l="en">Spot the gap</span><span data-l="es">Detectar el hueco</span></h3><p><span data-l="en">Uncovered days appear as an empty “Unassigned” row right under the absent crew member.</span><span data-l="es">Los días sin cubrir aparecen como una fila “Sin asignar” justo debajo del tripulante ausente.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">02</span><div><h3><span data-l="en">Select staff</span><span data-l="es">Seleccionar personal</span></h3><p><span data-l="en">Candidate cards show experience, base, certificate status and availability.</span><span data-l="es">Las tarjetas de candidatos muestran experiencia, sede, estado de certificados y disponibilidad.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">03</span><div><h3><span data-l="en">Confirm the replacement</span><span data-l="es">Confirmar el reemplazo</span></h3><p><span data-l="en">A summary of who leaves and who enters, the reason, coverage period, days, role and vessel.</span><span data-l="es">Un resumen de quién sale y quién entra, el motivo, el periodo de cobertura, los días, el rol y la embarcación.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">04</span><div><h3><span data-l="en">Confirm &amp; notify</span><span data-l="es">Confirmar y notificar</span></h3><p><span data-l="en">The roster updates and both crew members are notified.</span><span data-l="es">El cuadrante se actualiza y se notifica a ambos tripulantes.</span></p></div></li>
-      </ol>
+      <div class="viz reveal" style="--card:var(--lilac)">
+        <ol class="flow">
+          <li><strong><span data-l="en">Spot the gap</span><span data-l="es">Detectar el hueco</span></strong><small><span data-l="en">An empty “Unassigned” row appears under the absent crew member</span><span data-l="es">Aparece una fila “Sin asignar” bajo el tripulante ausente</span></small></li>
+          <li><strong><span data-l="en">Select staff</span><span data-l="es">Seleccionar personal</span></strong><small><span data-l="en">Cards with experience, base, certificates and availability</span><span data-l="es">Tarjetas con experiencia, sede, certificados y disponibilidad</span></small></li>
+          <li><strong><span data-l="en">Confirm the replacement</span><span data-l="es">Confirmar el reemplazo</span></strong><small><span data-l="en">Who leaves, who enters, reason, period, days, role and vessel</span><span data-l="es">Quién sale, quién entra, motivo, periodo, días, rol y embarcación</span></small></li>
+          <li class="is-final"><strong><span data-l="en">Confirm &amp; notify</span><span data-l="es">Confirmar y notificar</span></strong><small><span data-l="en">The roster updates and both crew members are notified</span><span data-l="es">El cuadrante se actualiza y se avisa a ambos tripulantes</span></small></li>
+        </ol>
+        <p class="viz__caption"><span data-l="en">Covering an absence in four steps</span><span data-l="es">Cubrir una ausencia en cuatro pasos</span></p>
+      </div>
       <div class="shots reveal" style="--card:var(--lilac)">
         <figure><div class="shot"><img src="../assets/personal-embarcado/confirm-replacement.webp" width="1600" height="952" loading="lazy" data-en-alt="Confirm replacement panel: the crew member on leave, the replacement, reason, coverage period and vessel, next to the updated roster" data-es-alt="Panel Confirmar reemplazo: el tripulante con licencia, el reemplazo, motivo, periodo de cobertura y embarcación, junto al cuadrante actualizado" alt="Confirm replacement panel: the crew member on leave, the replacement, reason, coverage period and vessel, next to the updated roster"></div>
           <figcaption><span data-l="en">Confirming a replacement: who leaves, who covers, and for how long</span><span data-l="es">Confirmar un reemplazo: quién sale, quién cubre y por cuánto tiempo</span></figcaption></figure>
@@ -145,15 +206,26 @@
     <section class="section container story">
       <p class="label reveal"><span data-l="en">Vacation management</span><span data-l="es">Gestión de vacaciones</span></p>
       <h2 class="story__title reveal"><span data-l="en">Conflicts are flagged on the calendar and solved in the same place</span><span data-l="es">Los cruces se marcan en el calendario y se resuelven en el mismo lugar</span></h2>
-      <div class="story__body reveal">
-        <p><span data-l="en">A monthly calendar shows every vacation as <em>Approved</em>, <em>Requested</em> or <em>Conflict</em>. When two crew members in the same role overlap, the admin chooses to <strong>approve one request</strong> or <strong>reschedule both</strong>, reviews a summary with suggested new dates, and applies it.</span><span data-l="es">Un calendario mensual muestra cada vacación como <em>Aprobada</em>, <em>Solicitada</em> o <em>Conflicto</em>. Cuando dos tripulantes del mismo cargo se superponen, el admin elige <strong>aprobar una solicitud</strong> o <strong>reprogramar ambas</strong>, revisa un resumen con fechas sugeridas y lo aplica.</span></p>
+      <div class="viz reveal" style="--card:var(--lilac)">
+        <div class="chips personal-embarcado-states">
+          <span class="chip"><span data-l="en">Approved</span><span data-l="es">Aprobada</span></span>
+          <span class="chip"><span data-l="en">Requested</span><span data-l="es">Solicitada</span></span>
+          <span class="chip chip--accent"><span data-l="en">Conflict</span><span data-l="es">Conflicto</span></span>
+        </div>
+        <ol class="flow">
+          <li><strong><span data-l="en">Conflict flagged</span><span data-l="es">Cruce marcado</span></strong><small><span data-l="en">Two crew members in the same role overlap</span><span data-l="es">Dos tripulantes del mismo cargo se superponen</span></small></li>
+          <li><strong><span data-l="en">Choose a resolution</span><span data-l="es">Elegir una solución</span></strong><small><span data-l="en">Approve one request or reschedule both</span><span data-l="es">Aprobar una solicitud o reprogramar ambas</span></small></li>
+          <li><strong><span data-l="en">Review the summary</span><span data-l="es">Revisar el resumen</span></strong><small><span data-l="en">With suggested new dates</span><span data-l="es">Con fechas sugeridas</span></small></li>
+          <li class="is-final"><strong><span data-l="en">Apply</span><span data-l="es">Aplicar</span></strong></li>
+        </ol>
+        <p class="viz__caption"><span data-l="en">Every vacation on the monthly calendar has one of three states; a conflict is solved in four steps</span><span data-l="es">Cada vacación del calendario mensual tiene uno de tres estados; un cruce se resuelve en cuatro pasos</span></p>
       </div>
       <div class="shots reveal" style="--card:var(--lilac)">
         <figure><div class="shot"><img src="../assets/personal-embarcado/vacation-conflict.webp" width="1600" height="1078" loading="lazy" data-en-alt="Vacation calendar with an overlapping week highlighted in red and a side panel with two resolution options" data-es-alt="Calendario de vacaciones con una semana en conflicto resaltada en rojo y un panel lateral con dos opciones de resolución" alt="Vacation calendar with an overlapping week highlighted in red and a side panel with two resolution options"></div>
           <figcaption><span data-l="en">Resolving a vacation conflict: approve one request or reschedule both</span><span data-l="es">Resolver un cruce de vacaciones: aprobar una solicitud o reprogramar ambas</span></figcaption></figure>
       </div>
       <div class="story__body reveal">
-        <p><span data-l="en">Requests are reviewed in a side panel with the dates, days requested and the crew member’s note, to approve or reject with a reason. A weekly view groups crew by vessel, so overlaps on the same boat stand out.</span><span data-l="es">Las solicitudes se revisan en un panel lateral con las fechas, los días pedidos y la nota del tripulante, para aprobarlas o rechazarlas con un motivo. Una vista semanal agrupa a los tripulantes por embarcación para que los cruces en un mismo barco salten a la vista.</span></p>
+        <p><span data-l="en">Requests are approved or rejected with a reason from a side panel, and a weekly view by vessel makes overlaps on the same boat stand out.</span><span data-l="es">Las solicitudes se aprueban o rechazan con un motivo desde un panel lateral, y una vista semanal por embarcación hace que los cruces en un mismo barco salten a la vista.</span></p>
       </div>
       <div class="shots shots--2 reveal" style="--card:var(--lilac)">
         <figure><div class="shot"><img src="../assets/personal-embarcado/request-review.webp" width="1600" height="1078" loading="lazy" data-en-alt="Vacation request panel with dates, days requested and a note, with Reject and Approve buttons" data-es-alt="Panel de solicitud de vacaciones con fechas, días solicitados y nota, con botones Rechazar y Aprobar" alt="Vacation request panel with dates, days requested and a note, with Reject and Approve buttons"></div>
@@ -167,8 +239,18 @@
     <section class="section container story">
       <p class="label reveal"><span data-l="en">Changes to approved vacations</span><span data-l="es">Cambios sobre vacaciones aprobadas</span></p>
       <h2 class="story__title reveal"><span data-l="en">Plans change after approval, so the system lets them change safely</span><span data-l="es">Los planes cambian después de aprobarse, así que el sistema permite cambiarlos con seguridad</span></h2>
-      <div class="story__body reveal">
-        <p><span data-l="en">From an approved vacation, the admin can <strong>modify dates</strong>, <strong>partially cancel</strong> or <strong>cancel</strong> it. Each path ends in a before/after summary (for example, “+2 additional days”) and the crew member’s balance is adjusted automatically.</span><span data-l="es">Desde una vacación aprobada, el admin puede <strong>modificar fechas</strong>, <strong>anular parcialmente</strong> o <strong>anular</strong>. Cada camino termina en un resumen de antes y después (por ejemplo, “+2 días adicionales”) y el saldo del tripulante se ajusta automáticamente.</span></p>
+      <div class="viz reveal" style="--card:var(--lilac)">
+        <div class="model personal-embarcado-change">
+          <div class="node node--accent"><strong><span data-l="en">Approved vacation</span><span data-l="es">Vacación aprobada</span></strong></div>
+          <span class="model__rel"><span data-l="en">the admin can</span><span data-l="es">el admin puede</span></span>
+          <div class="chips personal-embarcado-options">
+            <span class="chip"><span data-l="en">Modify dates</span><span data-l="es">Modificar fechas</span></span>
+            <span class="chip"><span data-l="en">Partially cancel</span><span data-l="es">Anular parcialmente</span></span>
+            <span class="chip"><span data-l="en">Cancel</span><span data-l="es">Anular</span></span>
+          </div>
+          <span class="model__rel"><span data-l="en">each ends in</span><span data-l="es">cada uno termina en</span></span>
+          <div class="node"><strong><span data-l="en">Before/after summary</span><span data-l="es">Resumen antes y después</span></strong><small><span data-l="en">e.g. “+2 additional days”; the balance is adjusted automatically</span><span data-l="es">p. ej. “+2 días adicionales”; el saldo se ajusta automáticamente</span></small></div>
+        </div>
       </div>
       <div class="shots reveal" style="--card:var(--lilac)">
         <figure><div class="shot"><img src="../assets/personal-embarcado/approved-change.webp" width="1600" height="1078" loading="lazy" data-en-alt="Approved vacation detail with three options: modify dates, partially cancel, or cancel" data-es-alt="Detalle de una vacación aprobada con tres opciones: modificar fechas, anular parcialmente o anular" alt="Approved vacation detail with three options: modify dates, partially cancel, or cancel"></div>
@@ -189,14 +271,14 @@
 
     <!-- NEXT -->
     <section class="section container">
-      <a class="next-card reveal" href="comunidapp.html" style="--card:var(--butter)">
+      <a class="next-card reveal" href="work-connect.html" style="--card:var(--stone)">
         <div>
           <p class="label"><span data-l="en">Next project</span><span data-l="es">Siguiente proyecto</span></p>
-          <h2 class="next-card__title">ComunidAPP</h2>
+          <h2 class="next-card__title">Work Connect</h2>
           <span class="card__cta"><span data-l="en">Read the case study</span><span data-l="es">Leer el caso de estudio</span> <span class="arrow" aria-hidden="true">→</span></span>
         </div>
       </a>
-      <p class="pager__all reveal"><a href="law-firm-website.html">← <span data-l="en">Previous project</span><span data-l="es">Proyecto anterior</span></a> · <a href="../projects.html"><span data-l="en">All projects</span><span data-l="es">Todos los proyectos</span></a></p>
+      <p class="pager__all reveal"><a href="comunidapp.html">← <span data-l="en">Previous project</span><span data-l="es">Proyecto anterior</span></a> · <a href="../projects.html"><span data-l="en">All projects</span><span data-l="es">Todos los proyectos</span></a></p>
     </section>
 
     <!-- CONTACT -->

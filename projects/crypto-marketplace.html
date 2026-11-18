@@ -26,19 +26,41 @@
   <link rel="stylesheet" href="../styles.css" />
   <style>
     /* crypto-marketplace page-only components (prefix cm-) */
-    .quotes.cm-hmw { grid-template-columns: 1fr; max-width: 52ch; }
-    .cm-credit { margin-top: 22px; font-size: 17px; }
-    .cm-credit a { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-    .cm-personas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 26px; }
-    .cm-persona { background: var(--sage); border-radius: var(--radius); padding: clamp(22px, 3vw, 34px); }
-    .cm-persona h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 3vw, 40px); line-height: 1.05; margin: 6px 0 2px; }
-    .cm-persona__role { color: var(--muted); margin: 0 0 14px; }
-    .cm-persona h4 { font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin: 16px 0 6px; }
-    .cm-persona ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; color: var(--ink); }
+    .cm-sub { margin: 26px 0 10px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-align: center; }
+    .cm-sub:first-child { margin-top: 0; }
+    .cm-hmw { margin: 22px auto 0; max-width: 58ch; text-align: center; font-family: var(--serif); font-style: italic; font-size: clamp(18px, 2vw, 22px); line-height: 1.4; }
+    .cm-chips { justify-content: center; }
+    .cm-chips .chip { background: var(--r1); border-color: transparent; padding: 8px 14px; }
+    .cm-chips .chip b { font-weight: 700; }
+    .cm-chips .chip.chip--accent { background: var(--r5); color: var(--on-dark); }
+    :root[data-theme="dark"] .cm-chips .chip.chip--accent { color: #1b1110; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cm-chips .chip.chip--accent { color: #1b1110; } }
+    .cm-chips--sand .chip { background: var(--sand1); }
+    .cm-track { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 8px; }
+    .cm-track .arrow-r { font-size: 18px; }
+    .cm-personas { display: grid; gap: 20px; }
+    .cm-personas .persona__id small b { display: block; font-weight: 700; margin-top: 6px; }
+    .cm-view { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 14px; }
+    .cm-view .node { min-width: 0; padding: 18px; justify-content: flex-start; }
+    .cm-view .node:not(.node--accent) { background: var(--sand1); border-color: transparent; }
+    .cm-view .node--accent { background: var(--r5); border-color: var(--r5); color: var(--on-dark); }
+    :root[data-theme="dark"] .cm-view .node--accent { color: #1b1110; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cm-view .node--accent { color: #1b1110; } }
+    .cm-reframe .node { flex: 1 1 260px; max-width: 360px; }
+    .cm-obj { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .cm-obj .chip { flex-direction: column; align-items: flex-start; gap: 2px; border-radius: 14px; padding: 12px 14px; }
+    .cm-imap .imap__row { align-items: stretch; }
+    .cm-imap .imap__row > .arrow-r { align-self: center; }
+    @media (max-width: 900px) { .cm-obj { grid-template-columns: repeat(2, 1fr); } .cm-reframe .node { flex: 0 1 auto; max-width: none; width: 100%; } }
+    @media (max-width: 900px) { .cm-imap { gap: 26px; } }
+    @media (max-width: 520px) {
+      .cm-obj { grid-template-columns: 1fr; }
+      .cm-track:not(.cm-chips--sand) { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .cm-track .arrow-r { display: none; }
+      .cm-track .chip { justify-content: flex-start; }
+    }
     .cm-ba figcaption { font-weight: 700; font-size: 16px; }
-    .cm-list { margin: 14px 0 0; padding-left: 1.4em; display: grid; gap: 10px; font-size: 15.5px; color: var(--ink); }
-    .cm-list strong { font-weight: 700; }
-    @media (max-width: 760px) { .cm-personas { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .cm-view { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -117,45 +139,62 @@
       <p class="label reveal"><span data-l="en">Overview</span><span data-l="es">Resumen</span></p>
       <h2 class="story__title reveal"><span data-l="en">A marketplace for bankruptcy claims that people didn’t fully trust</span><span data-l="es">Un marketplace de reclamos por quiebra en el que la gente no terminaba de confiar</span></h2>
       <div class="story__body reveal">
-        <p><span data-l="en">X-claim is an online marketplace for buying and selling bankruptcy claims, including claims against crypto estates such as FTX, Celsius, Genesis and Core Scientific. The original platform suffered from <strong>low transparency, an inconsistent UI, fragmented communication and high friction</strong>, which reduced trust and transaction velocity.</span><span data-l="es">X-claim es un marketplace en línea para comprar y vender reclamos por quiebra, incluidos reclamos contra empresas cripto como FTX, Celsius, Genesis y Core Scientific. La plataforma original tenía <strong>poca transparencia, una interfaz inconsistente, comunicación fragmentada y mucha fricción</strong>, lo que reducía la confianza y la velocidad de las transacciones.</span></p>
-        <p><span data-l="en">I designed it together with <strong>another UX designer</strong> (we did the research and the screens jointly), inside a cross-functional team of designers, developers and project managers. The redesign delivered:</span><span data-l="es">Lo diseñé junto con <strong>otra diseñadora UX</strong>: hicimos la investigación y las pantallas en conjunto, dentro de un equipo multidisciplinario de diseñadores, desarrolladores y project managers. El rediseño entregó:</span></p>
+        <p><span data-l="en">X-claim is an online marketplace for buying and selling bankruptcy claims, including claims against crypto estates such as FTX, Celsius, Genesis and Core Scientific. I designed it together with <strong>another UX designer</strong> (research and screens done jointly), inside a cross-functional team of designers, developers and project managers.</span><span data-l="es">X-claim es un marketplace en línea para comprar y vender reclamos por quiebra, incluidos reclamos contra empresas cripto como FTX, Celsius, Genesis y Core Scientific. Lo diseñé junto con <strong>otra diseñadora UX</strong> (investigación y pantallas en conjunto), dentro de un equipo multidisciplinario de diseñadores, desarrolladores y project managers.</span></p>
       </div>
-      <ul class="learnings reveal">
-        <li><span data-l="en">New dashboards for buyers, sellers and admins.</span><span data-l="es">Nuevos dashboards para compradores, vendedores y administradores.</span></li>
-        <li><span data-l="en">Communication moved inside the platform.</span><span data-l="es">La comunicación, dentro de la plataforma.</span></li>
-        <li><span data-l="en">Transparent claim evaluation with historical data.</span><span data-l="es">Una evaluación de reclamos transparente, con datos históricos.</span></li>
-      </ul>
+      <div class="viz reveal" style="--card:var(--sage)">
+        <div class="factors">
+          <div class="factors__in">
+            <span class="chip"><span data-l="en">Low transparency</span><span data-l="es">Poca transparencia</span></span>
+            <span class="chip"><span data-l="en">Inconsistent UI</span><span data-l="es">Interfaz inconsistente</span></span>
+            <span class="chip"><span data-l="en">Fragmented communication</span><span data-l="es">Comunicación fragmentada</span></span>
+            <span class="chip"><span data-l="en">High friction</span><span data-l="es">Mucha fricción</span></span>
+          </div>
+          <span class="arrow-r" aria-hidden="true">→</span>
+          <div class="factors__out">
+            <div class="node node--accent"><strong><span data-l="en">Redesign</span><span data-l="es">Rediseño</span></strong><small><span data-l="en">what it delivered</span><span data-l="es">lo que entregó</span></small></div>
+            <div class="node"><small><span data-l="en">New dashboards for buyers, sellers and admins</span><span data-l="es">Nuevos dashboards para compradores, vendedores y administradores</span></small></div>
+            <div class="node"><small><span data-l="en">Communication moved inside the platform</span><span data-l="es">La comunicación, dentro de la plataforma</span></small></div>
+            <div class="node"><small><span data-l="en">Transparent claim evaluation with historical data</span><span data-l="es">Evaluación de reclamos transparente, con datos históricos</span></small></div>
+          </div>
+        </div>
+        <p class="viz__caption"><span data-l="en">The problems that reduced trust and transaction velocity, and what the redesign delivered</span><span data-l="es">Los problemas que reducían la confianza y la velocidad de las transacciones, y lo que entregó el rediseño</span></p>
+      </div>
     </section>
 
     <!-- PROCESS -->
     <section class="section container story">
       <p class="label reveal"><span data-l="en">How we worked</span><span data-l="es">Cómo trabajamos</span></p>
       <h2 class="story__title reveal"><span data-l="en">A user-centered, iterative process, from discovery to delivery</span><span data-l="es">Un proceso centrado en el usuario e iterativo, del descubrimiento a la entrega</span></h2>
-      <ol class="steps">
-        <li class="step reveal"><span class="step__num">01</span><div><h3><span data-l="en">Empathize</span><span data-l="es">Empatizar</span></h3><p><span data-l="en">Research on the existing product: an insights report, a benchmarking matrix and an opportunity map.</span><span data-l="es">Investigación del producto existente: reporte de insights, matriz de benchmarking y mapa de oportunidades.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">02</span><div><h3><span data-l="en">Define</span><span data-l="es">Definir</span></h3><p><span data-l="en">Project charter, problem statement and success metrics; then personas, user journeys, a pain point matrix and strategic UX priorities.</span><span data-l="es">Project charter, planteamiento del problema y métricas de éxito; luego personas, user journeys, matriz de pain points y prioridades estratégicas de UX.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">03</span><div><h3><span data-l="en">Ideate</span><span data-l="es">Idear</span></h3><p><span data-l="en">Concept sketches, information architecture and prioritized concepts.</span><span data-l="es">Bocetos de concepto, arquitectura de información y conceptos priorizados.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">04</span><div><h3><span data-l="en">Prototype</span><span data-l="es">Prototipar</span></h3><p><span data-l="en">High-fidelity screens, a design system and interactive prototypes.</span><span data-l="es">Pantallas de alta fidelidad, un design system y prototipos interactivos.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">05</span><div><h3><span data-l="en">Test &amp; deliver</span><span data-l="es">Testear y entregar</span></h3><p><span data-l="en">Usability testing and recommendations, annotated screens and interaction specs for handoff, then iteration toward launch.</span><span data-l="es">Pruebas de usabilidad y recomendaciones, pantallas anotadas y especificaciones de interacción para el handoff, y luego iteración hacia el lanzamiento.</span></p></div></li>
-      </ol>
+      <div class="viz reveal" style="--card:var(--sage)">
+        <ol class="flow">
+          <li><strong><span data-l="en">Empathize</span><span data-l="es">Empatizar</span></strong><small><span data-l="en">Insights report, benchmarking matrix and opportunity map of the existing product</span><span data-l="es">Reporte de insights, matriz de benchmarking y mapa de oportunidades del producto existente</span></small></li>
+          <li><strong><span data-l="en">Define</span><span data-l="es">Definir</span></strong><small><span data-l="en">Project charter, problem statement, success metrics, personas, user journeys, pain point matrix and UX priorities</span><span data-l="es">Project charter, planteamiento del problema, métricas de éxito, personas, user journeys, matriz de pain points y prioridades de UX</span></small></li>
+          <li><strong><span data-l="en">Ideate</span><span data-l="es">Idear</span></strong><small><span data-l="en">Concept sketches, information architecture and prioritized concepts</span><span data-l="es">Bocetos de concepto, arquitectura de información y conceptos priorizados</span></small></li>
+          <li><strong><span data-l="en">Prototype</span><span data-l="es">Prototipar</span></strong><small><span data-l="en">High-fidelity screens, a design system and interactive prototypes</span><span data-l="es">Pantallas de alta fidelidad, un design system y prototipos interactivos</span></small></li>
+          <li class="is-final"><strong><span data-l="en">Test &amp; deliver</span><span data-l="es">Testear y entregar</span></strong><small><span data-l="en">Usability testing, annotated screens and interaction specs for handoff, then iteration toward launch</span><span data-l="es">Pruebas de usabilidad, pantallas anotadas y especificaciones de interacción para el handoff, y luego iteración hacia el lanzamiento</span></small></li>
+        </ol>
+      </div>
     </section>
 
     <!-- DISCOVERY -->
     <section class="section container story">
       <p class="label reveal"><span data-l="en">Discovery</span><span data-l="es">Descubrimiento</span></p>
       <h2 class="story__title reveal"><span data-l="en">We reframed a business problem as a question about trust and decisions</span><span data-l="es">Convertimos un problema de negocio en una pregunta sobre confianza y decisiones</span></h2>
-      <div class="story__body reveal">
-        <p><span data-l="en">The client needed to improve the efficiency and trust of the marketplace: buyers and sellers faced friction in bidding, communication and transactions, which limited platform growth and user autonomy. We reframed it as a design problem focused on user behavior, decision-making and trust in the system:</span><span data-l="es">El cliente necesitaba mejorar la eficiencia y la confianza del marketplace: compradores y vendedores enfrentaban fricción al ofertar, comunicarse y cerrar transacciones, lo que limitaba el crecimiento de la plataforma y la autonomía de los usuarios. Lo replanteamos como un problema de diseño centrado en el comportamiento del usuario, la toma de decisiones y la confianza en el sistema:</span></p>
+      <div class="viz reveal" style="--card:var(--sage)">
+        <div class="model cm-reframe">
+          <div class="node"><strong><span data-l="en">Business problem</span><span data-l="es">Problema de negocio</span></strong><small><span data-l="en">Friction in bidding, communication and transactions limited growth and user autonomy</span><span data-l="es">La fricción al ofertar, comunicarse y cerrar transacciones limitaba el crecimiento y la autonomía</span></small></div>
+          <span class="model__rel"><span data-l="en">reframed as</span><span data-l="es">replanteado como</span></span>
+          <div class="node node--accent"><strong><span data-l="en">Design problem</span><span data-l="es">Problema de diseño</span></strong><small><span data-l="en">User behavior, decision-making and trust in the system</span><span data-l="es">Comportamiento del usuario, toma de decisiones y confianza en el sistema</span></small></div>
+        </div>
+        <p class="cm-hmw"><span data-l="en">“How might we enable users to evaluate, communicate and transact claims efficiently and transparently, while reducing dependency on manual intervention?”</span><span data-l="es">“¿Cómo podríamos permitir que los usuarios evalúen, comuniquen y negocien reclamos de forma eficiente y transparente, reduciendo la dependencia de la intervención manual?”</span></p>
+        <p class="cm-sub"><span data-l="en">Objectives</span><span data-l="es">Objetivos</span></p>
+        <div class="chips cm-chips cm-obj">
+          <span class="chip"><b><span data-l="en">Transparency</span><span data-l="es">Transparencia</span></b><span data-l="en">in how claims are evaluated</span><span data-l="es">en la evaluación de reclamos</span></span>
+          <span class="chip"><b><span data-l="en">Autonomy</span><span data-l="es">Autonomía</span></b><span data-l="en">for buyers and sellers</span><span data-l="es">para compradores y vendedores</span></span>
+          <span class="chip"><b><span data-l="en">Less manual work</span><span data-l="es">Menos trabajo manual</span></b><span data-l="en">less friction from manual processes</span><span data-l="es">menos fricción por procesos manuales</span></span>
+          <span class="chip"><b><span data-l="en">Scalability</span><span data-l="es">Escalabilidad</span></b><span data-l="en">without more operational load</span><span data-l="es">sin más carga operativa</span></span>
+        </div>
       </div>
-      <ul class="quotes cm-hmw reveal">
-        <li><span data-l="en">“How might we enable users to evaluate, communicate and transact claims efficiently and transparently, while reducing dependency on manual intervention?”</span><span data-l="es">“¿Cómo podríamos permitir que los usuarios evalúen, comuniquen y negocien reclamos de forma eficiente y transparente, reduciendo la dependencia de la intervención manual?”</span></li>
-      </ul>
-      <ol class="steps steps--compact">
-        <li class="step reveal"><span class="step__num">01</span><div><h3><span data-l="en">Transparency</span><span data-l="es">Transparencia</span></h3><p><span data-l="en">Increase transparency in how claims are evaluated.</span><span data-l="es">Aumentar la transparencia en la evaluación de los reclamos.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">02</span><div><h3><span data-l="en">Autonomy</span><span data-l="es">Autonomía</span></h3><p><span data-l="en">Give buyers and sellers more autonomy.</span><span data-l="es">Dar más autonomía a compradores y vendedores.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">03</span><div><h3><span data-l="en">Less manual work</span><span data-l="es">Menos trabajo manual</span></h3><p><span data-l="en">Reduce the friction caused by manual processes.</span><span data-l="es">Reducir la fricción causada por procesos manuales.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">04</span><div><h3><span data-l="en">Scalability</span><span data-l="es">Escalabilidad</span></h3><p><span data-l="en">Let the platform scale without increasing operational load.</span><span data-l="es">Permitir que la plataforma escale sin aumentar la carga operativa.</span></p></div></li>
-      </ol>
     </section>
 
     <!-- RESEARCH -->
@@ -163,43 +202,59 @@
       <p class="label reveal"><span data-l="en">Research</span><span data-l="es">Investigación</span></p>
       <h2 class="story__title reveal"><span data-l="en">Seven weeks to understand the “why” behind the friction</span><span data-l="es">Siete semanas para entender el “por qué” de la fricción</span></h2>
       <div class="story__body reveal">
-        <p><span data-l="en">Our 7-week research phase combined <strong>quantitative analysis, a heuristic evaluation and direct conversations with users</strong>. We analyzed data to identify the product’s strengths and weaknesses and gathered information on its functionality, user experience and scalability. It surfaced two kinds of users with opposing needs: creditors who need liquidity, and investors who look for value.</span><span data-l="es">Nuestra fase de investigación de 7 semanas combinó <strong>análisis cuantitativo, una evaluación heurística y conversaciones directas con usuarios</strong>. Analizamos datos para identificar las fortalezas y debilidades del producto y recopilamos información sobre su funcionalidad, experiencia de usuario y escalabilidad. Así aparecieron dos tipos de usuarios con necesidades opuestas: acreedores que necesitan liquidez e inversionistas que buscan valor.</span></p>
+        <p><span data-l="en">Seven weeks of <strong>quantitative analysis, a heuristic evaluation and direct conversations with users</strong> surfaced two kinds of users with opposing needs: creditors who need liquidity, and investors who look for value.</span><span data-l="es">Siete semanas de <strong>análisis cuantitativo, una evaluación heurística y conversaciones directas con usuarios</strong> revelaron dos tipos de usuarios con necesidades opuestas: acreedores que necesitan liquidez e inversionistas que buscan valor.</span></p>
       </div>
-      <div class="cm-personas reveal">
-        <article class="cm-persona">
-          <p class="label"><span data-l="en">Seller · creditor</span><span data-l="es">Vendedora · acreedora</span></p>
-          <h3>Alyssa</h3>
-          <p class="cm-persona__role"><span data-l="en">Former FinTech employee</span><span data-l="es">Ex empleada de una FinTech</span></p>
-          <h4><span data-l="en">Needs</span><span data-l="es">Necesita</span></h4>
-          <ul>
-            <li><span data-l="en">A straightforward way to list her claim, without confusing legal terms.</span><span data-l="es">Una forma simple de publicar su reclamo, sin términos legales confusos.</span></li>
-            <li><span data-l="en">Confidence that buyers are verified and the transaction is secure.</span><span data-l="es">La seguridad de que los compradores están verificados y la transacción es segura.</span></li>
-            <li><span data-l="en">A central dashboard to see listings, track offers and claim status.</span><span data-l="es">Un dashboard central para ver sus publicaciones, seguir ofertas y el estado de su reclamo.</span></li>
-          </ul>
-          <h4><span data-l="en">Frustrations</span><span data-l="es">Frustraciones</span></h4>
-          <ul>
-            <li><span data-l="en">After submitting a claim she landed on the homepage, with no way to see what happened next.</span><span data-l="es">Después de enviar su reclamo volvía a la home, sin forma de saber qué pasaba después.</span></li>
-            <li><span data-l="en">Anxiety about fraud and unverified buyers.</span><span data-l="es">Ansiedad por el fraude y los compradores no verificados.</span></li>
-            <li><span data-l="en">The real action happened in emails, where she had no control or record.</span><span data-l="es">Todo pasaba por correo, donde no tenía control ni registro.</span></li>
-          </ul>
-        </article>
-        <article class="cm-persona">
-          <p class="label"><span data-l="en">Buyer · investor</span><span data-l="es">Comprador · inversionista</span></p>
-          <h3>Edward</h3>
-          <p class="cm-persona__role"><span data-l="en">Hedge fund founder</span><span data-l="es">Fundador de un hedge fund</span></p>
-          <h4><span data-l="en">Likes</span><span data-l="es">Valora</span></h4>
-          <ul>
-            <li><span data-l="en">The volume and variety of claims.</span><span data-l="es">El volumen y la variedad de reclamos.</span></li>
-            <li><span data-l="en">Reviewing and bidding quickly.</span><span data-l="es">Revisar y ofertar rápido.</span></li>
-            <li><span data-l="en">A centralized feed.</span><span data-l="es">Un feed centralizado.</span></li>
-          </ul>
-          <h4><span data-l="en">Frustrations</span><span data-l="es">Frustraciones</span></h4>
-          <ul>
-            <li><span data-l="en">Claims lacked critical documentation, forcing external research and guesswork.</span><span data-l="es">A los reclamos les faltaba documentación clave, lo que lo obligaba a investigar por fuera y a adivinar.</span></li>
-            <li><span data-l="en">No central dashboard to track bids, and no way to bid on several claims at once.</span><span data-l="es">No había un dashboard para seguir sus ofertas ni forma de ofertar por varios reclamos a la vez.</span></li>
-            <li><span data-l="en">No visibility into market activity or competing interest.</span><span data-l="es">No tenía visibilidad de la actividad del mercado ni del interés de otros compradores.</span></li>
-          </ul>
-        </article>
+      <div class="cm-personas">
+        <div class="viz reveal" style="--card:var(--sage)">
+          <div class="persona">
+            <div class="persona__id">
+              <span class="avatar" aria-hidden="true">A</span>
+              <strong>Alyssa</strong>
+              <small><span data-l="en">Former FinTech employee</span><span data-l="es">Ex empleada de una FinTech</span><b><span data-l="en">Seller · creditor who needs liquidity</span><span data-l="es">Vendedora · acreedora que necesita liquidez</span></b></small>
+            </div>
+            <div class="persona__col">
+              <h4><span data-l="en">Needs</span><span data-l="es">Necesita</span></h4>
+              <ul>
+              <li><span data-l="en">A straightforward way to list her claim, without confusing legal terms</span><span data-l="es">Una forma simple de publicar su reclamo, sin términos legales confusos</span></li>
+              <li><span data-l="en">Confidence that buyers are verified and the transaction is secure</span><span data-l="es">La seguridad de que los compradores están verificados y la transacción es segura</span></li>
+              <li><span data-l="en">A central dashboard to see listings, track offers and claim status</span><span data-l="es">Un dashboard central para ver publicaciones, seguir ofertas y el estado del reclamo</span></li>
+              </ul>
+            </div>
+            <div class="persona__col persona__col--pain">
+              <h4><span data-l="en">Frustrations</span><span data-l="es">Frustraciones</span></h4>
+              <ul>
+              <li><span data-l="en">After submitting a claim she landed on the homepage, with no way to see what happened next</span><span data-l="es">Después de enviar su reclamo volvía a la home, sin saber qué pasaba después</span></li>
+              <li><span data-l="en">Anxiety about fraud and unverified buyers</span><span data-l="es">Ansiedad por el fraude y los compradores no verificados</span></li>
+              <li><span data-l="en">The real action happened in emails, with no control or record</span><span data-l="es">Todo pasaba por correo, sin control ni registro</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="viz reveal" style="--card:var(--sage)">
+          <div class="persona">
+            <div class="persona__id">
+              <span class="avatar" aria-hidden="true">E</span>
+              <strong>Edward</strong>
+              <small><span data-l="en">Hedge fund founder</span><span data-l="es">Fundador de un hedge fund</span><b><span data-l="en">Buyer · investor who looks for value</span><span data-l="es">Comprador · inversionista que busca valor</span></b></small>
+            </div>
+            <div class="persona__col">
+              <h4><span data-l="en">Likes</span><span data-l="es">Valora</span></h4>
+              <ul>
+              <li><span data-l="en">The volume and variety of claims</span><span data-l="es">El volumen y la variedad de reclamos</span></li>
+              <li><span data-l="en">Reviewing and bidding quickly</span><span data-l="es">Revisar y ofertar rápido</span></li>
+              <li><span data-l="en">A centralized feed</span><span data-l="es">Un feed centralizado</span></li>
+              </ul>
+            </div>
+            <div class="persona__col persona__col--pain">
+              <h4><span data-l="en">Frustrations</span><span data-l="es">Frustraciones</span></h4>
+              <ul>
+              <li><span data-l="en">Claims lacked critical documentation, forcing external research and guesswork</span><span data-l="es">A los reclamos les faltaba documentación clave: tenía que investigar por fuera y adivinar</span></li>
+              <li><span data-l="en">No central dashboard to track bids, and no way to bid on several claims at once</span><span data-l="es">Sin dashboard para seguir sus ofertas ni forma de ofertar por varios reclamos a la vez</span></li>
+              <li><span data-l="en">No visibility into market activity or competing interest</span><span data-l="es">Sin visibilidad de la actividad del mercado ni del interés de otros compradores</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -207,12 +262,31 @@
     <section class="section container story">
       <p class="label reveal"><span data-l="en">From questions to solutions</span><span data-l="es">De preguntas a soluciones</span></p>
       <h2 class="story__title reveal"><span data-l="en">Four “How might we” questions, four directions for the redesign</span><span data-l="es">Cuatro preguntas “¿Cómo podríamos…?”, cuatro direcciones para el rediseño</span></h2>
-      <ol class="steps">
-        <li class="step reveal"><span class="step__num">01</span><div><h3><span data-l="en">How might we give sellers immediate control and visibility after listing a claim?</span><span data-l="es">¿Cómo podríamos dar a los vendedores control y visibilidad inmediatos después de publicar un reclamo?</span></h3><p><span data-l="en">A seller dashboard, a status tracker (“Listed”, “Offers received”) and actionable notifications.</span><span data-l="es">Un dashboard para vendedores, un seguimiento de estado (“Publicado”, “Ofertas recibidas”) y notificaciones accionables.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">02</span><div><h3><span data-l="en">How might we give buyers transparent data and market insights to bid with confidence?</span><span data-l="es">¿Cómo podríamos dar a los compradores datos transparentes y contexto de mercado para ofertar con confianza?</span></h3><p><span data-l="en">An enhanced claim docket with every document and the asset breakdown, a market intel panel with historical prices for similar claims, and a buyer dashboard (“My bids”, “Saved searches”, “Market alerts”).</span><span data-l="es">Una ficha de reclamo más completa, con todos los documentos y el detalle de activos; un panel de mercado con precios históricos de reclamos similares, y un dashboard para compradores (“Mis ofertas”, “Búsquedas guardadas”, “Alertas de mercado”).</span></p></div></li>
-        <li class="step reveal"><span class="step__num">03</span><div><h3><span data-l="en">How might we make communication between buyers and sellers secure and efficient?</span><span data-l="es">¿Cómo podríamos lograr una comunicación segura y eficiente entre compradores y vendedores?</span></h3><p><span data-l="en">In-platform messaging linked to each claim, a communication history that works as an audit trail, and verified user badges.</span><span data-l="es">Mensajería dentro de la plataforma vinculada a cada reclamo, un historial de comunicación que sirve como registro de auditoría y distintivos de usuario verificado.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">04</span><div><h3><span data-l="en">How might we streamline discovering and acting on multiple claims?</span><span data-l="es">¿Cómo podríamos agilizar el descubrimiento de reclamos y la acción sobre varios a la vez?</span></h3><p><span data-l="en">Advanced filters and saved searches, bulk actions to bid on several claims, and a “Followed claims” list.</span><span data-l="es">Filtros avanzados y búsquedas guardadas, acciones masivas para ofertar por varios reclamos y una lista de “Reclamos seguidos”.</span></p></div></li>
-      </ol>
+      <div class="viz reveal" style="--card:var(--sage)">
+        <div class="imap cm-imap">
+          <div class="imap__head"><span><span data-l="en">How might we…</span><span data-l="es">¿Cómo podríamos…?</span></span><span></span><span><span data-l="en">Solution direction</span><span data-l="es">Dirección de solución</span></span></div>
+          <div class="imap__row">
+            <div><b><span data-l="en">For sellers</span><span data-l="es">Para vendedores</span></b><span data-l="en">How might we give sellers immediate control and visibility after listing a claim?</span><span data-l="es">¿Cómo podríamos dar a los vendedores control y visibilidad inmediatos después de publicar un reclamo?</span></div>
+            <span class="arrow-r" aria-hidden="true">→</span>
+            <div class="is-solution"><b><span data-l="en">Seller dashboard</span><span data-l="es">Dashboard para vendedores</span></b><span data-l="en">Status tracker (“Listed”, “Offers received”) and actionable notifications</span><span data-l="es">Seguimiento de estado (“Publicado”, “Ofertas recibidas”) y notificaciones accionables</span></div>
+          </div>
+          <div class="imap__row">
+            <div><b><span data-l="en">For buyers</span><span data-l="es">Para compradores</span></b><span data-l="en">How might we give buyers transparent data and market insights to bid with confidence?</span><span data-l="es">¿Cómo podríamos dar a los compradores datos transparentes y contexto de mercado para ofertar con confianza?</span></div>
+            <span class="arrow-r" aria-hidden="true">→</span>
+            <div class="is-solution"><b><span data-l="en">Claim docket, market intel and buyer dashboard</span><span data-l="es">Ficha de reclamo, panel de mercado y dashboard para compradores</span></b><span data-l="en">Every document and the asset breakdown, historical prices for similar claims, “My bids”, “Saved searches” and “Market alerts”</span><span data-l="es">Todos los documentos y el detalle de activos, precios históricos de reclamos similares, “Mis ofertas”, “Búsquedas guardadas” y “Alertas de mercado”</span></div>
+          </div>
+          <div class="imap__row">
+            <div><b><span data-l="en">Communication</span><span data-l="es">Comunicación</span></b><span data-l="en">How might we make communication between buyers and sellers secure and efficient?</span><span data-l="es">¿Cómo podríamos lograr una comunicación segura y eficiente entre compradores y vendedores?</span></div>
+            <span class="arrow-r" aria-hidden="true">→</span>
+            <div class="is-solution"><b><span data-l="en">In-platform messaging</span><span data-l="es">Mensajería dentro de la plataforma</span></b><span data-l="en">Linked to each claim, with a history that works as an audit trail, and verified user badges</span><span data-l="es">Vinculada a cada reclamo, con un historial que sirve como registro de auditoría, y distintivos de usuario verificado</span></div>
+          </div>
+          <div class="imap__row">
+            <div><b><span data-l="en">Many claims</span><span data-l="es">Varios reclamos</span></b><span data-l="en">How might we streamline discovering and acting on multiple claims?</span><span data-l="es">¿Cómo podríamos agilizar el descubrimiento de reclamos y la acción sobre varios a la vez?</span></div>
+            <span class="arrow-r" aria-hidden="true">→</span>
+            <div class="is-solution"><b><span data-l="en">Filters and bulk actions</span><span data-l="es">Filtros y acciones masivas</span></b><span data-l="en">Advanced filters, saved searches, bidding on several claims at once and a “Followed claims” list</span><span data-l="es">Filtros avanzados, búsquedas guardadas, ofertar por varios reclamos a la vez y una lista de “Reclamos seguidos”</span></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- BEFORE / AFTER -->
@@ -223,23 +297,36 @@
         <figure>
           <div class="shot"><img src="../assets/crypto-marketplace/claim-before.webp" width="596" height="428" loading="lazy" data-en-alt="Original claim view: a plain table of claim amount details and supporting document checkboxes" data-es-alt="Vista original del reclamo: una tabla simple con el detalle del monto y casillas de documentos de respaldo" alt="Original claim view: a plain table of claim amount details and supporting document checkboxes"></div>
           <figcaption><span data-l="en">Before</span><span data-l="es">Antes</span></figcaption>
-          <ol class="cm-list">
-            <li><strong><span data-l="en">Unclear claim status.</span><span data-l="es">Estado del reclamo poco claro.</span></strong> <span data-l="en">No standardized states, no timeline or progress, no visibility into what had happened or what would happen next.</span><span data-l="es">Sin estados estandarizados, sin línea de tiempo ni progreso, sin visibilidad de lo que había pasado ni de lo que vendría.</span></li>
-            <li><strong><span data-l="en">No historical pricing.</span><span data-l="es">Sin precios históricos.</span></strong> <span data-l="en">No reference points, no market trend, no data to justify offers.</span><span data-l="es">Sin puntos de referencia, sin tendencia de mercado, sin datos para justificar una oferta.</span></li>
-            <li><strong><span data-l="en">Communication outside the platform.</span><span data-l="es">Comunicación fuera de la plataforma.</span></strong> <span data-l="en">Email, calls and spreadsheets, not tied to the claim.</span><span data-l="es">Correos, llamadas y hojas de cálculo, sin relación con el reclamo.</span></li>
-            <li><strong><span data-l="en">No document flagging.</span><span data-l="es">Sin forma de reportar documentos.</span></strong> <span data-l="en">Errors in seller documents were hard to report, with no structured way to alert admins.</span><span data-l="es">Los errores en los documentos del vendedor eran difíciles de reportar y no había una forma estructurada de alertar a los administradores.</span></li>
-          </ol>
         </figure>
         <figure>
           <div class="shot"><img src="../assets/crypto-marketplace/claim-after.webp" width="608" height="422" loading="lazy" data-en-alt="Redesigned claim view with a status badge, claim value, market and ask price bar, a Place Bid button and a token breakdown table" data-es-alt="Vista rediseñada del reclamo con etiqueta de estado, valor del reclamo, barra de precio de mercado y precio pedido, botón para ofertar y tabla de tokens" alt="Redesigned claim view with a status badge, claim value, market and ask price bar, a Place Bid button and a token breakdown table"></div>
           <figcaption><span data-l="en">After</span><span data-l="es">Después</span></figcaption>
-          <ol class="cm-list">
-            <li><strong><span data-l="en">Standardized claim status.</span><span data-l="es">Estado estandarizado.</span></strong> <span data-l="en">Buyers see where each claim stands: Listed · In contract · Expired.</span><span data-l="es">Los compradores ven en qué punto está cada reclamo: Publicado · En contrato · Vencido.</span></li>
-            <li><strong><span data-l="en">Historical transaction prices.</span><span data-l="es">Precios históricos de transacción.</span></strong> <span data-l="en">Market history available right inside the claim.</span><span data-l="es">El historial del mercado, disponible dentro del mismo reclamo.</span></li>
-            <li><strong><span data-l="en">Key metrics panel.</span><span data-l="es">Panel de métricas clave.</span></strong> <span data-l="en">Critical data at a glance to support informed bidding.</span><span data-l="es">Los datos críticos de un vistazo para ofertar con información.</span></li>
-            <li><strong><span data-l="en">Flag documents.</span><span data-l="es">Reportar documentos.</span></strong> <span data-l="en">Buyers can flag problematic documents directly in the platform.</span><span data-l="es">Los compradores pueden reportar documentos con problemas desde la plataforma.</span></li>
-          </ol>
         </figure>
+      </div>
+      <div class="viz reveal" style="--card:var(--sage)">
+        <div class="imap cm-imap">
+          <div class="imap__head"><span><span data-l="en">Before</span><span data-l="es">Antes</span></span><span></span><span><span data-l="en">After</span><span data-l="es">Después</span></span></div>
+          <div class="imap__row">
+            <div><b><span data-l="en">Unclear claim status</span><span data-l="es">Estado del reclamo poco claro</span></b><span data-l="en">No standardized states, no timeline or progress, no visibility into what happened or comes next</span><span data-l="es">Sin estados estandarizados, sin línea de tiempo ni progreso, sin visibilidad de lo pasado ni de lo que viene</span></div>
+            <span class="arrow-r" aria-hidden="true">→</span>
+            <div class="is-solution"><b><span data-l="en">Standardized claim status</span><span data-l="es">Estado estandarizado</span></b><span data-l="en">Buyers see where each claim stands: Listed · In contract · Expired</span><span data-l="es">Los compradores ven en qué punto está cada reclamo: Publicado · En contrato · Vencido</span></div>
+          </div>
+          <div class="imap__row">
+            <div><b><span data-l="en">No historical pricing</span><span data-l="es">Sin precios históricos</span></b><span data-l="en">No reference points, no market trend, no data to justify offers</span><span data-l="es">Sin puntos de referencia, sin tendencia de mercado, sin datos para justificar una oferta</span></div>
+            <span class="arrow-r" aria-hidden="true">→</span>
+            <div class="is-solution"><b><span data-l="en">Historical prices and key metrics</span><span data-l="es">Precios históricos y métricas clave</span></b><span data-l="en">Transaction history right inside the claim, plus a panel with critical data for informed bidding</span><span data-l="es">El historial de transacciones dentro del reclamo, más un panel con los datos críticos para ofertar con información</span></div>
+          </div>
+          <div class="imap__row">
+            <div><b><span data-l="en">Communication outside the platform</span><span data-l="es">Comunicación fuera de la plataforma</span></b><span data-l="en">Email, calls and spreadsheets, not tied to the claim</span><span data-l="es">Correos, llamadas y hojas de cálculo, sin relación con el reclamo</span></div>
+            <span class="arrow-r" aria-hidden="true">→</span>
+            <div class="is-solution"><b><span data-l="en">Communication inside the platform</span><span data-l="es">Comunicación dentro de la plataforma</span></b><span data-l="en">Messaging linked to each claim (see Negotiation below)</span><span data-l="es">Mensajería vinculada a cada reclamo (ver Negociación más abajo)</span></div>
+          </div>
+          <div class="imap__row">
+            <div><b><span data-l="en">No document flagging</span><span data-l="es">Sin forma de reportar documentos</span></b><span data-l="en">Errors in seller documents were hard to report, with no structured way to alert admins</span><span data-l="es">Los errores en documentos del vendedor eran difíciles de reportar, sin una forma estructurada de alertar a los administradores</span></div>
+            <span class="arrow-r" aria-hidden="true">→</span>
+            <div class="is-solution"><b><span data-l="en">Flag documents</span><span data-l="es">Reportar documentos</span></b><span data-l="en">Buyers flag problematic documents directly in the platform</span><span data-l="es">Los compradores reportan documentos con problemas desde la plataforma</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -247,8 +334,14 @@
     <section class="section container story">
       <p class="label reveal"><span data-l="en">The final screens</span><span data-l="es">Las pantallas finales</span></p>
       <h2 class="story__title reveal"><span data-l="en">Market data comes first, so every bid starts informed</span><span data-l="es">Los datos del mercado van primero, para que cada oferta parta informada</span></h2>
-      <div class="story__body reveal">
-        <p><span data-l="en">Each debtor gets its own tab. Before any listing, the home shows the inventory available, the current ask and bid, the average market price for the last 30 days and a historical pricing chart. Below, featured claim cards summarize the essentials (debtor, seller, status, process, dates and ask price) with a direct <strong>Place Bid</strong> action.</span><span data-l="es">Cada deudor tiene su propia pestaña. Antes de cualquier publicación, la home muestra el inventario disponible, los precios de compra y venta, el precio promedio de mercado de los últimos 30 días y un gráfico histórico. Debajo, las tarjetas de reclamos destacados resumen lo esencial (deudor, vendedor, estado, proceso, fechas y precio) con una acción directa para <strong>ofertar</strong>.</span></p>
+      <div class="viz reveal" style="--card:var(--sage)">
+        <ol class="flow flow--plain">
+          <li><strong><span data-l="en">A tab per debtor</span><span data-l="es">Una pestaña por deudor</span></strong><small><span data-l="en">Each debtor gets its own tab</span><span data-l="es">Cada deudor tiene su propia pestaña</span></small></li>
+          <li><strong><span data-l="en">Market data</span><span data-l="es">Datos del mercado</span></strong><small><span data-l="en">Inventory available, current ask and bid, 30-day average market price and a historical pricing chart</span><span data-l="es">Inventario disponible, precios de compra y venta, precio promedio de 30 días y un gráfico histórico</span></small></li>
+          <li><strong><span data-l="en">Featured claim cards</span><span data-l="es">Reclamos destacados</span></strong><small><span data-l="en">Debtor, seller, status, process, dates and ask price</span><span data-l="es">Deudor, vendedor, estado, proceso, fechas y precio</span></small></li>
+          <li class="is-final"><strong><span data-l="en">Place Bid</span><span data-l="es">Ofertar</span></strong><small><span data-l="en">A direct action on every card</span><span data-l="es">Una acción directa en cada tarjeta</span></small></li>
+        </ol>
+        <p class="viz__caption"><span data-l="en">The home, from top to bottom</span><span data-l="es">La home, de arriba hacia abajo</span></p>
       </div>
       <div class="shots reveal" style="--card:var(--sage)">
         <figure><div class="shot"><img src="../assets/crypto-marketplace/marketplace.webp" width="1600" height="959" loading="lazy" data-en-alt="Marketplace home with debtor tabs, inventory, market pricing, a historical pricing chart and featured claim cards with a Place Bid button" data-es-alt="Home del marketplace con pestañas por deudor, inventario, precios de mercado, gráfico histórico y tarjetas de reclamos destacados con botón para ofertar" alt="Marketplace home with debtor tabs, inventory, market pricing, a historical pricing chart and featured claim cards with a Place Bid button"></div><figcaption><span data-l="en">Marketplace home: pricing context above, featured claims below</span><span data-l="es">Home del marketplace: contexto de precios arriba, reclamos destacados abajo</span></figcaption></figure>
@@ -262,19 +355,45 @@
       <div class="story__body reveal">
         <p><span data-l="en">The negotiation screen (shown at the top of this page) keeps everything a buyer and seller need on one page, so nobody has to jump between sections to follow a deal.</span><span data-l="es">La pantalla de negociación (al inicio de esta página) reúne en una sola vista todo lo que necesitan comprador y vendedor, para que nadie tenga que saltar entre secciones para seguir un trato.</span></p>
       </div>
-      <ol class="steps steps--compact">
-        <li class="step reveal"><span class="step__num">01</span><div><h3><span data-l="en">The offer, front and center</span><span data-l="es">La oferta, en primer plano</span></h3><p><span data-l="en">The offer amount stands out next to the claim details: purchase rate, claim amount, ask price and average market.</span><span data-l="es">El monto ofertado destaca junto a los datos del reclamo: tasa de compra, monto del reclamo, precio pedido y promedio de mercado.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">02</span><div><h3><span data-l="en">A bids timeline</span><span data-l="es">Línea de tiempo de ofertas</span></h3><p><span data-l="en">Every offer and its status in order, ending with what happens next.</span><span data-l="es">Cada oferta y su estado en orden, terminando con el siguiente paso.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">03</span><div><h3><span data-l="en">Chat with the seller</span><span data-l="es">Chat con el vendedor</span></h3><p><span data-l="en">Counter-offers are discussed right beside the numbers, with clear actions to modify the offer or cancel.</span><span data-l="es">Las contraofertas se conversan junto a las cifras, con acciones claras para modificar la oferta o cancelar.</span></p></div></li>
-      </ol>
+      <div class="viz reveal" style="--card:var(--sage)">
+        <div class="cm-view">
+          <div class="node node--accent"><strong><span data-l="en">The offer</span><span data-l="es">La oferta</span></strong><small><span data-l="en">Front and center, next to purchase rate, claim amount, ask price and average market</span><span data-l="es">En primer plano, junto a la tasa de compra, el monto del reclamo, el precio pedido y el promedio de mercado</span></small></div>
+          <div class="node"><strong><span data-l="en">Bids timeline</span><span data-l="es">Línea de tiempo de ofertas</span></strong><small><span data-l="en">Every offer and its status in order, ending with what happens next</span><span data-l="es">Cada oferta y su estado en orden, terminando con el siguiente paso</span></small></div>
+          <div class="node"><strong><span data-l="en">Chat with the seller</span><span data-l="es">Chat con el vendedor</span></strong><small><span data-l="en">Counter-offers beside the numbers, with actions to modify the offer or cancel</span><span data-l="es">Contraofertas junto a las cifras, con acciones para modificar la oferta o cancelar</span></small></div>
+        </div>
+        <p class="viz__caption"><span data-l="en">Three parts of a single view</span><span data-l="es">Tres partes de una sola vista</span></p>
+      </div>
     </section>
 
     <!-- CLAIMS -->
     <section class="section container story">
       <p class="label reveal"><span data-l="en">Creating a claim</span><span data-l="es">Crear un reclamo</span></p>
       <h2 class="story__title reveal"><span data-l="en">A long form, broken into clear steps, for users and admins</span><span data-l="es">Un formulario largo, dividido en pasos claros, para usuarios y administradores</span></h2>
-      <div class="story__body reveal">
-        <p><span data-l="en">For users, creating a claim is an 8-step flow (start, debtor, basis, amount, documents, context, summary and confirmation) with a progress stepper and a “Questions? Chat with our team” box always at hand. Admins get their own form in the admin panel to register claims on behalf of users, split into claim details and additional information.</span><span data-l="es">Para los usuarios, crear un reclamo es un flujo de 8 pasos (inicio, deudor, fundamento, monto, documentos, contexto, resumen y confirmación) con un indicador de progreso y un recuadro de “¿Preguntas? Chatea con nuestro equipo” siempre a mano. Los administradores tienen su propio formulario en el panel para registrar reclamos en nombre de los usuarios, dividido en datos del reclamo e información adicional.</span></p>
+      <div class="viz reveal" style="--card:var(--sage)">
+        <p class="cm-sub"><span data-l="en">Users · 8 steps with a progress stepper</span><span data-l="es">Usuarios · 8 pasos con indicador de progreso</span></p>
+        <div class="cm-track cm-chips">
+          <span class="chip"><b>1</b> <span data-l="en">Start</span><span data-l="es">Inicio</span></span>
+          <span class="arrow-r" aria-hidden="true">→</span>
+          <span class="chip"><b>2</b> <span data-l="en">Debtor</span><span data-l="es">Deudor</span></span>
+          <span class="arrow-r" aria-hidden="true">→</span>
+          <span class="chip"><b>3</b> <span data-l="en">Basis</span><span data-l="es">Fundamento</span></span>
+          <span class="arrow-r" aria-hidden="true">→</span>
+          <span class="chip"><b>4</b> <span data-l="en">Amount</span><span data-l="es">Monto</span></span>
+          <span class="arrow-r" aria-hidden="true">→</span>
+          <span class="chip"><b>5</b> <span data-l="en">Documents</span><span data-l="es">Documentos</span></span>
+          <span class="arrow-r" aria-hidden="true">→</span>
+          <span class="chip"><b>6</b> <span data-l="en">Context</span><span data-l="es">Contexto</span></span>
+          <span class="arrow-r" aria-hidden="true">→</span>
+          <span class="chip"><b>7</b> <span data-l="en">Summary</span><span data-l="es">Resumen</span></span>
+          <span class="arrow-r" aria-hidden="true">→</span>
+          <span class="chip chip--accent"><b>8</b> <span data-l="en">Confirmation</span><span data-l="es">Confirmación</span></span>
+        </div>
+        <p class="viz__caption"><span data-l="en">A “Questions? Chat with our team” box stays at hand in every step</span><span data-l="es">Un recuadro de “¿Preguntas? Chatea con nuestro equipo” siempre a mano en cada paso</span></p>
+        <p class="cm-sub"><span data-l="en">Admins · their own form in the admin panel, to register claims on behalf of users</span><span data-l="es">Administradores · su propio formulario en el panel, para registrar reclamos en nombre de los usuarios</span></p>
+        <div class="cm-track cm-chips cm-chips--sand">
+          <span class="chip"><span data-l="en">Claim details</span><span data-l="es">Datos del reclamo</span></span>
+          <span class="chip"><span data-l="en">Additional information</span><span data-l="es">Información adicional</span></span>
+        </div>
       </div>
       <div class="shots shots--2 reveal" style="--card:var(--sage)">
         <figure><div class="shot"><img src="../assets/crypto-marketplace/create-claim.webp" width="1440" height="730" loading="lazy" data-en-alt="Create Claim screen with an 8-step progress stepper, the first question and a Questions? Chat with our team box" data-es-alt="Pantalla Crear reclamo con un indicador de 8 pasos, la primera pregunta y un recuadro de ayuda para chatear con el equipo" alt="Create Claim screen with an 8-step progress stepper, the first question and a Questions? Chat with our team box"></div><figcaption><span data-l="en">User flow: one step at a time, help always visible</span><span data-l="es">Flujo de usuario: un paso a la vez, ayuda siempre visible</span></figcaption></figure>
@@ -287,11 +406,11 @@
       <a class="next-card reveal" href="law-firm-website.html" style="--card:var(--sky)">
         <div>
           <p class="label"><span data-l="en">Next project</span><span data-l="es">Siguiente proyecto</span></p>
-          <h2 class="next-card__title">Law Firm Website</h2>
+          <h2 class="next-card__title"><span data-l="en">Law Firm Website</span><span data-l="es">Sitio web legal</span></h2>
           <span class="card__cta"><span data-l="en">Read the case study</span><span data-l="es">Leer el caso de estudio</span> <span class="arrow" aria-hidden="true">→</span></span>
         </div>
       </a>
-      <p class="pager__all reveal"><a href="contratos-tarifas.html">← <span data-l="en">Previous project</span><span data-l="es">Proyecto anterior</span></a> · <a href="../projects.html"><span data-l="en">All projects</span><span data-l="es">Todos los proyectos</span></a></p>
+      <p class="pager__all reveal"><a href="work-connect.html">← <span data-l="en">Previous project</span><span data-l="es">Proyecto anterior</span></a> · <a href="../projects.html"><span data-l="en">All projects</span><span data-l="es">Todos los proyectos</span></a></p>
     </section>
 
     <!-- CONTACT -->

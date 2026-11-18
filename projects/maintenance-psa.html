@@ -24,6 +24,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Luxurious+Script&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* maintenance-psa: keep text on the dark final step of 3-step flows readable (styles.css line ~660 overrides it) */
+    .maintenance-psa-flow > li.is-final small,
+    .maintenance-psa-flow > li.is-final::before { color: inherit; }
+  </style>
 </head>
 <body>
   <a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="es">Saltar al contenido</span></a>
@@ -99,9 +104,31 @@
     <section class="section container story">
       <p class="label reveal"><span data-l="en">The context</span><span data-l="es">El contexto</span></p>
       <h2 class="story__title reveal"><span data-l="en">Maintenance data logged at sea has to be right the first time</span><span data-l="es">Los datos de mantenimiento registrados en altamar tienen que ser correctos a la primera</span></h2>
-      <div class="story__body reveal">
-        <p><span data-l="en">On board the vessels, crews record how many hours each piece of equipment has run, every fuel supply, consumption or transfer, and the maintenance <strong>work orders</strong> assigned to a responsible person. That information feeds the company’s maintenance systems and its reports.</span><span data-l="es">A bordo, las tripulaciones registran cuántas horas ha operado cada equipo, cada abastecimiento, consumo o trasvase de combustible y las <strong>órdenes de trabajo</strong> de mantenimiento asignadas a un responsable. Esa información alimenta los sistemas de mantenimiento de la empresa y sus reportes.</span></p>
-        <p><span data-l="en">The goals: let users record and send this data easily, keep the interface simple and intuitive, guarantee data integrity and traceability, and protect access with two-factor authentication.</span><span data-l="es">Los objetivos: que los usuarios registren y envíen estos datos con facilidad, mantener una interfaz simple e intuitiva, asegurar la integridad y trazabilidad de la información y proteger el acceso con autenticación de doble factor.</span></p>
+      <div class="viz reveal" style="--card:var(--blush)">
+        <div class="factors">
+          <div class="factors__in">
+            <span class="chip"><span data-l="en">Hour meters</span><span data-l="es">Horómetros</span></span>
+            <span class="chip"><span data-l="en">Fuel supply</span><span data-l="es">Abastecimiento de combustible</span></span>
+            <span class="chip"><span data-l="en">Fuel consumption</span><span data-l="es">Consumo de combustible</span></span>
+            <span class="chip"><span data-l="en">Fuel transfer</span><span data-l="es">Trasvase de combustible</span></span>
+            <span class="chip"><span data-l="en">Work orders, each with a responsible person</span><span data-l="es">Órdenes de trabajo, cada una con un responsable</span></span>
+          </div>
+          <span class="arrow-r" aria-hidden="true">→</span>
+          <div class="factors__out">
+            <div class="node node--accent"><strong><span data-l="en">Maintenance systems</span><span data-l="es">Sistemas de mantenimiento</span></strong><small><span data-l="en">of the company</span><span data-l="es">de la empresa</span></small></div>
+            <div class="node"><small><span data-l="en">+ its reports</span><span data-l="es">+ sus reportes</span></small></div>
+          </div>
+        </div>
+        <p class="viz__caption"><span data-l="en">What crews record on board, and where it goes</span><span data-l="es">Lo que las tripulaciones registran a bordo, y adónde va</span></p>
+      </div>
+      <div class="viz reveal" style="--card:var(--blush)">
+        <div class="chips">
+          <span class="chip"><span data-l="en">Easy to record and send</span><span data-l="es">Fácil de registrar y enviar</span></span>
+          <span class="chip"><span data-l="en">Simple, intuitive interface</span><span data-l="es">Interfaz simple e intuitiva</span></span>
+          <span class="chip"><span data-l="en">Data integrity and traceability</span><span data-l="es">Integridad y trazabilidad de los datos</span></span>
+          <span class="chip"><span data-l="en">Two-factor access</span><span data-l="es">Acceso con doble factor</span></span>
+        </div>
+        <p class="viz__caption"><span data-l="en">The goals of the platform</span><span data-l="es">Los objetivos de la plataforma</span></p>
       </div>
     </section>
 
@@ -110,13 +137,24 @@
       <p class="label reveal"><span data-l="en">How I designed it</span><span data-l="es">Cómo lo diseñé</span></p>
       <h2 class="story__title reveal"><span data-l="en">A small, tightly scoped product, refined in weekly reviews</span><span data-l="es">Un producto pequeño y bien acotado, refinado en revisiones semanales</span></h2>
       <div class="story__body reveal">
-        <p><span data-l="en">I worked as a freelance designer through a consultancy, with weekly calls with the client: the first ones were reviews with stakeholders, and the final weeks became validation sessions with the people who would use the platform.</span><span data-l="es">Trabajé como diseñadora freelance a través de una consultora, con llamadas semanales con el cliente: las primeras fueron revisiones con stakeholders y las últimas semanas se convirtieron en sesiones de validación con las personas que usarían la plataforma.</span></p>
+        <p><span data-l="en">I worked as a freelance designer through a consultancy, with weekly calls with the client.</span><span data-l="es">Trabajé como diseñadora freelance a través de una consultora, con llamadas semanales con el cliente.</span></p>
       </div>
-      <ol class="steps">
-        <li class="step reveal"><span class="step__num">01</span><div><h3><span data-l="en">Define</span><span data-l="es">Definir</span></h3><p><span data-l="en">The scope was kept deliberately small: three screens (Login, Dashboard, History), a modal for each type of record, and clear validation rules.</span><span data-l="es">El alcance se mantuvo deliberadamente acotado: tres pantallas (Login, Panel, Historial), un modal para cada tipo de registro y reglas de validación claras.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">02</span><div><h3><span data-l="en">Prototype</span><span data-l="es">Prototipar</span></h3><p><span data-l="en">Starting from an early flow of the screens and modals, I designed the high-fidelity interface in Figma.</span><span data-l="es">A partir de un flujo inicial de pantallas y modales, diseñé la interfaz en alta fidelidad en Figma.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">03</span><div><h3><span data-l="en">Test</span><span data-l="es">Testear</span></h3><p><span data-l="en">In the final weeks, the design was validated in sessions with real users before implementation.</span><span data-l="es">En las últimas semanas, el diseño se validó en sesiones con usuarios reales antes de su implementación.</span></p></div></li>
-      </ol>
+      <div class="viz reveal" style="--card:var(--blush)">
+        <ol class="flow maintenance-psa-flow">
+          <li><strong><span data-l="en">Define</span><span data-l="es">Definir</span></strong><small><span data-l="en">A deliberately small scope: three screens, a modal per record type and clear validation rules</span><span data-l="es">Un alcance deliberadamente acotado: tres pantallas, un modal por tipo de registro y reglas de validación claras</span></small></li>
+          <li><strong><span data-l="en">Prototype</span><span data-l="es">Prototipar</span></strong><small><span data-l="en">From an early flow of screens and modals to high fidelity in Figma</span><span data-l="es">De un flujo inicial de pantallas y modales a alta fidelidad en Figma</span></small></li>
+          <li class="is-final"><strong><span data-l="en">Test</span><span data-l="es">Testear</span></strong><small><span data-l="en">Validated with real users before implementation</span><span data-l="es">Validado con usuarios reales antes de la implementación</span></small></li>
+        </ol>
+      </div>
+      <div class="viz reveal" style="--card:var(--blush)">
+        <div class="cadence">
+          <div><strong><span data-l="en">Stakeholder reviews</span><span data-l="es">Revisiones con stakeholders</span></strong><span data-l="en">Weekly calls with the client</span><span data-l="es">Llamadas semanales con el cliente</span></div>
+          <div class="is-users"><strong><span data-l="en">Real-user validation</span><span data-l="es">Validación con usuarios</span></strong><span data-l="en">Final weeks</span><span data-l="es">Últimas semanas</span></div>
+          <div class="is-live"><span data-l="en">Live</span><span data-l="es">En vivo</span></div>
+        </div>
+        <div class="cadence__ticks" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="viz__caption"><span data-l="en">About 3 months, one review every week</span><span data-l="es">Unos 3 meses, una revisión cada semana</span></p>
+      </div>
     </section>
 
     <!-- SOLUTION: LOGIN + DASHBOARD -->
@@ -124,7 +162,15 @@
       <p class="label reveal"><span data-l="en">The solution</span><span data-l="es">La solución</span></p>
       <h2 class="story__title reveal"><span data-l="en">Everything the crew needs, on one dashboard</span><span data-l="es">Todo lo que la tripulación necesita, en un solo panel</span></h2>
       <div class="story__body reveal">
-        <p><span data-l="en">Access is protected with a <strong>6-digit verification code</strong>, a visible countdown and a resend option. Once inside, the dashboard shows recent hour meters, fuel movements tagged as <em>Supply</em>, <em>Consumption</em> or <em>Transfer</em>, and work orders with an <em>Open</em> or <em>Released</em> status, each table with its own quick action to add a record.</span><span data-l="es">El acceso está protegido con un <strong>código de verificación de 6 dígitos</strong>, un temporizador visible y la opción de reenviarlo. Una vez dentro, el panel muestra los horómetros recientes, los movimientos de combustible etiquetados como <em>Abastecimiento</em>, <em>Consumo</em> o <em>Trasvase</em> y las órdenes de trabajo con estado <em>Abierta</em> o <em>Liberada</em>, cada tabla con su propia acción rápida para agregar un registro.</span></p>
+        <p><span data-l="en">Three screens, and every record is added from the dashboard.</span><span data-l="es">Tres pantallas, y cada registro se agrega desde el panel.</span></p>
+      </div>
+      <div class="viz reveal" style="--card:var(--blush)">
+        <ol class="flow maintenance-psa-flow">
+          <li><strong><span data-l="en">Login</span><span data-l="es">Login</span></strong><small><span data-l="en">6-digit verification code, a visible countdown and a resend option</span><span data-l="es">Código de verificación de 6 dígitos, temporizador visible y opción de reenvío</span></small></li>
+          <li><strong><span data-l="en">Dashboard</span><span data-l="es">Panel</span></strong><small><span data-l="en">Hour meters, fuel (Supply, Consumption, Transfer) and work orders (Open, Released), each with its own add action</span><span data-l="es">Horómetros, combustible (Abastecimiento, Consumo, Trasvase) y órdenes de trabajo (Abierta, Liberada), cada tabla con su acción para agregar</span></small></li>
+          <li class="is-final"><strong><span data-l="en">History</span><span data-l="es">Historial</span></strong><small><span data-l="en">Filters by date, equipment and responsible person, plus search</span><span data-l="es">Filtros por fecha, equipo y responsable, más búsqueda</span></small></li>
+        </ol>
+        <p class="viz__caption"><span data-l="en">The three core screens</span><span data-l="es">Las tres pantallas clave</span></p>
       </div>
       <div class="shots shots--2 reveal" style="--card:var(--blush)">
         <figure><div class="shot"><img src="../assets/maintenance-psa/security-verification.webp" width="1020" height="760" loading="lazy" data-en-alt="Security verification screen asking for a 6-digit code, with an expiry timer and a resend link" data-es-alt="Pantalla de verificación de seguridad que pide un código de 6 dígitos, con temporizador de expiración y enlace para reenviar" alt="Security verification screen asking for a 6-digit code, with an expiry timer and a resend link"></div><figcaption><span data-l="en">Two-factor login</span><span data-l="es">Login con doble factor</span></figcaption></figure>
@@ -137,13 +183,28 @@
       <p class="label reveal"><span data-l="en">Data integrity</span><span data-l="es">Integridad de datos</span></p>
       <h2 class="story__title reveal"><span data-l="en">Modals and built-in rules keep records fast, and correct</span><span data-l="es">Modales y reglas integradas hacen que registrar sea rápido y correcto</span></h2>
       <div class="story__body reveal">
-        <p><span data-l="en">Records are added in modals, so users never leave the dashboard. The fuel modal shows the latest records next to the new entry, and the work order form (shown at the top of this page) is split into two steps: main data, then activities and materials.</span><span data-l="es">Los registros se agregan en modales, así el usuario nunca sale del panel. El modal de combustible muestra los últimos registros junto al nuevo ingreso, y el formulario de orden de trabajo (al inicio de esta página) se divide en dos pasos: datos principales y luego actividades y materiales.</span></p>
+        <p><span data-l="en">Records are added in modals, so users never leave the dashboard. The fuel modal keeps the latest records in view, and the work order form (top of this page) is split into main data, then activities and materials.</span><span data-l="es">Los registros se agregan en modales, así el usuario nunca sale del panel. El modal de combustible mantiene a la vista los últimos registros, y el formulario de orden de trabajo (al inicio de esta página) se divide en datos principales y luego actividades y materiales.</span></p>
       </div>
-      <ol class="steps steps--compact">
-        <li class="step reveal"><span class="step__num">01</span><div><h3><span data-l="en">Hours only go up</span><span data-l="es">Las horas solo suben</span></h3><p><span data-l="en">A new hour meter reading can’t be lower than the last one recorded.</span><span data-l="es">Un nuevo registro de horómetro no puede ser menor que el último registrado.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">02</span><div><h3><span data-l="en">No future dates</span><span data-l="es">Sin fechas futuras</span></h3><p><span data-l="en">Records can’t be dated ahead, and missing days are filled one day at a time until the target day.</span><span data-l="es">No se puede registrar con fecha adelantada, y los días pendientes se completan de uno en uno hasta llegar al día requerido.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">03</span><div><h3><span data-l="en">Traceable, never deleted</span><span data-l="es">Trazable, nunca eliminado</span></h3><p><span data-l="en">New work orders always start as “open”, and in the history records can be edited or archived, never deleted.</span><span data-l="es">Toda nueva orden de trabajo nace “abierta”, y en el historial los registros se editan o archivan, nunca se eliminan.</span></p></div></li>
-      </ol>
+      <div class="viz reveal" style="--card:var(--blush)">
+        <div class="imap">
+          <div class="imap__head"><span><span data-l="en">Rule</span><span data-l="es">Regla</span></span><span></span><span><span data-l="en">How it works</span><span data-l="es">Cómo funciona</span></span></div>
+          <div class="imap__row">
+            <div><b><span data-l="en">Hours only go up</span><span data-l="es">Las horas solo suben</span></b><span data-l="en">Hour meter records</span><span data-l="es">Registros de horómetro</span></div>
+            <span class="arrow-r" aria-hidden="true">→</span>
+            <div class="is-solution"><b><span data-l="en">Checked against the last reading</span><span data-l="es">Se compara con la última lectura</span></b><span data-l="en">A new reading can’t be lower than the last one recorded</span><span data-l="es">Un nuevo registro no puede ser menor que el último registrado</span></div>
+          </div>
+          <div class="imap__row">
+            <div><b><span data-l="en">No future dates</span><span data-l="es">Sin fechas futuras</span></b><span data-l="en">Records can’t be dated ahead</span><span data-l="es">No se puede registrar con fecha adelantada</span></div>
+            <span class="arrow-r" aria-hidden="true">→</span>
+            <div class="is-solution"><b><span data-l="en">One day at a time</span><span data-l="es">Un día a la vez</span></b><span data-l="en">Missing days are filled in order until the target day</span><span data-l="es">Los días pendientes se completan de uno en uno hasta el día requerido</span></div>
+          </div>
+          <div class="imap__row">
+            <div><b><span data-l="en">Traceable, never deleted</span><span data-l="es">Trazable, nunca eliminado</span></b><span data-l="en">Work orders and history</span><span data-l="es">Órdenes de trabajo e historial</span></div>
+            <span class="arrow-r" aria-hidden="true">→</span>
+            <div class="is-solution"><b><span data-l="en">Open by default, archived instead of deleted</span><span data-l="es">Abierta por defecto, archivada en lugar de eliminada</span></b><span data-l="en">New work orders start as “open”; history records are edited or archived</span><span data-l="es">Toda nueva orden nace “abierta”; en el historial los registros se editan o archivan</span></div>
+          </div>
+        </div>
+      </div>
       <div class="shots reveal" style="--card:var(--blush)">
         <figure><div class="shot"><img src="../assets/maintenance-psa/add-fuel-record.webp" width="1526" height="912" loading="lazy" data-en-alt="Add Fuel Record modal with supply actions, a success message and a table of the latest records" data-es-alt="Modal para registrar combustible con acciones de abastecimiento, mensaje de éxito y tabla de los últimos registros" alt="Add Fuel Record modal with supply actions, a success message and a table of the latest records"></div><figcaption><span data-l="en">Fuel record with latest entries in view</span><span data-l="es">Registro de combustible con los últimos ingresos a la vista</span></figcaption></figure>
       </div>
@@ -158,7 +219,7 @@
           <span class="card__cta"><span data-l="en">Read the case study</span><span data-l="es">Leer el caso de estudio</span> <span class="arrow" aria-hidden="true">→</span></span>
         </div>
       </a>
-      <p class="pager__all reveal"><a href="comunidapp.html">← <span data-l="en">Previous project</span><span data-l="es">Proyecto anterior</span></a> · <a href="../projects.html"><span data-l="en">All projects</span><span data-l="es">Todos los proyectos</span></a></p>
+      <p class="pager__all reveal"><a href="law-firm-website.html">← <span data-l="en">Previous project</span><span data-l="es">Proyecto anterior</span></a> · <a href="../projects.html"><span data-l="en">All projects</span><span data-l="es">Todos los proyectos</span></a></p>
     </section>
 
     <!-- CONTACT -->

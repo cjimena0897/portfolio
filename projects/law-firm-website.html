@@ -24,6 +24,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Luxurious+Script&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* Page-only diagram helpers (prefix: law-firm-website) */
+    .law-firm-website-vflow { grid-auto-flow: row; grid-auto-columns: auto; gap: 26px; max-width: 640px; margin-inline: auto; }
+    .law-firm-website-vflow > li { display: grid; grid-template-columns: 44px 1fr; column-gap: 12px; row-gap: 2px; align-items: baseline; padding: 14px 18px; }
+    .law-firm-website-vflow > li::before { grid-row: span 2; }
+    .law-firm-website-vflow > li:nth-child(n+4)::before { color: inherit; }
+    .law-firm-website-vflow > li + li::after { content: "↓"; left: 50%; top: -24px; transform: translateX(-50%); }
+    .law-firm-website-decisions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .law-firm-website-decisions > div { display: flex; flex-direction: column; gap: 12px; border-radius: 16px; padding: 18px; background: var(--r1); }
+    .law-firm-website-decisions > div:nth-child(2) { background: var(--sand1); }
+    .law-firm-website-decisions > div:nth-child(3) { background: var(--sage1); }
+    .law-firm-website-decisions > div:nth-child(4) { background: var(--r2); }
+    .law-firm-website-decisions .n { font-family: var(--serif); font-size: 26px; line-height: 1; color: var(--accent); }
+    .law-firm-website-decisions strong { font-size: 17px; font-weight: 700; line-height: 1.25; }
+    .law-firm-website-decisions small { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .law-firm-website-decisions .chips { gap: 6px; }
+    .law-firm-website-decisions .chip { font-size: 13px; padding: 5px 11px; }
+    .law-firm-website-decisions .vs { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+    .law-firm-website-decisions .chip--off { background: transparent; border-style: dashed; color: var(--muted); text-decoration: line-through; }
+    @media (max-width: 1100px) { .law-firm-website-decisions { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .law-firm-website-decisions { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
   <a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="es">Saltar al contenido</span></a>
@@ -93,7 +115,19 @@
       <p class="label reveal"><span data-l="en">Homepage</span><span data-l="es">Home</span></p>
       <h2 class="story__title reveal"><span data-l="en">Proof up front, then a clear path to the right service</span><span data-l="es">Respaldo desde el inicio y luego un camino claro hacia el servicio correcto</span></h2>
       <div class="story__body reveal">
-        <p><span data-l="en">The hero states the firm’s specialization (technology companies) with three short proof points and one consultation button. Below it, the page moves from trust to action: testimonials, the firm’s story, an overview of the four practice areas, a trademark registration package, customer reviews and a blog with answers to common questions.</span><span data-l="es">El hero comunica la especialidad del estudio (empresas de tecnología) con tres datos breves de respaldo y un solo botón de consulta. Más abajo, la página va de la confianza a la acción: testimonios, la historia del estudio, un resumen de las cuatro áreas de práctica, un paquete de registro de marca, reseñas de clientes y un blog con respuestas a preguntas frecuentes.</span></p>
+        <p><span data-l="en">Below a focused hero, the page moves from trust to action.</span><span data-l="es">Debajo de un hero enfocado, la página va de la confianza a la acción.</span></p>
+      </div>
+      <div class="viz reveal" style="--card:var(--sky)">
+        <ol class="flow law-firm-website-vflow">
+          <li><strong>Hero</strong><small><span data-l="en">The specialization (technology companies), three short proof points and one consultation button</span><span data-l="es">La especialidad (empresas de tecnología), tres datos breves de respaldo y un solo botón de consulta</span></small></li>
+          <li><strong><span data-l="en">Testimonials</span><span data-l="es">Testimonios</span></strong></li>
+          <li><strong><span data-l="en">The firm’s story</span><span data-l="es">La historia del estudio</span></strong></li>
+          <li><strong><span data-l="en">Practice areas</span><span data-l="es">Áreas de práctica</span></strong><small><span data-l="en">An overview of the four areas</span><span data-l="es">Un resumen de las cuatro áreas</span></small></li>
+          <li><strong><span data-l="en">Trademark registration package</span><span data-l="es">Paquete de registro de marca</span></strong><small><span data-l="en">A concrete offer</span><span data-l="es">Una oferta concreta</span></small></li>
+          <li><strong><span data-l="en">Customer reviews</span><span data-l="es">Reseñas de clientes</span></strong></li>
+          <li class="is-final"><strong>Blog</strong><small><span data-l="en">Answers to common questions</span><span data-l="es">Respuestas a preguntas frecuentes</span></small></li>
+        </ol>
+        <p class="viz__caption"><span data-l="en">The homepage, top to bottom</span><span data-l="es">La home, de arriba hacia abajo</span></p>
       </div>
       <div class="shots shots--2 reveal" style="--card:var(--sky)">
         <figure><div class="shot"><img src="../assets/law-firm-website/home-services.webp" width="1093" height="1085" loading="lazy" data-en-alt="Homepage services overview with four icon links, followed by a trademark registration package offer" data-es-alt="Resumen de servicios de la home con cuatro accesos con íconos, seguido de una oferta de paquete de registro de marca" alt="Homepage services overview with four icon links, followed by a trademark registration package offer"></div><figcaption><span data-l="en">Four practice areas, then a concrete offer</span><span data-l="es">Cuatro áreas de práctica y luego una oferta concreta</span></figcaption></figure>
@@ -105,12 +139,51 @@
     <section class="section container story">
       <p class="label reveal"><span data-l="en">Design decisions</span><span data-l="es">Decisiones de diseño</span></p>
       <h2 class="story__title reveal"><span data-l="en">What the screens are built around</span><span data-l="es">En qué se apoyan las pantallas</span></h2>
-      <ol class="steps steps--compact">
-        <li class="step reveal"><span class="step__num">01</span><div><h3><span data-l="en">One call to action, repeated</span><span data-l="es">Un solo llamado a la acción, repetido</span></h3><p><span data-l="en">“Free consultation” appears in the navigation, in the hero and in a closing band on each services page.</span><span data-l="es">“Consulta gratuita” aparece en la navegación, en el hero y en una franja de cierre en cada página de servicios.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">02</span><div><h3><span data-l="en">Services you can scan</span><span data-l="es">Servicios fáciles de recorrer</span></h3><p><span data-l="en">Trademark services are laid out as a grid of short, labeled tiles instead of long paragraphs.</span><span data-l="es">Los servicios de marcas se presentan como una grilla de etiquetas breves en lugar de párrafos largos.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">03</span><div><h3><span data-l="en">Long-form where it’s needed</span><span data-l="es">Texto largo donde hace falta</span></h3><p><span data-l="en">The Contract / In-house counsel page explains the service in depth and closes with a checklist of areas of expertise.</span><span data-l="es">La página de Contratos / Asesoría in-house explica el servicio a fondo y cierra con una lista de áreas de especialidad.</span></p></div></li>
-        <li class="step reveal"><span class="step__num">04</span><div><h3><span data-l="en">A consistent visual system</span><span data-l="es">Un sistema visual coherente</span></h3><p><span data-l="en">Deep blue with an orange accent bar marking key titles, plus the same header, page-title band and footer on every page.</span><span data-l="es">Azul profundo con una barra naranja que marca los títulos clave, y el mismo header, franja de título y footer en todas las páginas.</span></p></div></li>
-      </ol>
+      <div class="viz reveal" style="--card:var(--sky)">
+        <div class="law-firm-website-decisions">
+          <div>
+            <span class="n" aria-hidden="true">01</span>
+            <strong><span data-l="en">One call to action, repeated</span><span data-l="es">Un solo llamado a la acción, repetido</span></strong>
+            <small><span data-l="en">“Free consultation” appears in</span><span data-l="es">“Consulta gratuita” aparece en</span></small>
+            <div class="chips">
+              <span class="chip"><span data-l="en">Navigation</span><span data-l="es">Navegación</span></span>
+              <span class="chip">Hero</span>
+              <span class="chip chip--accent"><span data-l="en">Closing band on each services page</span><span data-l="es">Franja de cierre en cada página de servicios</span></span>
+            </div>
+          </div>
+          <div>
+            <span class="n" aria-hidden="true">02</span>
+            <strong><span data-l="en">Services you can scan</span><span data-l="es">Servicios fáciles de recorrer</span></strong>
+            <small><span data-l="en">Trademark services</span><span data-l="es">Servicios de marcas</span></small>
+            <div class="vs">
+              <span class="chip chip--off"><span data-l="en">Long paragraphs</span><span data-l="es">Párrafos largos</span></span>
+              <span class="chip chip--accent"><span data-l="en">Grid of short, labeled tiles</span><span data-l="es">Grilla de etiquetas breves</span></span>
+            </div>
+          </div>
+          <div>
+            <span class="n" aria-hidden="true">03</span>
+            <strong><span data-l="en">Long-form where it’s needed</span><span data-l="es">Texto largo donde hace falta</span></strong>
+            <small><span data-l="en">Contract / In-house counsel</span><span data-l="es">Contratos / Asesoría in-house</span></small>
+            <div class="vs">
+              <span class="chip"><span data-l="en">In-depth explanation</span><span data-l="es">Explicación a fondo</span></span>
+              <span class="arrow-r" aria-hidden="true">↓</span>
+              <span class="chip chip--accent"><span data-l="en">Checklist of areas of expertise</span><span data-l="es">Lista de áreas de especialidad</span></span>
+            </div>
+          </div>
+          <div>
+            <span class="n" aria-hidden="true">04</span>
+            <strong><span data-l="en">A consistent visual system</span><span data-l="es">Un sistema visual coherente</span></strong>
+            <small><span data-l="en">On every page</span><span data-l="es">En todas las páginas</span></small>
+            <div class="chips">
+              <span class="chip"><span data-l="en">Deep blue</span><span data-l="es">Azul profundo</span></span>
+              <span class="chip"><span data-l="en">Orange bar on key titles</span><span data-l="es">Barra naranja en títulos clave</span></span>
+              <span class="chip"><span data-l="en">Same header</span><span data-l="es">Mismo header</span></span>
+              <span class="chip"><span data-l="en">Page-title band</span><span data-l="es">Franja de título</span></span>
+              <span class="chip">Footer</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- SERVICES PAGES -->
@@ -118,7 +191,16 @@
       <p class="label reveal"><span data-l="en">Services pages</span><span data-l="es">Páginas de servicios</span></p>
       <h2 class="story__title reveal"><span data-l="en">Every service page ends in the same next step</span><span data-l="es">Cada página de servicio termina en el mismo siguiente paso</span></h2>
       <div class="story__body reveal">
-        <p><span data-l="en">Both pages share one structure (title band, short introduction, the service content and a “Contact us to get your free consultation” band), so moving between services feels familiar. The firm’s name and contact details are hidden in these images.</span><span data-l="es">Ambas páginas comparten una estructura (franja de título, introducción breve, el contenido del servicio y una franja de “Contáctanos para tu consulta gratuita”), para que pasar de un servicio a otro se sienta familiar. El nombre del estudio y sus datos de contacto están ocultos en estas imágenes.</span></p>
+        <p><span data-l="en">Both pages share one structure, so moving between services feels familiar. The firm’s name and contact details are hidden in these images.</span><span data-l="es">Ambas páginas comparten una estructura, para que pasar de un servicio a otro se sienta familiar. El nombre del estudio y sus datos de contacto están ocultos en estas imágenes.</span></p>
+      </div>
+      <div class="viz reveal" style="--card:var(--sky)">
+        <ol class="flow">
+          <li><strong><span data-l="en">Title band</span><span data-l="es">Franja de título</span></strong></li>
+          <li><strong><span data-l="en">Short introduction</span><span data-l="es">Introducción breve</span></strong></li>
+          <li><strong><span data-l="en">Service content</span><span data-l="es">Contenido del servicio</span></strong><small><span data-l="en">A grid of tiles (Trademark) or in-depth text and a checklist (Contract / In-house counsel)</span><span data-l="es">Una grilla de servicios (Marcas) o texto a fondo y una lista (Contratos / Asesoría in-house)</span></small></li>
+          <li class="is-final"><strong><span data-l="en">Consultation band</span><span data-l="es">Franja de consulta</span></strong><small><span data-l="en">“Contact us to get your free consultation”</span><span data-l="es">“Contáctanos para tu consulta gratuita”</span></small></li>
+        </ol>
+        <p class="viz__caption"><span data-l="en">The structure every service page shares</span><span data-l="es">La estructura que comparten todas las páginas de servicio</span></p>
       </div>
       <div class="shots shots--2 reveal" style="--card:var(--sky)">
         <figure><div class="shot"><img src="../assets/law-firm-website/trademark-services.webp" width="1433" height="1507" loading="lazy" data-en-alt="Trademark Services page with an introduction, a grid of fifteen service tiles and a free consultation band" data-es-alt="Página de Servicios de Marcas con una introducción, una grilla de quince servicios y una franja de consulta gratuita" alt="Trademark Services page with an introduction, a grid of fifteen service tiles and a free consultation band"></div><figcaption><span data-l="en">Trademark services: a grid to scan</span><span data-l="es">Servicios de marcas: una grilla para recorrer</span></figcaption></figure>
@@ -128,10 +210,10 @@
 
     <!-- NEXT -->
     <section class="section container">
-      <a class="next-card reveal" href="personal-embarcado.html" style="--card:var(--lilac)">
+      <a class="next-card reveal" href="maintenance-psa.html" style="--card:var(--blush)">
         <div>
           <p class="label"><span data-l="en">Next project</span><span data-l="es">Siguiente proyecto</span></p>
-          <h2 class="next-card__title">Personal Embarcado</h2>
+          <h2 class="next-card__title">Maintenance PSA</h2>
           <span class="card__cta"><span data-l="en">Read the case study</span><span data-l="es">Leer el caso de estudio</span> <span class="arrow" aria-hidden="true">→</span></span>
         </div>
       </a>

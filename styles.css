@@ -699,3 +699,5 @@ button:focus-visible, .pill:focus-visible, .btn:focus-visible { outline: 2px sol
 .persona__col--pain li::before { color: var(--accent); }
 .persona__col h4 { color: var(--ink); }
 .flow > li:nth-child(3)::before { color: var(--on-light); }
+.about__photo img { min-height: 440px; object-position: center 30%; }
+@media (max-width: 900px) { .about__photo img { min-height: 0; max-height: 520px; } }
